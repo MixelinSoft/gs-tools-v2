@@ -1,0 +1,8 @@
+.toolboxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: flex-start;
+  padding-top: 88px;
+  height: 100vh;
+}
