@@ -1,0 +1,14 @@
+.button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 140px;
+  height: 150px;
+  font-size: 1rem;
+  margin-top: 40px;
+}
+
+.link {
+  text-decoration: none;
+}
