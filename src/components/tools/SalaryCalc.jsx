@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container, Button, Form } from "react-bootstrap";
+import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
 
 const SalaryCalc = () => {
@@ -75,19 +76,21 @@ const SalaryCalc = () => {
           />
           <Form.Text className="text-muted">По умолчанию: 0,12 грн</Form.Text>
         </Form.Group>
-
-        <Button variant="dark" type="submit">
-          Рассчитать!
-        </Button>
+        <ScrollIntoView selector="#resultZone">
+          <Button variant="dark" type="submit">
+            Рассчитать!
+          </Button>
+        </ScrollIntoView>
       </Form>
-
-      {result > 0 ? (
-        <ResultZone text={`Ваша зарплата = ${Math.round(result)}грн`} />
-      ) : result == 0 ? (
-        ""
-      ) : (
-        <ResultZone alert text="Произошла ошибка!" />
-      )}
+      <div id="resultZone">
+        {result > 0 ? (
+          <ResultZone text={`Ваша зарплата = ${Math.round(result)}грн`} />
+        ) : result === 0 ? (
+          <ResultZone invisible />
+        ) : (
+          <ResultZone alert text="Произошла ошибка!" />
+        )}
+      </div>
     </Container>
   );
 };
