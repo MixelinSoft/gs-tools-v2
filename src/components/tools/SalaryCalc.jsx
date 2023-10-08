@@ -46,6 +46,7 @@ const SalaryCalc = () => {
           />
           <Form.Text className="text-muted">Например: 192</Form.Text>
           <br></br>
+
           <Form.Label> Введите цену одного часа:</Form.Label>
           <Form.Control
             type="number"
@@ -67,6 +68,7 @@ const SalaryCalc = () => {
           />
           <Form.Text className="text-muted">Например: 23000</Form.Text>
           <br></br>
+
           <Form.Label> Введите цену одного литра:</Form.Label>
           <Form.Control
             type="number"
@@ -76,12 +78,14 @@ const SalaryCalc = () => {
           />
           <Form.Text className="text-muted">По умолчанию: 0,12 грн</Form.Text>
         </Form.Group>
+
         <ScrollIntoView selector="#resultZone">
           <Button variant="dark" type="submit">
             Рассчитать!
           </Button>
         </ScrollIntoView>
       </Form>
+
       <div id="resultZone">
         {result > 0 ? (
           <ResultZone text={`Ваша зарплата = ${Math.round(result)}грн`} />

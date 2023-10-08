@@ -16,7 +16,7 @@ const tools = [
     toolDescription: "Инструмент для подсчёта зароботной платы",
     toolID: "04",
     toolSlug: "salary-calc",
-    toolVersion: "0.1.0",
+    toolVersion: "0.1.1",
     tool: SalaryCalc,
   },
 ];
