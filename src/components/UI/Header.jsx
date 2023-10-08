@@ -1,8 +1,8 @@
 import styles from "./Header.module.css";
 import Logo from "../../images/logo_mobile30px.png";
 import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
 
 const Header = () => {
   return (
