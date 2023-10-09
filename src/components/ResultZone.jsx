@@ -2,7 +2,6 @@ import styles from "./ResultZone.module.css";
 import { Alert } from "react-bootstrap";
 
 const ResultZone = ({ text, alert, invisible }) => {
-  console.log(!!invisible);
   return (
     <div className={styles.resultZoneContainer}>
       {!invisible ? (

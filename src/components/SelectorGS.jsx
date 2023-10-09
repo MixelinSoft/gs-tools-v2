@@ -3,7 +3,7 @@ import gsDB from "../data/gsDB";
 
 import { Button, Form } from "react-bootstrap";
 
-const SelectorGS = ({ selectedGS, param }) => {
+const SelectorGS = ({ changerId, param }) => {
   const [selected, selectedChange] = useState("empty");
   const [hidden, hiddenChange] = useState(false);
 
@@ -19,15 +19,16 @@ const SelectorGS = ({ selectedGS, param }) => {
       hidden={hidden}
       onSubmit={(e) => {
         e.preventDefault();
-        selectedGS.gsId = selected;
+        changerId(selected);
         hiddenChangeHandler();
       }}>
       <Form.Group>
         <Form.Label>Выберите АЗС:</Form.Label>
         <Form.Select
+          defaultValue="empty"
           size="lg"
           onChange={(e) => selectGsHandler(e.target.value)}>
-          <option value={false} selected disabled>
+          <option value="empty" disabled>
             Нажмите для выбора
           </option>
           {gsDB.map((gs) => {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Button, Form } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
 
@@ -27,7 +27,7 @@ const SalaryCalc = () => {
   };
 
   return (
-    <Container>
+    <>
       <Form
         onSubmit={(e) => {
           e.preventDefault();
@@ -95,7 +95,7 @@ const SalaryCalc = () => {
           <ResultZone alert text="Произошла ошибка!" />
         )}
       </div>
-    </Container>
+    </>
   );
 };
 
