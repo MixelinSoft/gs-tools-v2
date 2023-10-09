@@ -1,5 +1,5 @@
 import SalaryCalc from "../components/tools/SalaryCalc";
-
+import Calibration from "../components/tools/Calibration";
 const tools = [
   {
     toolTitle: "Калибровка топлива",
@@ -7,9 +7,8 @@ const tools = [
       "Инструмент для калибровки топлива, конвертирует 'мм' в 'л'",
     toolID: "01",
     toolSlug: "calibrate",
-    tool: function (test) {
-      return <h1>Test Done!</h1>;
-    },
+    toolVersion: "0.1.1",
+    tool: Calibration,
   },
   {
     toolTitle: "Калькулятор зарплаты",
