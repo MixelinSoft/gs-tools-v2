@@ -5,6 +5,7 @@ import { Button, Form } from "react-bootstrap";
 import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
 import SelectorGS from "../SelectorGS";
+import BackButton from "../UI/BackButton";
 
 const Calibration = () => {
   const [gsId, changeGsId] = useState("empty");
@@ -114,6 +115,7 @@ const Calibration = () => {
           </div>
         </>
       )}
+      <BackButton />
     </>
   );
 };

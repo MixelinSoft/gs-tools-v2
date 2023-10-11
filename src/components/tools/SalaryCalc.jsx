@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
+import BackButton from "../UI/BackButton";
 
 const SalaryCalc = () => {
   const [hours, changeHours] = useState("");
@@ -95,6 +96,7 @@ const SalaryCalc = () => {
           <ResultZone alert text="Произошла ошибка!" />
         )}
       </div>
+      <BackButton />
     </>
   );
 };

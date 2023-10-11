@@ -4,10 +4,10 @@ const tools = [
   {
     toolTitle: "Калибровка топлива",
     toolDescription:
-      "Инструмент для калибровки топлива, конвертирует 'мм' в 'л'",
+      "Инструмент для калибровки топлива, конвертирует 'см' в 'л'",
     toolID: "01",
     toolSlug: "calibrate",
-    toolVersion: "1.0.1",
+    toolVersion: "1.0.2",
     tool: Calibration,
   },
   {
@@ -15,7 +15,7 @@ const tools = [
     toolDescription: "Инструмент для подсчёта зароботной платы",
     toolID: "04",
     toolSlug: "salary-calc",
-    toolVersion: "0.1.1",
+    toolVersion: "1.0.1",
     tool: SalaryCalc,
   },
 ];
