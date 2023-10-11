@@ -7,7 +7,7 @@ const tools = [
       "Инструмент для калибровки топлива, конвертирует 'мм' в 'л'",
     toolID: "01",
     toolSlug: "calibrate",
-    toolVersion: "1.0.0",
+    toolVersion: "1.0.1",
     tool: Calibration,
   },
   {

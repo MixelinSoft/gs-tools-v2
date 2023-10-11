@@ -66,7 +66,7 @@ const Calibration = () => {
                 defaultValue="empty"
                 onChange={(e) => changeTypeGSHandler(e.target.value)}>
                 <option value={typeGS} disabled>
-                  Нажмите для выбора типа топлива
+                  Нажмите для выбора вида топлива
                 </option>
                 {Object.keys(selectedGS.tables).map((gasType) => (
                   <option
@@ -102,14 +102,14 @@ const Calibration = () => {
             {result === 0 ? (
               ""
             ) : !result ? (
-              <ResultZone alert text="Ошибка, некорректные данные!" />
+              <ResultZone alert text="Ошибка! Некорректные данные!" />
             ) : result <= selectedGS.tables[typeGS].minCapcity ? (
               <ResultZone
                 alert
-                text={`Внимание! Объём топлива ниже мёртвого остатка - ${selectedGS.tables[typeGS].minCapcity}л. Объём топлива = ${result}л.`}
+                text={`Внимание! Объём топлива ниже мёртвого остатка: ${selectedGS.tables[typeGS].minCapcity}л. Объём топлива: ${result}л.`}
               />
             ) : (
-              <ResultZone text={`Объём топлива = ${result}л.`} />
+              <ResultZone text={`Объём топлива: ${result}л.`} />
             )}
           </div>
         </>
