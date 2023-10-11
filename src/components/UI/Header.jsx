@@ -3,6 +3,7 @@ import Logo from "../../images/logo_mobile30px.png";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
+import DropDownMenu from "./DropDownMenu";
 
 const Header = () => {
   return (
@@ -19,6 +20,7 @@ const Header = () => {
             />
           </Link>
         </Navbar.Brand>
+        <DropDownMenu />
       </Container>
     </Navbar>
   );
