@@ -11,6 +11,7 @@ const Calibration = () => {
   const [gsId, changeGsId] = useState("empty");
   const [typeGS, changeTypeGS] = useState("empty");
   const [height, changeHeight] = useState("");
+  const [tube, changeTube] = useState(true);
   const [result, changeResult] = useState(0);
   const changeTypeGSHandler = (type) => {
     changeTypeGS(type);
@@ -26,7 +27,7 @@ const Calibration = () => {
 
   const [selectedGS] = gsDB.filter((gs) => gs.gsId === gsId);
 
-  const autoCalibrate = (height, tank) => {
+  const autoCalibrate = (height, tank, tube) => {
     let afterRound;
     const levelHi = Math.ceil(height),
       levelLow = Math.floor(height);
@@ -36,17 +37,18 @@ const Calibration = () => {
     } else {
       afterRound = 0;
     }
-
     const tail =
       ((tank.capacityTable[levelHi] - tank.capacityTable[levelLow]) / 10) *
       afterRound;
-
-    return Math.round(tank.capacityTable[levelLow] + tank.tube + tail);
+    if (tube === true) {
+      return Math.round(tank.capacityTable[levelLow] + tank.tube + tail);
+    }
+    return Math.round(tank.capacityTable[levelLow] + tail);
   };
 
-  const calculate = (height, tank) => {
+  const calculate = (height, tank, tube) => {
     changeResult(
-      autoCalibrate(+height.replace(",", "."), selectedGS.tables[tank])
+      autoCalibrate(+height.replace(",", "."), selectedGS.tables[tank], tube)
     );
   };
   return (
@@ -59,7 +61,7 @@ const Calibration = () => {
           <Form
             onSubmit={(e) => {
               e.preventDefault();
-              calculate(height, typeGS);
+              calculate(height, typeGS, tube);
             }}>
             <Form.Group>
               <Form.Label>Выберите вид топлива</Form.Label>
@@ -87,6 +89,12 @@ const Calibration = () => {
                 required
               />
               <Form.Text className="text-muted">Например 123.4</Form.Text>
+              <Form.Check
+                type="switch"
+                label="Учитывать трубопровод в рассчётах?"
+                checked={tube}
+                onChange={() => changeTube(!tube)}
+              />
             </Form.Group>
             <br></br>
             {height !== 0 && typeGS !== "empty" ? (
