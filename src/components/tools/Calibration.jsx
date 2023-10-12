@@ -6,6 +6,7 @@ import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
 import SelectorGS from "../SelectorGS";
 import BackButton from "../UI/BackButton";
+import ModalInfo from "../UI/ModalInfo";
 
 const Calibration = () => {
   const [gsId, changeGsId] = useState("empty");
@@ -13,18 +14,41 @@ const Calibration = () => {
   const [height, changeHeight] = useState("");
   const [tube, changeTube] = useState(true);
   const [result, changeResult] = useState(0);
+  const [modalShowState, setModalShowState] = useState(false);
+  const [modalInfo, changeModalInfo] = useState({});
+
   const changeTypeGSHandler = (type) => {
     changeTypeGS(type);
-    changeResult(0);
+    changeModalInfoHandler({
+      header: "Информация о резервуаре",
+      body: (
+        <div>
+          <h2>Резервуар №{selectedGS.tables[type].tankId}</h2>
+          <p>Вид топлива: {selectedGS.tables[type].type}</p>
+          <p>Трубопровод: {selectedGS.tables[type].tube} л</p>
+          <p>Мёртвый остаток: {selectedGS.tables[type].minCapcity} л</p>
+          <p>Максимальный объём: {selectedGS.tables[type].maxCapacity} л</p>
+          <p>Максимальная высота: {selectedGS.tables[type].maxHeight} см</p>
+        </div>
+      ),
+    });
+    changeResultHandler(0);
   };
   const changeHeightHandler = (height) => {
     changeHeight(height);
   };
-
   const changeGsIdHandler = (id) => {
     changeGsId(id);
   };
-
+  const changeResultHandler = (result) => {
+    changeResult(result);
+  };
+  const setModalShowHandler = (show) => {
+    setModalShowState(show);
+  };
+  const changeModalInfoHandler = (info) => {
+    changeModalInfo(info);
+  };
   const [selectedGS] = gsDB.filter((gs) => gs.gsId === gsId);
 
   const autoCalibrate = (height, tank, tube) => {
@@ -47,10 +71,11 @@ const Calibration = () => {
   };
 
   const calculate = (height, tank, tube) => {
-    changeResult(
+    changeResultHandler(
       autoCalibrate(+height.replace(",", "."), selectedGS.tables[tank], tube)
     );
   };
+
   return (
     <>
       <SelectorGS param={"tables"} changerId={changeGsIdHandler} />
@@ -58,6 +83,12 @@ const Calibration = () => {
         ""
       ) : (
         <>
+          <ModalInfo
+            show={modalShowState}
+            showToggler={setModalShowState}
+            headerText={modalInfo.header}
+            bodyText={modalInfo.body}
+          />
           <Form
             onSubmit={(e) => {
               e.preventDefault();
@@ -67,7 +98,9 @@ const Calibration = () => {
               <Form.Label>Выберите вид топлива</Form.Label>
               <Form.Select
                 defaultValue="empty"
-                onChange={(e) => changeTypeGSHandler(e.target.value)}>
+                onChange={(e) => {
+                  changeTypeGSHandler(e.target.value);
+                }}>
                 <option value={typeGS} disabled>
                   Нажмите для выбора вида топлива
                 </option>
@@ -80,7 +113,7 @@ const Calibration = () => {
                 ))}
               </Form.Select>
               <br></br>
-              <Form.Label>Введите высоту топлива с метрштока в СМ</Form.Label>
+              <Form.Label>Введите высоту топлива с метрштока в см</Form.Label>
               <Form.Control
                 type="text"
                 onChange={(e) => changeHeightHandler(e.target.value)}
@@ -98,15 +131,25 @@ const Calibration = () => {
             </Form.Group>
             <br></br>
             {height !== 0 && typeGS !== "empty" ? (
-              <ScrollIntoView selector="#resultZone">
-                <Button variant="dark" type="submit">
-                  Рассчитать!
+              <>
+                <ScrollIntoView selector="#resultZone">
+                  <Button variant="dark" type="submit">
+                    Рассчитать!
+                  </Button>
+                  <br></br>
+                </ScrollIntoView>
+                <br></br>
+                <Button
+                  variant="dark"
+                  onClick={() => setModalShowHandler(true)}>
+                  Информация о резервуаре
                 </Button>
-              </ScrollIntoView>
+              </>
             ) : (
               ""
             )}
           </Form>
+
           <div id="resultZone">
             {result === 0 ? (
               ""
@@ -115,10 +158,10 @@ const Calibration = () => {
             ) : result <= selectedGS.tables[typeGS].minCapcity ? (
               <ResultZone
                 alert
-                text={`Внимание! Объём топлива ниже мёртвого остатка: ${selectedGS.tables[typeGS].minCapcity}л. Объём топлива: ${result}л.`}
+                text={`Внимание! Объём топлива ниже мёртвого остатка: ${selectedGS.tables[typeGS].minCapcity} л Объём топлива: ${result} л`}
               />
             ) : (
-              <ResultZone text={`Объём топлива: ${result}л.`} />
+              <ResultZone text={`Объём топлива: ${result} л`} />
             )}
           </div>
         </>
