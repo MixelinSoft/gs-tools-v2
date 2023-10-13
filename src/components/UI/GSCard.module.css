@@ -1,0 +1,26 @@
+.card {
+  margin-top: 20px;
+}
+
+.itemContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+  padding: 8px;
+}
+
+.icon {
+  margin-right: 12px;
+}
+
+.phoneLink {
+  text-decoration: none;
+  color: currentColor;
+  transition: all 1s;
+}
+
+.phoneLink:hover {
+  text-decoration: underline;
+  color: blue;
+}

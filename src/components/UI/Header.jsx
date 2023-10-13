@@ -20,7 +20,7 @@ const Header = () => {
             />
           </Link>
         </Navbar.Brand>
-        <DropDownMenu />
+        {/* <DropDownMenu /> */}
       </Container>
     </Navbar>
   );
