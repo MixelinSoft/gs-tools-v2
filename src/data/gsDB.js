@@ -1,41 +1,100 @@
 const firms = {
   prima: "ПРІМАРІУС",
   alete: "АЛЕТЕЯ",
+  undefined: "",
+};
+
+const template = {
+  gsId: "01",
+  gsNumber: "1",
+  gsFirm: firms.prima,
+  phone: "+38063",
+  address: "м. Днiпро, ",
+  zip: "",
+  region: "",
+  gps: "",
 };
 
 const gsDB = [
+  // 01-prima add phone
   {
     gsId: "01",
     gsNumber: "1",
     gsFirm: firms.prima,
     // phone: "+380",
-    address: "м. Днiпро, пр. Богдана Хмельницького, 135",
+    address: "м. Днiпро, пр. Богдана Хмельницького, 135-а",
+    zip: "49032",
+    region: "Шевченкiвський",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10595.854124999534!2d34.99127242539333!3d48.39964348876736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfb34576a235d%3A0xf076ded19dfe250!2z0L_RgNC-0YHQv9C10LrRgiDQkdC-0LPQtNCw0L3QsCDQpdC80LXQu9GM0L3QuNGG0YzQutC-0LPQviwgMTM10JAsINCU0L3RltC_0YDQviwg0JTQvdGW0L_RgNC-0L_QtdGC0YDQvtCy0YHRjNC60LAg0L7QsdC70LDRgdGC0YwsIDQ5MDAw!5e0!3m2!1suk!2sua!4v1697197339644!5m2!1suk!2sua",
   },
 
+  // 02-prima
   {
     gsId: "02",
     gsNumber: "2",
     gsFirm: firms.prima,
     phone: "+380632966982",
     address: "м. Днiпро, вул. Космiчна, 30",
+    zip: "49100",
+    region: "Соборний",
     gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1324.1825530972822!2d35.04026253207326!3d48.41113451104672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfb589c0864a1%3A0xec21b7536cd4d9cc!2z0YPQuy4g0JrQvtGB0LzQuNGH0LXRgdC60LDRjywgMzAsINCU0L3QtdC_0YAsINCU0L3QtdC_0YDQvtC_0LXRgtGA0L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCA0OTAwMA!5e0!3m2!1sru!2sua!4v1689170965074!5m2!1sru!2sua",
   },
 
+  // 03 add firm, add phone
+  {
+    gsId: "03",
+    gsNumber: "3",
+    gsFirm: firms.undefined,
+    // phone: "+380",
+    address: "Днiпропетровська обл., с. Дороге, вул. Миколаїська, 179",
+    zip: "52070",
+    region: "Днiпровський",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2650.0154551598475!2d34.96132117650717!3d48.379439371271275!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe532f99bb4c1%3A0x8fc780627482f4fd!2z0LLRg9C70LjRhtGPINCc0LjQutC-0LvQsNGX0LLRgdGM0LrQsCwgMTc5LCDQlNC90ZbQv9GA0L4sINCU0L3RltC_0YDQvtC_0LXRgtGA0L7QstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA1MjA3MA!5e0!3m2!1suk!2sua!4v1697197842597!5m2!1suk!2sua",
+  },
+
+  // 04
+  {
+    gsId: "04",
+    gsNumber: "4",
+    gsFirm: firms.prima,
+    phone: "+380632967020",
+    address: "м. Днiпро, вул. Костi Гордiєнка, 2-а",
+    zip: "49064",
+    region: "Новокодацький",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2645.1817527402154!2d34.98037657651237!3d48.47222727128238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe3b426d25c99%3A0xcfc7b5069e8a1b1c!2z0LLRg9C70LjRhtGPINCa0L7RgdGC0Y8g0JPQvtGA0LTRltGU0L3QutCwLCAyLCDQlNC90ZbQv9GA0L4sINCU0L3RltC_0YDQvtC_0LXRgtGA0L7QstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA0OTAwMA!5e0!3m2!1suk!2sua!4v1697198228767!5m2!1suk!2sua",
+  },
+
+  //05 add phone
+  {
+    gsId: "05",
+    gsNumber: "5",
+    gsFirm: firms.undefined,
+    // phone: "+38063",
+    address: "м. Днiпро, вул. Набережна Заводська, 56",
+    zip: "52441",
+    region: "Солонянський",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2644.3145535534018!2d34.93884357651327!3d48.48885997128443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe179b004a51b%3A0xc4f862201f9d876d!2sYukon!5e0!3m2!1suk!2sua!4v1697198430287!5m2!1suk!2sua",
+  },
+
+  //06 add phone add firm
   {
     gsId: "06",
     gsNumber: "6",
-    gsFirm: firms.prima,
+    gsFirm: firms.undefined,
     // phone: "+",
     address: "м. Днiпро, Донецьке шосе, 25-а",
     gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1321.478538528204!2d34.99997811474409!3d48.51488751157993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe200f05cf68f%3A0xeb74745d2f4afa26!2z0JTQvtC90LXRhtC60L7QtSDRiC4sIDI1LCDQlNC90LXQv9GALCDQlNC90LXQv9GA0L7Qv9C10YLRgNC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNDkwMDA!5e0!3m2!1sru!2sua!4v1689171256579!5m2!1sru!2sua",
   },
 
+  //07-prima
   {
     gsId: "07",
     gsNumber: "7",
     gsFirm: firms.prima,
     phone: "+380632967051",
     address: "м. Днiпро, вул.Робоча, 23-ж",
+    zip: "49006",
+    region: "Чечеловський",
     gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1322.8904305869276!2d35.00733562851025!3d48.46073399833822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe306c3adff95%3A0x356ef5a41f275d47!2sAvias!5e0!3m2!1sru!2sua!4v1689171375973!5m2!1sru!2sua",
     tables: {
       a95e: {
@@ -193,21 +252,110 @@ const gsDB = [
     },
   },
 
+  //08 add phone
+  {
+    gsId: "08",
+    gsNumber: "8",
+    gsFirm: firms.prima,
+    // phone: "+38063",
+    address: "м. Днiпро, пр.Пилипа Орлика, 18-а",
+    zip: "49069",
+    region: "Центральний",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467.8180528199991!2d35.02331500908686!3d48.449266113709065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe317ccccb331%3A0xad37562676fc3bc0!2z0JDQktCG0JDQoSDQv9C70Y7RgQ!5e0!3m2!1suk!2sua!4v1697199270655!5m2!1suk!2sua",
+  },
+
+  //09-prima
+  {
+    gsId: "09",
+    gsNumber: "9",
+    gsFirm: firms.prima,
+    phone: "+380632967110",
+    address: "м. Днiпро, вул.Макарова, 27-д",
+    zip: "49047",
+    region: "Чечеловський",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2226.0444294954277!2d35.00023691245081!3d48.43296613410217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe3676cb1bc99%3A0xe97f49e27979b7e8!2sAvias!5e0!3m2!1suk!2sua!4v1697199482705!5m2!1suk!2sua",
+  },
+
+  //10-prima
+  {
+    gsId: "10",
+    gsNumber: "10",
+    gsFirm: firms.prima,
+    phone: "+380632967127",
+    address:
+      "Днiпропетровська обл., територiя Новоолександрiвської с/р, Комплекс будiвель та споруд №307",
+    zip: "52072",
+    region: "Днiпровський",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5300.933609986155!2d35.07950262293745!3d48.37076843360291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfbc74ca3f273%3A0x158981d5d4be991a!2z0JDQl9ChINCQ0LLQuNCw0YEg0L_Qu9GO0YE!5e0!3m2!1suk!2sua!4v1697199809856!5m2!1suk!2sua",
+  },
+
+  //11 add phone
+  {
+    gsId: "11",
+    gsNumber: "11",
+    gsFirm: firms.prima,
+    // phone: "+38063",
+    address: "м. Днiпро, пр. Богдана Хмельницького, 164",
+    zip: "49033",
+    region: "Шевченкiвський",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1873.6977255059087!2d34.99772178340715!3d48.38341030485209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfb2772def4f1%3A0xf31d59a7fe85466d!2z0KHQtdC90YLQvtC30LAg0J7RltC7!5e0!3m2!1suk!2sua!4v1697200169489!5m2!1suk!2sua",
+  },
+
+  //12-prima
+  {
+    gsId: "12",
+    gsNumber: "12",
+    gsFirm: firms.prima,
+    phone: "+380632967203",
+    address: "м. Днiпро, пр. Гагарiна, 38-а",
+    zip: "49010",
+    region: "Соборний",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2646.808712876821!2d35.047140076510594!3d48.44101097127858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe332fd7db90d%3A0xf01dfb3c80617048!2z0KHQtdC90YLQvtC30LAg0J7RltC7!5e0!3m2!1suk!2sua!4v1697201092421!5m2!1suk!2sua",
+  },
+
+  //13 add firm
   {
     gsNumber: "13",
     gsId: "13",
-    gsFirm: firms.prima,
+    gsFirm: firms.undefined,
     phone: "+380632967213",
     address: "м. Днiпро, вул. Кротова, 40",
     gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1324.582866318761!2d34.97210692518881!3d48.395760333480546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe4d0caba5113%3A0x7f3eb1b5df822231!2sAzs%20%22Avias%22!5e0!3m2!1sru!2sua!4v1689171860504!5m2!1sru!2sua",
   },
 
+  //14 add phone
+  {
+    gsId: "14",
+    gsNumber: "14",
+    gsFirm: firms.prima,
+    // phone: "+38063",
+    address: "м. Днiпро, вул. Велика Дiївська, 181",
+    zip: "49018",
+    region: "Новокодацький",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1322.4993797238524!2d34.911794615967814!3d48.47573740044934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe143a2c4b897%3A0x68196ce6fcffdd95!2sSentosa%20Oil!5e0!3m2!1suk!2sua!4v1697201393209!5m2!1suk!2sua",
+  },
+
+  //15 add firm, add phone
+  {
+    gsId: "15",
+    gsNumber: "15",
+    gsFirm: firms.undefined,
+    // phone: "+38063",
+    address: "Днiпропетровська обл., с. Новоалександрiвка, вул. Садова, 13",
+    zip: "52070",
+    region: "Днiпровський",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12983.935467286215!2d34.96946666671995!3d48.344541728325986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbf07bbb35baad%3A0x188cc7b678009668!2z0KHQsNC00L7QstCwINCy0YPQu9C40YbRjywgMTMsINCd0L7QstC-0L7Qu9C10LrRgdCw0L3QtNGA0ZbQstC60LAsINCU0L3RltC_0YDQvtC_0LXRgtGA0L7QstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA1MjA3MA!5e0!3m2!1suk!2sua!4v1697201694427!5m2!1suk!2sua",
+  },
+
+  //16-prima
   {
     gsId: "16",
     gsNumber: "16",
     gsFirm: firms.prima,
     phone: "+380632967329",
     address: "м. Днiпро, вул.Маяковського, 39",
+    zip: "49066",
+    region: "Новокодацький",
     gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10580.044319577402!2d34.95703040013044!3d48.475501078863616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe3cebc4f9c37%3A0x8a9aebd3724eb8c9!2z0LLRg9C7LiDQnNCw0Y_QutC-0LLRgdGM0LrQvtCz0L4sIDM5LCDQlNC90ZbQv9GA0L4sINCU0L3RltC_0YDQvtC_0LXRgtGA0L7QstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA0OTAwMA!5e0!3m2!1sru!2sua!4v1689165717692!5m2!1sru!2sua",
     tables: {
       a95e: {
@@ -348,78 +496,204 @@ const gsDB = [
     },
   },
 
+  //17-prima
   {
     gsId: "17",
     gsNumber: "17",
     gsFirm: firms.prima,
     phone: "+380632967353",
     address: "м. Днiпро, пр.Сергiя Нiгояна, 87",
+    zip: "49064",
+    region: "Новокодацький",
     gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2644.995270771918!2d34.972663796327865!3d48.47580431746021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe3cbc76781c7%3A0xdddb4df4964f2d95!2sUkrnafta!5e0!3m2!1sru!2sua!4v1689172680400!5m2!1sru!2sua",
   },
 
+  //18 add firm
+  {
+    gsId: "18",
+    gsNumber: "18",
+    gsFirm: firms.undefined,
+    phone: "+380632967360",
+    address: "м. Днiпро, вул. Набережна Перемоги, 146",
+    zip: "49106",
+    region: "Соборний",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1113.5060392779562!2d35.07977796338462!3d48.410875250979416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfc8f19e38a53%3A0x3b559da7d7c3f38d!2z0K7QutC-0L0!5e0!3m2!1suk!2sua!4v1697202282159!5m2!1suk!2sua",
+  },
+
+  //19 add firm, add phone
+  {
+    gsId: "19",
+    gsNumber: "19",
+    gsFirm: firms.undefined,
+    // phone: "+38063",
+    address: "Днiпропетровська обл., с. Дороге, вул. Миколаїська, 177",
+    zip: "52070",
+    region: "Днiпровський",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747.6851701160986!2d34.96017896631774!3d48.37947505580149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe532f99bb4c1%3A0x465e688d54804915!2z0LLRg9C70LjRhtGPINCc0LjQutC-0LvQsNGX0LLRgdGM0LrQsCwgMTc3LCDQlNC90ZbQv9GA0L4sINCU0L3RltC_0YDQvtC_0LXRgtGA0L7QstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA1MjA3MA!5e0!3m2!1suk!2sua!4v1697203453623!5m2!1suk!2sua",
+  },
+
+  //20 add firm
   {
     gsId: "20",
     gsNumber: "20",
-    gsFirm: firms.prima,
+    gsFirm: firms.undefined,
     phone: "+380632967401",
+    zip: "49041",
+    region: "Шевченкiвський",
     address: "м. Днiпро, Запорiзьске шосе, 88",
     gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d662.3715026493434!2d35.04064158914979!3d48.38960911078709!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfb6d4b407bcd%3A0x61570d0dbf515d4e!2z0JfQsNC_0L7RgNC-0LbRgdC60L7QtSDRiC4sIDg4LCDQlNC90LXQv9GALCDQlNC90LXQv9GA0L7Qv9C10YLRgNC-0LLRgdC60LDRjyDQvtCx0LvQsNGB0YLRjCwgNDkwMDA!5e0!3m2!1sru!2sua!4v1689172844672!5m2!1sru!2sua",
   },
 
+  //23 add phone
+  {
+    gsId: "23",
+    gsNumber: "23",
+    gsFirm: firms.prima,
+    // phone: "+38063",
+    address: "м. Днiпро, пр. Олександра Поля, 93-б",
+    zip: "49054",
+    region: "Центральний",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1323.192785309607!2d35.01970933316827!3d48.44913120414567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe3165ba3d139%3A0xbbeee9ab5ed3a17b!2z0JDQkknQkNChINC_0LvRjtGB!5e0!3m2!1suk!2sua!4v1697204251475!5m2!1suk!2sua",
+  },
+
+  //24 add firm, add phone, add gps
+  {
+    gsId: "24",
+    gsNumber: "24",
+    gsFirm: firms.undefined,
+    // phone: "+38063",
+    address: "Днiпропетровська обл., сел. Святовасилiвка, вул. Iвана Франка, 5",
+    zip: "52433",
+    region: "Солонянський",
+    // gps: "",
+  },
+
+  //25-prima
   {
     gsId: "25",
     gsNumber: "25",
     gsFirm: firms.prima,
     phone: "+380632967461",
     address: "м. Днiпро, вул. Пилипа Орлика, 23-а",
+    zip: "49069",
+    region: "Центральний",
     gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1323.1899412805967!2d35.02123143683088!3d48.44924035281803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe3164995ce53%3A0x8ddd5baacde43f02!2z0JDQl9ChINCQ0JLQmNCQ0KEg0J_Qm9Cu0KE!5e0!3m2!1sru!2sua!4v1689172964410!5m2!1sru!2sua",
   },
 
+  //26-prima
   {
     gsId: "26",
     gsNumber: "26",
     gsFirm: firms.prima,
     phone: "+380632967502",
+    zip: "49038",
+    region: "Центральний",
     address: "м. Днiпро, вул. Курчатова, 3",
     gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d661.2727875245564!2d35.011523719773585!3d48.473965211112535!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe25699d8b88b%3A0x7038b11295d51a7e!2z0YPQuy4g0JrRg9GA0YfQsNGC0L7QstCwLCAz!5e0!3m2!1sru!2sua!4v1689173124891!5m2!1sru!2sua",
   },
 
+  //27 add phone
   {
     gsId: "27",
     gsNumber: "27",
     gsFirm: firms.prima,
     // phone: "+380",
-    address: "м. Днiпро",
+    zip: "49061",
+    region: "Центральний",
+    address: "м. Днiпро, пр. Богдана Хмельницького 24-н",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2647.3171367476625!2d35.01371239369635!3d48.431252807780055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe35ae1dc6beb%3A0x58f9fcdb061e635d!2sAvias!5e0!3m2!1suk!2sua!4v1697206814169!5m2!1suk!2sua",
   },
 
+  //28-prima add phone
   {
-    // телфон правильный, нужен адресс
     gsId: "28",
     gsNumber: "28",
     gsFirm: firms.prima,
-    // phone: "+38632967506",
-    address: "м. Днiпро, вул. Курчатова,",
+    // phone: "+38063",
+    address: "м. Днiпро, вул. Курчатова, 5",
+    zip: "49038",
+    region: "Чечеловський",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d935.195326551619!2d35.00882318018068!3d48.473184922761305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe2541096f3e9%3A0xb3a32641049c2e66!2z0JDQl9ChINCQ0LLRltCw0YE!5e0!3m2!1suk!2sua!4v1697207027210!5m2!1suk!2sua",
   },
 
+  //29-prima
   {
     gsId: "29",
     gsNumber: "29",
     gsFirm: firms.prima,
     phone: "+380632967519",
     address: "м. Днiпро, вул. Ульянова, 17",
+    zip: "49101",
+    region: "Центральний",
     gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d330.72024981747313!2d35.02441530816781!3d48.4610958895177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe31d22f57859%3A0x130bce2eb9b8d41f!2sAvias%20Plus!5e0!3m2!1sru!2sua!4v1689173254901!5m2!1sru!2sua",
   },
 
+  //30 add gps, add firm
   {
-    // номер правильный, нет адресса
     gsId: "30",
     gsNumber: "30",
-    gsFirm: firms.alete,
-    // phone: "+380676370805",
-    address: "",
+    gsFirm: firms.undefined,
+    address: "м. Днiпро, вул.Коцюбинського, 1",
+    zip: "49000",
+    region: "Соборний",
+    // gps: "",
+    phone: "+380676370805",
   },
 
+  //31 add firm, add phoneб add gps
   {
+    gsId: "31",
+    gsNumber: "31",
+    gsFirm: firms.undefined,
+    // phone: "+38063",
+    address: "м. Днiпро, вул. Князя Ярослава Мудрого, 64",
+    zip: "31",
+    region: "Центральний",
+    // gps: "",
+  },
+
+  //32 add phone add firm
+  {
+    gsId: "32",
+    gsNumber: "32",
+    gsFirm: firms.undefined,
+    // phone: "+38063",
+    address: "м. Днiпро, вул. Набережна Перемоги, 42-к",
+    zip: "49094",
+    region: "Соборний",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2646.8575934868327!2d35.06673767651042!3d48.440072871278595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfcd0d1edd179%3A0x8fb1b081398ca54d!2z0JDQstGW0LDRgSDQn9C70Y7RgQ!5e0!3m2!1suk!2sua!4v1697210710599!5m2!1suk!2sua",
+  },
+
+  //33 add firm
+  {
+    gsId: "33",
+    gsNumber: "33",
+    gsFirm: firms.undefined,
+    // phone: "+38063",
+    address: "м. Днiпро, вул. Набережна Заводська, 33",
+    zip: "49019",
+    region: "Новокодацький",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1871.7463879101806!2d34.94833441664674!3d48.436396892149624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe47baabad799%3A0xbb26b4ba1d8d2e98!2sAvias!5e0!3m2!1suk!2sua!4v1697208637164!5m2!1suk!2sua",
+  },
+
+  //34 add phone, add gps
+  {
+    gsId: "34",
+    gsNumber: "34",
+    gsFirm: firms.undefined,
+    // phone: "+38063",
+    address: "Днiпропетровська обл., смт. Солоне, вул. Соборна, 207",
+    zip: "52400",
+    region: "Солонянський",
+    // gps: "",
+  },
+
+  //35 add phonne
+  {
+    zip: "49035",
+    region: "Красногвардiйський",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1871.7463879101806!2d34.94833441664674!3d48.436396892149624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe47baabad799%3A0xbb26b4ba1d8d2e98!2sAvias!5e0!3m2!1suk!2sua!4v1697208637164!5m2!1suk!2sua",
+
     gsId: "35",
     gsNumber: "35",
     gsFirm: firms.prima,
@@ -427,43 +701,58 @@ const gsDB = [
     address: "м. Днiпро, Криворiзьке шоссе, 17а",
   },
 
+  //36-prima
   {
-    // телефон правильный нужен адресс
+    gsFirm: firms.prima,
+    address: "м. Днiпро, Криворiзьке шосе, 16г",
+    zip: "49037",
+    region: "Новокодацький",
     gsId: "36",
     gsNumber: "36",
-    gsFirm: firms.prima,
-    // phone: "+380632967568",
-    address: "м. Днiпро, ",
+    phone: "+380632967568",
+    gps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2647.1413902611835!2d34.94592177651028!3d48.43462607127779!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe59d20dd38ed%3A0xf991ee610867b73b!2sAvias!5e0!3m2!1suk!2sua!4v1697208222765!5m2!1suk!2sua",
   },
 
+  //37 add address, add zip, add region, add gps
   {
-    // телефон правильный, нет адресса
+    // zip: "",
+    // region: "",
+    // gps: "",
     gsId: "37",
     gsNumber: "37",
-    gsFirm: firms.prima,
-    // phone: "+380632506670",
-    address: "м. Днiпро, ",
+    gsFirm: firms.undefined,
+    phone: "+380632506670",
+    // address: "м. Днiпро, ",
   },
 
+  // 35a add address, add zip, add region, add gps
   {
-    // номер правильный, нужен адресс
+    // zip: "",
+    // region: "",
+    // gps: "",
     gsId: "35a",
     gsNumber: "35",
     gsFirm: firms.alete,
-    // phone: "+380676370810",
-    address: "м. Днiпро, вул. 20 Рiччя Перемоги,",
+    phone: "+380676370810",
+    // address: "м. Днiпро, вул. 20 Рiччя Перемоги",
   },
 
+  // 40a add zip, add address, add region, add gps
   {
-    // телефон правильный, нужен адресс
+    // zip: "",
+    // region: "",
+    // gps: "",
     gsId: "40a",
     gsNumber: "40",
     gsFirm: firms.alete,
-    // phone: "+380676103971",
+    phone: "+380676103971",
     address: "м. Днiпро, ",
   },
 
+  // 44a add zip, add region
   {
+    // zip: "",
+    // region: "",
     gsId: "44a",
     gsNumber: "44",
     gsFirm: firms.alete,
