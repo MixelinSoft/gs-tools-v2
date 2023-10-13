@@ -8,7 +8,12 @@ const Toolbox = () => {
   return (
     <Container className={styles.toolboxContainer}>
       {tools.map((tool) => (
-        <ToolsButton className={styles.tool} tool={tool} key={tool.toolID} />
+        <ToolsButton
+          className={styles.tool}
+          tool={tool}
+          key={tool.toolID}
+          svg={tool.svgIcon}
+        />
       ))}
     </Container>
   );
