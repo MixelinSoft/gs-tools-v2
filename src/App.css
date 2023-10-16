@@ -1,3 +1,7 @@
 .App {
   text-align: center;
 }
+
+.rotate {
+  transform: rotate(180deg);
+}

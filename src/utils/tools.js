@@ -1,5 +1,6 @@
 import SalaryCalc from "../components/tools/SalaryCalc";
 import Calibration from "../components/tools/Calibration";
+import ReCalibrate from "../components/tools/ReCalibrate";
 import PhoneBook from "../components/tools/PhoneBook";
 const tools = [
   {
@@ -21,6 +22,32 @@ const tools = [
       </>
     ),
   },
+
+  {
+    toolTitle: "Обратная калибровка топлива",
+    toolDescription:
+      "Инструмент для обратной калибровки топлива, конвертирует 'л' в 'см'",
+    toolID: "02",
+    toolSlug: "recalibrate",
+    toolVersion: "1.0.0",
+    tool: ReCalibrate,
+    svgIcon: (
+      <>
+        <svg
+          fill="#000"
+          height="30px"
+          width="30px"
+          viewBox="0 0 390 390"
+          className="rotate">
+          <path
+            d="M117.427,0v390h155.147V0H117.427z M210.715,40L195,50.761L179.285,40H210.715z M157.427,350V73.511
+	L195,99.239l37.573-25.728V117.5h-30v40h30v40h-30v40h30v40h-30v40h30V350H157.427z"
+          />
+        </svg>
+      </>
+    ),
+  },
+
   {
     toolTitle: "Книга контактов и адресов",
     toolDescription: "Справочник с контактами, адресами картой АЗС",
