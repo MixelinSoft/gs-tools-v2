@@ -1,6 +1,6 @@
 const firms = {
-  prima: "ПРІМАРІУС",
-  alete: "АЛЕТЕЯ",
+  prima: 'ТОВ "ПРІМАРІУС"',
+  alete: 'ТОВ "АЛЕТЕЯ"',
   undefined: "",
 };
 

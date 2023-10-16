@@ -2,7 +2,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content: flex-start;
+  align-content: center;
   padding-top: 88px;
+  padding-bottom: 88px;
   height: 100vh;
 }

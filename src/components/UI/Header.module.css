@@ -5,4 +5,5 @@
   padding-left: 30px;
   width: 100vw;
   border-radius: 0 0 6px 6px;
+  z-index: 100;
 }

@@ -8,7 +8,7 @@ const tools = [
       "Инструмент для калибровки топлива, конвертирует 'см' в 'л'",
     toolID: "01",
     toolSlug: "calibrate",
-    toolVersion: "1.2.2",
+    toolVersion: "1.2.3",
     tool: Calibration,
     svgIcon: (
       <>
@@ -26,7 +26,7 @@ const tools = [
     toolDescription: "Справочник с контактами, адресами картой АЗС",
     toolID: "03",
     toolSlug: "phone-book",
-    toolVersion: "1.1.0",
+    toolVersion: "1.2.0",
     tool: PhoneBook,
     svgIcon: (
       <>

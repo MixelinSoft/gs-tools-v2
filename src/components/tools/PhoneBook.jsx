@@ -21,7 +21,7 @@ const PhoneBook = () => {
         param={"address"}
         changerId={changeGsIdHandler}
       />
-      {selectedGS ? <GSCard gs={selectedGS} /> : ""}
+      {selectedGS ? <GSCard id="gsCard" gs={selectedGS} /> : ""}
     </>
   );
 };

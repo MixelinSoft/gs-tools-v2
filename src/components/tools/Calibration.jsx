@@ -25,10 +25,10 @@ const Calibration = () => {
         <div>
           <h2>Резервуар №{selectedGS.tables[type].tankId}</h2>
           <p>Вид топлива: {selectedGS.tables[type].type}</p>
-          <p>Трубопровод: {selectedGS.tables[type].tube} л</p>
-          <p>Мёртвый остаток: {selectedGS.tables[type].minCapcity} л</p>
-          <p>Максимальный объём: {selectedGS.tables[type].maxCapacity} л</p>
-          <p>Максимальная высота: {selectedGS.tables[type].maxHeight} см</p>
+          <p>Трубопровод: {selectedGS.tables[type].tube}л</p>
+          <p>Мёртвый остаток: {selectedGS.tables[type].minCapcity}л</p>
+          <p>Максимальный объём: {selectedGS.tables[type].maxCapacity}л</p>
+          <p>Максимальная высота: {selectedGS.tables[type].maxHeight}см</p>
         </div>
       ),
     });
@@ -158,10 +158,10 @@ const Calibration = () => {
             ) : result <= selectedGS.tables[typeGS].minCapcity ? (
               <ResultZone
                 alert
-                text={`Внимание! Объём топлива ниже мёртвого остатка: ${selectedGS.tables[typeGS].minCapcity} л Объём топлива: ${result} л`}
+                text={`Внимание! Объём топлива ниже мёртвого остатка: ${selectedGS.tables[typeGS].minCapcity}л Объём топлива: ${result}л`}
               />
             ) : (
-              <ResultZone text={`Объём топлива: ${result} л`} />
+              <ResultZone text={`Объём топлива: ${result}л`} />
             )}
           </div>
         </>

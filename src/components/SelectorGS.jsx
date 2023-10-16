@@ -26,9 +26,7 @@ const SelectorGS = ({ changerId, param }) => {
               return (
                 <option
                   key={gs.gsId}
-                  value={
-                    gs.gsId
-                  }>{`АЗС№${gs.gsNumber} ТОВ "${gs.gsFirm}"`}</option>
+                  value={gs.gsId}>{`АЗС№${gs.gsNumber} ${gs.gsFirm}`}</option>
               );
             }
           })}

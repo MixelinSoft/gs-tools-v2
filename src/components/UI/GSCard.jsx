@@ -1,7 +1,7 @@
 import styles from "./GSCard.module.css";
 
-import { AiFillIdcard, AiTwotonePhone } from "react-icons/ai";
-import { BsGeoAltFill } from "react-icons/bs";
+import { AiFillIdcard, AiTwotonePhone, AiOutlineBarcode } from "react-icons/ai";
+import { BsGeoAltFill, BsFillSignpostFill } from "react-icons/bs";
 
 import Card from "react-bootstrap/Card";
 
@@ -16,10 +16,15 @@ const GSCard = ({ gs }) => {
         <Card.Body>
           <div className={styles.itemContainer}>
             <AiFillIdcard className={styles.icon} />
-            <span>
-              ТОВ "{gs.gsFirm}", АЗС№{gs.gsNumber}
-            </span>
+            {gs.firm === "undefined" ? (
+              <span>АЗС№{gs.gsNumber}</span>
+            ) : (
+              <span>
+                {gs.gsFirm} АЗС№{gs.gsNumber}
+              </span>
+            )}
           </div>
+
           {gs.phone ? (
             <div className={styles.itemContainer}>
               <AiTwotonePhone className={styles.icon} />
@@ -36,6 +41,24 @@ const GSCard = ({ gs }) => {
           ) : (
             ""
           )}
+
+          {gs.zip ? (
+            <div className={styles.itemContainer}>
+              <AiOutlineBarcode className={styles.icon} />
+              <address>{gs.zip}</address>
+            </div>
+          ) : (
+            ""
+          )}
+
+          {gs.region ? (
+            <div className={styles.itemContainer}>
+              <BsFillSignpostFill className={styles.icon} />
+              <address>{gs.region} р-н</address>
+            </div>
+          ) : (
+            ""
+          )}
           {gs.address ? (
             <div className={styles.itemContainer}>
               <BsGeoAltFill className={styles.icon} />
@@ -44,9 +67,11 @@ const GSCard = ({ gs }) => {
           ) : (
             ""
           )}
+
           {gs.gps ? (
             <div>
               <iframe
+                title={gs.address}
                 src={gs.gps}
                 width="100%"
                 height="100%"
