@@ -1,5 +1,5 @@
 import styles from "./Contacts.module.css";
-
+import BackButton from "./UI/BackButton";
 import Alert from "react-bootstrap/Alert";
 import { Container } from "react-bootstrap";
 import { MdAlternateEmail } from "react-icons/md";
@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const Contacts = () => {
   return (
     <Container className="infoContainer">
+      <BackButton />
       <h1>Контакты</h1>
       <p>
         Все вопросы и предложения, касающиеся приложения GS-Tools, сообщения об

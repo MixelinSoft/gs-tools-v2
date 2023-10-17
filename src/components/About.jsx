@@ -1,6 +1,7 @@
 import styles from "./About.module.css";
 import tools from "../utils/tools";
 
+import BackButton from "./UI/BackButton";
 import { Container } from "react-bootstrap";
 import Alert from "react-bootstrap/Alert";
 
@@ -9,6 +10,7 @@ import { Link } from "react-router-dom";
 const About = () => {
   return (
     <Container className="infoContainer">
+      <BackButton />
       <h1>О приложении</h1>
       <h2>GS-Tools v2.1.0</h2>
       <h5>
