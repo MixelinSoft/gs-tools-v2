@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content: center;
+  align-content: flex-start;
   padding-top: 88px;
   padding-bottom: 88px;
   height: 100vh;
