@@ -1,7 +1,3 @@
-.infoContainer {
-  padding-top: 60px;
-}
-
 .contactsLinks {
   display: flex;
   flex-direction: column;
@@ -11,7 +7,7 @@
 .contactItem {
   display: flex;
   align-items: center;
-  width: 400px;
+  width: 380px;
 }
 
 .contactIcon {

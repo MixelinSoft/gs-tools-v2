@@ -2,7 +2,7 @@ import styles from "./Header.module.css";
 import Logo from "../../images/logo_mobile30px.png";
 import Navbar from "react-bootstrap/Navbar";
 import { GrDomain } from "react-icons/gr";
-import { BiCoin } from "react-icons/bi";
+// import { BiCoin } from "react-icons/bi";
 import { AiOutlineContacts, AiOutlineInfoCircle } from "react-icons/ai";
 import { NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -38,17 +38,17 @@ const Header = () => {
             </Link>
           </NavDropdown.Item>
           <NavDropdown.Item>
-            <Link to="/contacts">
+            <Link to="/about">
               <AiOutlineInfoCircle />О приложении
             </Link>
           </NavDropdown.Item>
-          <NavDropdown.Divider />
-          <NavDropdown.Item>
+          {/* <NavDropdown.Divider /> */}
+          {/* <NavDropdown.Item>
             <Link to="/contacts">
               <BiCoin />
               Поддержать проект
             </Link>
-          </NavDropdown.Item>
+          </NavDropdown.Item> */}
         </NavDropdown>
       </Container>
     </Navbar>

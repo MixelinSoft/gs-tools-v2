@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const Contacts = () => {
   return (
-    <Container className={styles.infoContainer}>
+    <Container className="infoContainer">
       <h1>Контакты</h1>
       <p>
         Все вопросы и предложения, касающиеся приложения GS-Tools, сообщения об
