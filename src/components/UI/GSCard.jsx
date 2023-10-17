@@ -6,7 +6,6 @@ import { BsGeoAltFill, BsFillSignpostFill } from "react-icons/bs";
 import Card from "react-bootstrap/Card";
 
 const GSCard = ({ gs }) => {
-  console.log(gs);
   return !gs ? (
     ""
   ) : (

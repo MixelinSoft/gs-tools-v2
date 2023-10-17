@@ -12,7 +12,6 @@ const PhoneBook = () => {
   const changeGsIdHandler = (id) => {
     changeGsId(id);
   };
-  console.log(selectedGS);
   return (
     <>
       <BackButton />

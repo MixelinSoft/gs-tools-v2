@@ -1,17 +1,10 @@
-import { useState } from "react";
 import gsDB from "../data/gsDB";
 
 import { Form } from "react-bootstrap";
 
 const SelectorGS = ({ changerId, param }) => {
-  const [hidden, hiddenChange] = useState(false);
-
-  const hiddenChangeHandler = () => {
-    hiddenChange(!hidden);
-  };
-
   return (
-    <Form hidden={hidden}>
+    <Form>
       <Form.Group>
         <Form.Label>Выберите АЗС:</Form.Label>
         <Form.Select
@@ -21,15 +14,15 @@ const SelectorGS = ({ changerId, param }) => {
           <option value="empty" disabled>
             Нажмите для выбора
           </option>
-          {gsDB.map((gs) => {
-            if (gs[param]) {
-              return (
-                <option
-                  key={gs.gsId}
-                  value={gs.gsId}>{`АЗС№${gs.gsNumber} ${gs.gsFirm}`}</option>
-              );
-            }
-          })}
+          {gsDB.map((gs) =>
+            gs[param] ? (
+              <option
+                key={gs.gsId}
+                value={gs.gsId}>{`АЗС№${gs.gsNumber} ${gs.gsFirm}`}</option>
+            ) : (
+              ""
+            )
+          )}
         </Form.Select>
       </Form.Group>
     </Form>

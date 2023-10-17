@@ -9,7 +9,7 @@ const tools = [
       "Инструмент для калибровки топлива, конвертирует 'см' в 'л'",
     toolID: "01",
     toolSlug: "calibrate",
-    toolVersion: "1.2.3",
+    toolVersion: "1.2.4",
     tool: Calibration,
     svgIcon: (
       <>
@@ -29,7 +29,7 @@ const tools = [
       "Инструмент для обратной калибровки топлива, конвертирует 'л' в 'см'",
     toolID: "02",
     toolSlug: "recalibrate",
-    toolVersion: "1.0.0",
+    toolVersion: "1.0.1",
     tool: ReCalibrate,
     svgIcon: (
       <>
@@ -53,7 +53,7 @@ const tools = [
     toolDescription: "Справочник с контактами, адресами картой АЗС",
     toolID: "03",
     toolSlug: "phone-book",
-    toolVersion: "1.2.0",
+    toolVersion: "1.2.1",
     tool: PhoneBook,
     svgIcon: (
       <>
@@ -90,7 +90,7 @@ const tools = [
     toolDescription: "Инструмент для подсчёта зароботной платы",
     toolID: "04",
     toolSlug: "salary-calc",
-    toolVersion: "1.0.1",
+    toolVersion: "1.0.2",
     tool: SalaryCalc,
     svgIcon: (
       <>

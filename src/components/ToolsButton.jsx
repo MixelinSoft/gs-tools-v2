@@ -1,7 +1,6 @@
 import styles from "./ToolsButton.module.css";
 
 import Button from "react-bootstrap/Button";
-import { AiFillCalculator } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const ToolsButton = ({ tool, svg }) => {

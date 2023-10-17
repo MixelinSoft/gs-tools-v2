@@ -4,16 +4,16 @@ const firms = {
   undefined: "",
 };
 
-const template = {
-  gsId: "01",
-  gsNumber: "1",
-  gsFirm: firms.prima,
-  phone: "+38063",
-  address: "м. Днiпро, ",
-  zip: "",
-  region: "",
-  gps: "",
-};
+// const template = {
+//   gsId: "01",
+//   gsNumber: "1",
+//   gsFirm: firms.prima,
+//   phone: "+38063",
+//   address: "м. Днiпро, ",
+//   zip: "",
+//   region: "",
+//   gps: "",
+// };
 
 const gsDB = [
   // 01-prima add phone

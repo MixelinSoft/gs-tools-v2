@@ -5,3 +5,7 @@
 .rotate {
   transform: rotate(180deg);
 }
+
+#resultZone {
+  height: 280px;
+}

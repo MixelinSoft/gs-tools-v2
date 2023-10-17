@@ -2,7 +2,6 @@ import "./App.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { AiFillCalculator } from "react-icons/ai";
 import MainLayout from "./components/MainLayout";
 import Tool from "./components/Tool";
 import Toolbox from "./components/Toolbox";
