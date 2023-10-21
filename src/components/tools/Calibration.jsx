@@ -155,11 +155,6 @@ const Calibration = () => {
               ""
             ) : !result ? (
               <ResultZone alert text="Ошибка! Некорректные данные!" />
-            ) : result <= selectedGS.tables[typeGS].minCapcity ? (
-              <ResultZone
-                alert
-                text={`Внимание! Объём топлива ниже мёртвого остатка: ${selectedGS.tables[typeGS].minCapcity}л Объём топлива: ${result}л`}
-              />
             ) : (
               <ResultZone text={`Объём топлива: ${result}л`} />
             )}
