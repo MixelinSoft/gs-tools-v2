@@ -1,6 +1,8 @@
 .button {
   position: fixed;
-  top: 10px;
+  top: 8px;
   left: 6px;
   z-index: 100;
+  color: black;
+  font-size: 40px;
 }

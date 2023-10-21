@@ -1,13 +1,14 @@
 import styles from "./BackButton.module.css";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import { IoIosArrowBack } from "react-icons/io";
 
 const BackButton = () => {
   return (
     <Link to="../">
-      <Button variant="dark" className={styles.button}>
+      <IoIosArrowBack className={styles.button} />
+      {/* <Button variant="dark" className={styles.button}>
         &#10094;
-      </Button>
+      </Button> */}
     </Link>
   );
 };
