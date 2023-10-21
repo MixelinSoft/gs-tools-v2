@@ -4,3 +4,7 @@
   color: whitesmoke;
   padding-bottom: 720px;
 }
+
+.toolHeader {
+  cursor: pointer;
+}

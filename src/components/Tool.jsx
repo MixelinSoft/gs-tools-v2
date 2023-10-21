@@ -2,7 +2,6 @@ import styles from "./Tool.module.css";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import { AiOutlineInfoCircle } from "react-icons/ai";
 import tools from "../utils/tools";
 import ModalInfo from "./UI/ModalInfo";
 
@@ -22,7 +21,9 @@ const Tool = () => {
         headerText={selectedTool.toolTitle + " v" + selectedTool.toolVersion}
         bodyText={selectedTool.toolDescription}
       />
-      <h2 onClick={() => setModalShowHandler(!modalShowState)}>
+      <h2
+        onClick={() => setModalShowHandler(!modalShowState)}
+        className={styles.toolHeader}>
         {selectedTool.toolTitle}
       </h2>
 

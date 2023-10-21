@@ -746,7 +746,7 @@ const gsDB = [
     gsNumber: "40",
     gsFirm: firms.alete,
     phone: "+380676103971",
-    address: "м. Днiпро, ",
+    // address: "м. Днiпро, ",
   },
 
   // 44a add zip, add region

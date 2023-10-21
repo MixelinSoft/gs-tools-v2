@@ -1,0 +1,14 @@
+.menuButton {
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.menuBody {
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menuItemIcon {
+  margin-right: 8px;
+}

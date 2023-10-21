@@ -19,7 +19,7 @@ const About = () => {
       </h5>
       {tools.map((tool) => {
         return (
-          <Link to={`/${tool.toolSlug}`}>
+          <Link to={`/${tool.toolSlug}`} key={tool.toolID}>
             <Alert variant="dark">
               <Alert.Heading className={styles.toolHeading}>
                 {tool.svgIcon}
