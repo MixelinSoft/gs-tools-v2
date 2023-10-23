@@ -1,7 +1,7 @@
 import styles from "./ResultZone.module.css";
 import { Alert } from "react-bootstrap";
 
-const ResultZone = ({ text, alert, invisible }) => {
+const ResultZone = ({ text, alert, invisible, children = "" }) => {
   return (
     <div className={styles.resultZoneContainer}>
       {!invisible ? (
@@ -9,6 +9,8 @@ const ResultZone = ({ text, alert, invisible }) => {
           className={styles.alert}
           variant={alert ? "danger" : "secondary"}>
           {text}
+          <br />
+          {children}
         </Alert>
       ) : (
         ""

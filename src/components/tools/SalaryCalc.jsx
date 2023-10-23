@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import InputGroup from "react-bootstrap/InputGroup";
 import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
 import BackButton from "../UI/BackButton";
@@ -37,48 +38,50 @@ const SalaryCalc = () => {
           changeLiters("");
         }}>
         <Form.Group>
-          <Form.Label>Введите количество отработанных часов:</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => changeHoursHandler(e.target.value)}
-            value={hours}
-            placeholder="Введите часы"
-            required
-          />
-          <Form.Text className="text-muted">Например: 192</Form.Text>
-          <br></br>
-
-          <Form.Label> Введите цену одного часа:</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => changeHoursPriceHandler(e.target.value)}
-            value={hoursPrice}
-            required
-          />
-          <Form.Text className="text-muted">По умолчанию: 40.90 грн</Form.Text>
+          <Form.Label>
+            Введите количество отработанных часов и цену одного часа (по
+            умолчанию 40.90 грн)
+          </Form.Label>
+          <InputGroup>
+            <Form.Control
+              type="number"
+              onChange={(e) => changeHoursHandler(e.target.value)}
+              value={hours}
+              placeholder="Введите часы"
+              required
+            />
+            <Form.Control
+              type="number"
+              onChange={(e) => changeHoursPriceHandler(e.target.value)}
+              value={hoursPrice}
+              required
+            />
+          </InputGroup>
         </Form.Group>
-
+        <br />
         <Form.Group>
-          <Form.Label>Введите колличество проданных литров:</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => changeLitersHandler(e.target.value)}
-            value={liters}
-            placeholder="Введите литры"
-            required
-          />
-          <Form.Text className="text-muted">Например: 23000</Form.Text>
-          <br></br>
+          <Form.Label>
+            Введите колличество проданных литров и цену одного литра (по
+            умолчанию: 0,12 грн)
+          </Form.Label>
+          <InputGroup>
+            <Form.Control
+              type="number"
+              onChange={(e) => changeLitersHandler(e.target.value)}
+              value={liters}
+              placeholder="Введите литры"
+              required
+            />
 
-          <Form.Label> Введите цену одного литра:</Form.Label>
-          <Form.Control
-            type="number"
-            onChange={(e) => changeLitersPriceHandler(e.target.value)}
-            value={litersPrice}
-            required
-          />
-          <Form.Text className="text-muted">По умолчанию: 0,12 грн</Form.Text>
+            <Form.Control
+              type="number"
+              onChange={(e) => changeLitersPriceHandler(e.target.value)}
+              value={litersPrice}
+              required
+            />
+          </InputGroup>
         </Form.Group>
+        <br />
 
         <ScrollIntoView selector="#resultZone">
           <Button variant="dark" type="submit">
