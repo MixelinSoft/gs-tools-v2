@@ -2,6 +2,7 @@ import gsDB from "../../data/gsDB";
 
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import InputGroup from "react-bootstrap/InputGroup";
 import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
 import SelectorGS from "../SelectorGS";
@@ -122,12 +123,15 @@ const Calibration = () => {
                 required
               />
               <Form.Text className="text-muted">Например 123.4</Form.Text>
-              <Form.Check
-                type="switch"
-                label="Учитывать трубопровод в рассчётах?"
-                checked={tube}
-                onChange={() => changeTube(!tube)}
-              />
+              <InputGroup>
+                <Form.Check
+                  className="switch"
+                  type="switch"
+                  label="Учитывать трубопровод в рассчётах?"
+                  checked={tube}
+                  onChange={() => changeTube(!tube)}
+                />
+              </InputGroup>
             </Form.Group>
             <br></br>
             {height !== 0 && typeGS !== "empty" ? (
