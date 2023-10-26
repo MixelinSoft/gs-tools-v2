@@ -143,7 +143,7 @@ const ExpirationDates = () => {
                 Срок годности истекает <Moment to={result.toDate}></Moment>
               </>
             }
-            text={`Товар годен до: ${result.result}.`}
+            text={`Товар годен до: ${result.result}`}
           />
         ) : (
           ""

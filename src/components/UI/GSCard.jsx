@@ -74,9 +74,7 @@ const GSCard = ({ gs }) => {
                 src={gs.gps}
                 width="100%"
                 height="100%"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                loading="lazy"></iframe>
             </div>
           ) : (
             ""

@@ -21,6 +21,7 @@ const PhoneBook = () => {
         changerId={changeGsIdHandler}
       />
       {selectedGS ? <GSCard id="gsCard" gs={selectedGS} /> : ""}
+      <div id="resultZone"></div>
     </>
   );
 };
