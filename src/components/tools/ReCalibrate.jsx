@@ -3,6 +3,7 @@ import gsDB from "../../data/gsDB";
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
 import SelectorGS from "../SelectorGS";
@@ -85,7 +86,9 @@ const Calibration = () => {
   };
 
   const calculate = (volume, tank, tube) => {
-    changeResultHandler(autoCalibrate(+volume, selectedGS.tables[tank], tube));
+    changeResultHandler(
+      autoCalibrate(+volume.replace(",", "."), selectedGS.tables[tank], tube)
+    );
   };
 
   return (
@@ -107,23 +110,25 @@ const Calibration = () => {
               calculate(volume, typeGS, tube);
             }}>
             <Form.Group>
-              <Form.Label>Выберите вид топлива</Form.Label>
-              <Form.Select
-                defaultValue="empty"
-                onChange={(e) => {
-                  changeTypeGSHandler(e.target.value);
-                }}>
-                <option value={typeGS} disabled>
-                  Нажмите для выбора вида топлива
-                </option>
-                {Object.keys(selectedGS.tables).map((gasType) => (
-                  <option
-                    value={gasType}
-                    key={selectedGS.tables[gasType].tankId}>
-                    {`${selectedGS.tables[gasType].tankId}. ${selectedGS.tables[gasType].type}`}
+              <br />
+              <FloatingLabel label="Выберите вид топлива:">
+                <Form.Select
+                  defaultValue="empty"
+                  onChange={(e) => {
+                    changeTypeGSHandler(e.target.value);
+                  }}>
+                  <option value={typeGS} disabled>
+                    Нажмите для выбора вида топлива
                   </option>
-                ))}
-              </Form.Select>
+                  {Object.keys(selectedGS.tables).map((gasType) => (
+                    <option
+                      value={gasType}
+                      key={selectedGS.tables[gasType].tankId}>
+                      {`${selectedGS.tables[gasType].tankId}. ${selectedGS.tables[gasType].type}`}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
               <br></br>
               <Form.Label>Введите объём топлива в л</Form.Label>
               <Form.Control

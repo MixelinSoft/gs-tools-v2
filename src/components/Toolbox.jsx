@@ -3,8 +3,12 @@ import ToolsButton from "./ToolsButton";
 
 import Container from "react-bootstrap/Container";
 import tools from "../utils/tools";
+import { useEffect } from "react";
 
 const Toolbox = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Container className={styles.toolboxContainer}>
       {tools.map((tool) => (

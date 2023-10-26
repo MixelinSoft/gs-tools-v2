@@ -12,7 +12,7 @@ const About = () => {
     <Container className="infoContainer">
       <BackButton />
       <h1>О приложении</h1>
-      <h2>GS-Tools v2.4.10</h2>
+      <h2>GS-Tools v2.5.1</h2>
       <h5>
         Приложение GS-Tools разработано для решения повседневных задач
         работников АЗС. На данный момент в приложении имеются такие утилиты:

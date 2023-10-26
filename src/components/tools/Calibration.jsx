@@ -3,6 +3,7 @@ import gsDB from "../../data/gsDB";
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
 import SelectorGS from "../SelectorGS";
@@ -15,6 +16,8 @@ const Calibration = () => {
   const [height, changeHeight] = useState("");
   const [tube, changeTube] = useState(true);
   const [result, changeResult] = useState(0);
+  const [resultHeight, changeResultHeight] = useState(0);
+
   const [modalShowState, setModalShowState] = useState(false);
   const [modalInfo, changeModalInfo] = useState({});
 
@@ -44,6 +47,10 @@ const Calibration = () => {
   const changeResultHandler = (result) => {
     changeResult(result);
   };
+
+  const changeResultHeightHandler = (result) => {
+    changeResultHeight(result);
+  };
   const setModalShowHandler = (show) => {
     setModalShowState(show);
   };
@@ -66,8 +73,12 @@ const Calibration = () => {
       ((tank.capacityTable[levelHi] - tank.capacityTable[levelLow]) / 10) *
       afterRound;
     if (tube === true) {
+      changeResultHeightHandler(
+        Math.round(tank.capacityTable[levelLow] + tail)
+      );
       return Math.round(tank.capacityTable[levelLow] + tank.tube + tail);
     }
+    changeResultHeightHandler(Math.round(tank.capacityTable[levelLow] + tail));
     return Math.round(tank.capacityTable[levelLow] + tail);
   };
 
@@ -96,23 +107,25 @@ const Calibration = () => {
               calculate(height, typeGS, tube);
             }}>
             <Form.Group>
-              <Form.Label>Выберите вид топлива</Form.Label>
-              <Form.Select
-                defaultValue="empty"
-                onChange={(e) => {
-                  changeTypeGSHandler(e.target.value);
-                }}>
-                <option value={typeGS} disabled>
-                  Нажмите для выбора вида топлива
-                </option>
-                {Object.keys(selectedGS.tables).map((gasType) => (
-                  <option
-                    value={gasType}
-                    key={selectedGS.tables[gasType].tankId}>
-                    {`${selectedGS.tables[gasType].tankId}. ${selectedGS.tables[gasType].type}`}
+              <br />
+              <FloatingLabel label="Выберите вид топлива:">
+                <Form.Select
+                  defaultValue="empty"
+                  onChange={(e) => {
+                    changeTypeGSHandler(e.target.value);
+                  }}>
+                  <option value={typeGS} disabled>
+                    Нажмите для выбора вида топлива
                   </option>
-                ))}
-              </Form.Select>
+                  {Object.keys(selectedGS.tables).map((gasType) => (
+                    <option
+                      value={gasType}
+                      key={selectedGS.tables[gasType].tankId}>
+                      {`${selectedGS.tables[gasType].tankId}. ${selectedGS.tables[gasType].type}`}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
               <br></br>
               <Form.Label>Введите высоту топлива с метрштока в см</Form.Label>
               <Form.Control
@@ -157,6 +170,11 @@ const Calibration = () => {
           <div id="resultZone">
             {result === 0 ? (
               ""
+            ) : resultHeight < selectedGS.tables[typeGS].minCapcity ? (
+              <ResultZone
+                alert
+                text={`Внимание! Остаток топлива ниже мёртвого остатка - ${selectedGS.tables[typeGS].minCapcity}. Объём топлива -  ${result}л`}
+              />
             ) : !result ? (
               <ResultZone alert text="Ошибка! Некорректные данные!" />
             ) : (
