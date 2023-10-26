@@ -131,14 +131,17 @@ const Calibration = () => {
               </FloatingLabel>
               <br></br>
               <Form.Label>Введите объём топлива в л</Form.Label>
-              <Form.Control
-                type="text"
-                onChange={(e) => changeVolumeHandler(e.target.value)}
-                value={volume}
-                placeholder="Нажмите для ввода"
-                required
-              />
-              <Form.Text className="text-muted">Например 1234.5</Form.Text>
+              <InputGroup>
+                <Form.Control
+                  type="text"
+                  onChange={(e) => changeVolumeHandler(e.target.value)}
+                  value={volume}
+                  placeholder="Нажмите для ввода"
+                  required
+                />
+                <InputGroup.Text>л</InputGroup.Text>
+              </InputGroup>
+              <br />
               <InputGroup>
                 <Form.Check
                   className="switch"

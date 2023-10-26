@@ -127,15 +127,18 @@ const Calibration = () => {
                 </Form.Select>
               </FloatingLabel>
               <br></br>
-              <Form.Label>Введите высоту топлива с метрштока в см</Form.Label>
-              <Form.Control
-                type="text"
-                onChange={(e) => changeHeightHandler(e.target.value)}
-                value={height}
-                placeholder="Нажмите для ввода"
-                required
-              />
-              <Form.Text className="text-muted">Например 123.4</Form.Text>
+              <Form.Label>Введите высоту топлива с метрштока</Form.Label>
+              <InputGroup>
+                <Form.Control
+                  type="text"
+                  onChange={(e) => changeHeightHandler(e.target.value)}
+                  value={height}
+                  placeholder="Нажмите для ввода"
+                  required
+                />
+                <InputGroup.Text>см</InputGroup.Text>
+              </InputGroup>
+              <br />
               <InputGroup>
                 <Form.Check
                   className="switch"
@@ -173,7 +176,7 @@ const Calibration = () => {
             ) : resultHeight < selectedGS.tables[typeGS].minCapcity ? (
               <ResultZone
                 alert
-                text={`Внимание! Остаток топлива ниже мёртвого остатка - ${selectedGS.tables[typeGS].minCapcity}. Объём топлива -  ${result}л`}
+                text={`Внимание! Остаток топлива ниже мёртвого остатка - ${selectedGS.tables[typeGS].minCapcity}л \nОбъём топлива - ${result}л`}
               />
             ) : !result ? (
               <ResultZone alert text="Ошибка! Некорректные данные!" />

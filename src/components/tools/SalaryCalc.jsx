@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
-import { FaRegClock } from "react-icons/fa";
-import { BiGasPump } from "react-icons/bi";
 import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
 import BackButton from "../UI/BackButton";
@@ -49,19 +47,17 @@ const SalaryCalc = () => {
               type="number"
               onChange={(e) => changeHoursHandler(e.target.value)}
               value={hours}
-              placeholder="Введите часы"
+              placeholder="Нажмите для ввода"
               required
             />
-            <InputGroup.Text>
-              <FaRegClock />
-            </InputGroup.Text>
+            <InputGroup.Text>ч.</InputGroup.Text>
             <Form.Control
               type="number"
               onChange={(e) => changeHoursPriceHandler(e.target.value)}
               value={hoursPrice}
               required
             />
-            <InputGroup.Text>₴</InputGroup.Text>
+            <InputGroup.Text>грн</InputGroup.Text>
           </InputGroup>
         </Form.Group>
         <br />
@@ -75,12 +71,10 @@ const SalaryCalc = () => {
               type="number"
               onChange={(e) => changeLitersHandler(e.target.value)}
               value={liters}
-              placeholder="Введите литры"
+              placeholder="Нажмите для ввода"
               required
             />
-            <InputGroup.Text>
-              <BiGasPump />
-            </InputGroup.Text>
+            <InputGroup.Text>л</InputGroup.Text>
 
             <Form.Control
               type="number"
@@ -88,7 +82,7 @@ const SalaryCalc = () => {
               value={litersPrice}
               required
             />
-            <InputGroup.Text>₴</InputGroup.Text>
+            <InputGroup.Text>грн</InputGroup.Text>
           </InputGroup>
         </Form.Group>
         <br />
