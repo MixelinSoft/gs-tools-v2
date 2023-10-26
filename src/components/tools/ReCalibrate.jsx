@@ -15,6 +15,7 @@ const Calibration = () => {
   const [volume, changeVolume] = useState("");
   const [tube, changeTube] = useState(true);
   const [result, changeResult] = useState(0);
+  const [resultVolume, changeResultVolume] = useState(0);
   const [modalShowState, setModalShowState] = useState(false);
   const [modalInfo, changeModalInfo] = useState({});
 
@@ -44,6 +45,9 @@ const Calibration = () => {
   const changeResultHandler = (result) => {
     changeResult(result);
   };
+  const changeResultVolumeHandler = (result) => {
+    changeResultVolume(result);
+  };
   const setModalShowHandler = (show) => {
     setModalShowState(show);
   };
@@ -56,7 +60,10 @@ const Calibration = () => {
     let result = 0;
 
     if (tube) {
-      volume -= tank.tube;
+      changeResultVolumeHandler(volume - tank.tube);
+      volume = volume - tank.tube;
+    } else {
+      changeResultVolumeHandler(volume);
     }
 
     if (tank.capacityTable.includes(+volume)) {
@@ -73,11 +80,12 @@ const Calibration = () => {
     } else {
       result = false;
     }
+
     return result;
   };
 
   const calculate = (volume, tank, tube) => {
-    changeResultHandler(autoCalibrate(volume, selectedGS.tables[tank], tube));
+    changeResultHandler(autoCalibrate(+volume, selectedGS.tables[tank], tube));
   };
 
   return (
@@ -156,13 +164,14 @@ const Calibration = () => {
               ""
             )}
           </Form>
-
           <div id="resultZone">
-            {result === 0 ? (
+            {resultVolume < 0 ? (
+              <ResultZone alert text={`Ошибка! Значение меньше допустимого!`} />
+            ) : result === 0 ? (
               ""
             ) : !result ? (
               <ResultZone alert text="Ошибка! Некорректные данные!" />
-            ) : result <= selectedGS.tables[typeGS].minHeight ? (
+            ) : resultVolume < selectedGS.tables[typeGS].minCapcity ? (
               <ResultZone
                 alert
                 text={`Внимание! Объём топлива ниже мёртвого остатка: ${selectedGS.tables[typeGS].minCapcity}л Высота напролнения: ${result}см`}
