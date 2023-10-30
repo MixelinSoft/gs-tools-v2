@@ -14,8 +14,9 @@ address {
 }
 
 .icon {
+  font-size: 28px;
   margin-right: 12px;
-  margin-top: 4px;
+  /* margin-top: 4px; */
 }
 
 .phoneLink {
