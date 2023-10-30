@@ -3,10 +3,10 @@ import gsDB from "../../data/gsDB";
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
+import FloatingLabel from "react-bootstrap/FloatingLabel";
 import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
 import SelectorGS from "../SelectorGS";
-import SelectorGasType from "../UI/SelectorGasType";
 import BackButton from "../UI/BackButton";
 import ModalInfo from "../UI/ModalInfo";
 
@@ -108,11 +108,24 @@ const Calibration = () => {
             }}>
             <Form.Group>
               <br />
-              <SelectorGasType
-                changeTypeGSHandler={changeTypeGSHandler}
-                typeGS={typeGS}
-                selectedGS={selectedGS}
-              />
+              <FloatingLabel label="Выберите вид топлива:">
+                <Form.Select
+                  defaultValue="empty"
+                  onChange={(e) => {
+                    changeTypeGSHandler(e.target.value);
+                  }}>
+                  <option value={typeGS} disabled>
+                    Нажмите для выбора вида топлива
+                  </option>
+                  {Object.keys(selectedGS.tables).map((gasType) => (
+                    <option
+                      value={gasType}
+                      key={selectedGS.tables[gasType].tankId}>
+                      {`${selectedGS.tables[gasType].tankId}. ${selectedGS.tables[gasType].type}`}
+                    </option>
+                  ))}
+                </Form.Select>
+              </FloatingLabel>
               <br></br>
               <Form.Label>Введите высоту топлива с метрштока</Form.Label>
               <InputGroup>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import ScrollIntoView from "react-scroll-into-view";
 import ResultZone from "../ResultZone";
 import BackButton from "../UI/BackButton";
@@ -42,23 +44,31 @@ const SalaryCalc = () => {
             Введите количество отработанных часов и цену одного часа (по
             умолчанию 40.90 грн)
           </Form.Label>
-          <InputGroup>
-            <Form.Control
-              type="number"
-              onChange={(e) => changeHoursHandler(e.target.value)}
-              value={hours}
-              placeholder="Нажмите для ввода"
-              required
-            />
-            <InputGroup.Text>ч.</InputGroup.Text>
-            <Form.Control
-              type="number"
-              onChange={(e) => changeHoursPriceHandler(e.target.value)}
-              value={hoursPrice}
-              required
-            />
-            <InputGroup.Text>грн</InputGroup.Text>
-          </InputGroup>
+          <Row>
+            <Col>
+              <InputGroup>
+                <Form.Control
+                  type="number"
+                  onChange={(e) => changeHoursHandler(e.target.value)}
+                  value={hours}
+                  placeholder="Нажмите для ввода"
+                  required
+                />
+                <InputGroup.Text>ч.</InputGroup.Text>
+              </InputGroup>
+            </Col>
+            <Col>
+              <InputGroup>
+                <Form.Control
+                  type="number"
+                  onChange={(e) => changeHoursPriceHandler(e.target.value)}
+                  value={hoursPrice}
+                  required
+                />
+                <InputGroup.Text>грн</InputGroup.Text>
+              </InputGroup>
+            </Col>
+          </Row>
         </Form.Group>
         <br />
         <Form.Group>
@@ -66,24 +76,31 @@ const SalaryCalc = () => {
             Введите колличество проданных литров и цену одного литра (по
             умолчанию: 0,12 грн)
           </Form.Label>
-          <InputGroup>
-            <Form.Control
-              type="number"
-              onChange={(e) => changeLitersHandler(e.target.value)}
-              value={liters}
-              placeholder="Нажмите для ввода"
-              required
-            />
-            <InputGroup.Text>л</InputGroup.Text>
-
-            <Form.Control
-              type="number"
-              onChange={(e) => changeLitersPriceHandler(e.target.value)}
-              value={litersPrice}
-              required
-            />
-            <InputGroup.Text>грн</InputGroup.Text>
-          </InputGroup>
+          <Row>
+            <Col>
+              <InputGroup>
+                <Form.Control
+                  type="number"
+                  onChange={(e) => changeLitersHandler(e.target.value)}
+                  value={liters}
+                  placeholder="Нажмите для ввода"
+                  required
+                />
+                <InputGroup.Text>л</InputGroup.Text>
+              </InputGroup>
+            </Col>
+            <Col>
+              <InputGroup>
+                <Form.Control
+                  type="number"
+                  onChange={(e) => changeLitersPriceHandler(e.target.value)}
+                  value={litersPrice}
+                  required
+                />
+                <InputGroup.Text>грн</InputGroup.Text>
+              </InputGroup>
+            </Col>
+          </Row>
         </Form.Group>
         <br />
 
