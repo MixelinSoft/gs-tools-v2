@@ -5,5 +5,8 @@
   font-weight: 700;
 }
 .toolVersion {
-  margin-left: 34px;
+  text-align: center;
+}
+.svg {
+  margin-right: 8px;
 }

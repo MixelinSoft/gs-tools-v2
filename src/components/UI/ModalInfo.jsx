@@ -1,6 +1,7 @@
+import styles from "./ModalInfo.module.css";
 import Modal from "react-bootstrap/Modal";
 
-const ModalInfo = ({ headerText, bodyText, show, showToggler }) => {
+const ModalInfo = ({ headerText, bodyText, show, showToggler, svg = "" }) => {
   return (
     <Modal
       size="lg"
@@ -10,6 +11,7 @@ const ModalInfo = ({ headerText, bodyText, show, showToggler }) => {
       onHide={() => showToggler(false)}>
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
+          <span className={styles.svg}>{svg}</span>
           {headerText}
         </Modal.Title>
       </Modal.Header>

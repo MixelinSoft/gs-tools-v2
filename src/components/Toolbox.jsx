@@ -16,7 +16,7 @@ const Toolbox = () => {
           className={styles.tool}
           tool={tool}
           key={tool.toolID}
-          svg={tool.svgIcon}
+          svg={tool.icon}
         />
       ))}
     </Container>

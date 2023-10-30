@@ -20,6 +20,7 @@ const Tool = () => {
         showToggler={setModalShowState}
         headerText={selectedTool.toolTitle + " v" + selectedTool.toolVersion}
         bodyText={selectedTool.toolDescription}
+        svg={selectedTool.icon}
       />
       <h2
         onClick={() => setModalShowHandler(!modalShowState)}

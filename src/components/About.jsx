@@ -12,7 +12,7 @@ const About = () => {
     <Container className="infoContainer">
       <BackButton />
       <h1>О приложении</h1>
-      <h2>GS-Tools v2.5.5</h2>
+      <h2>GS-Tools v2.5.7</h2>
       <h5>
         Приложение GS-Tools разработано для решения повседневных задач
         работников АЗС. На данный момент в приложении имеются такие утилиты:
@@ -22,7 +22,7 @@ const About = () => {
           <Link to={`/${tool.toolSlug}`} key={tool.toolID}>
             <Alert variant="dark">
               <Alert.Heading className={styles.toolHeading}>
-                {tool.svgIcon}
+                <span className={styles.svg}>{tool.icon}</span>
                 <span className={styles.toolTitle}>{tool.toolTitle}</span>
                 <p className={styles.toolVersion}> v{tool.toolVersion}</p>
               </Alert.Heading>
