@@ -7,12 +7,15 @@ import Alert from "react-bootstrap/Alert";
 
 import { Link } from "react-router-dom";
 
+const packageJson = require("../../package.json");
+
+console.log(packageJson);
 const About = () => {
   return (
     <Container className="infoContainer">
       <BackButton />
       <h1>О приложении</h1>
-      <h2>GS-Tools v2.5.7</h2>
+      <h2>GS-Tools v{packageJson.version}</h2>
       <h5>
         Приложение GS-Tools разработано для решения повседневных задач
         работников АЗС. На данный момент в приложении имеются такие утилиты:
