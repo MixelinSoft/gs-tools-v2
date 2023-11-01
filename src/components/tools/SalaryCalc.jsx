@@ -1,3 +1,4 @@
+import salaryCalcFunction from "./salaryCalcFunction";
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -26,8 +27,8 @@ const SalaryCalc = () => {
   const changeLitersPriceHandler = (newLiterPrice) => {
     changeLitersPrice(newLiterPrice);
   };
-  const calculateSalary = () => {
-    changeResult(hours * hoursPrice + liters * litersPrice);
+  const calculateSalary = (hours, hoursPrice, liters, litersPrice) => {
+    changeResult(salaryCalcFunction(hours, hoursPrice, liters, litersPrice));
   };
 
   return (
@@ -35,7 +36,7 @@ const SalaryCalc = () => {
       <Form
         onSubmit={(e) => {
           e.preventDefault();
-          calculateSalary();
+          calculateSalary(hours, hoursPrice, liters, litersPrice);
           changeHoursHandler("");
           changeLiters("");
         }}>
