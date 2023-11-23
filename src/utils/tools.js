@@ -1,65 +1,95 @@
 //tools
-import SalaryCalc from "../components/tools/SalaryCalc";
-import Calibration from "../components/tools/Calibration";
-import ReCalibrate from "../components/tools/ReCalibrate";
-import PhoneBook from "../components/tools/PhoneBook";
-import ExpirationDates from "../components/tools/ExpirationDates";
+import SalaryCalc from '../components/tools/SalaryCalc';
+import Calibration from '../components/tools/Calibration';
+import ReCalibrate from '../components/tools/ReCalibrate';
+import PhoneBook from '../components/tools/PhoneBook';
+import ExpirationDates from '../components/tools/ExpirationDates';
 //icons
-import { GiThermometerScale, GiChemicalTank } from "react-icons/gi";
-import { MdOutlineContactPhone } from "react-icons/md";
-import { BsCashStack } from "react-icons/bs";
-import { LuCalendarClock } from "react-icons/lu";
+import { GiThermometerScale, GiChemicalTank } from 'react-icons/gi';
+import { MdOutlineContactPhone } from 'react-icons/md';
+import { BsCashStack } from 'react-icons/bs';
+import { LuCalendarClock } from 'react-icons/lu';
+//Localization
+import localization from '../data/localization';
+
+const UAlocalization = localization.ua.tools;
+const RUlocalization = localization.ru.tools;
 
 const tools = [
   {
-    toolTitle: "Калибровка топлива",
-    toolDescription:
-      "Инструмент для калибровки топлива, запрашивает у пользователя номер ёмкости или вид топлива, высоту топлива в выбранной ёмкости в сантиметрах. При нажатии кнопки 'Рассчитать' производятся расчёты согласно калибровочной таблицы, результат округляется до целых чисел и выводится в литрах. Есть возможность исключить трубопровод из расчёта объёма. Так-же после выбора ёмкости появляется кнопка 'Информация о резервуаре', при нажатии на которую открывается модальное окно с подробной информацией о резервуаре (Максимальный объём, мёртвый остаток и т.д.) ",
-    toolID: "01",
-    toolSlug: "calibrate",
-    toolVersion: "1.2.10",
+    toolTitle: {
+      ua: 'test',
+      ru: RUlocalization.calibration.title,
+    },
+    toolDescription: {
+      ua: 'test',
+      ru: RUlocalization.calibration.description,
+    },
+    toolID: '01',
+    toolSlug: 'calibrate',
+    toolVersion: '1.2.10',
     tool: Calibration,
-    icon: <GiThermometerScale className="rotate" />,
+    icon: <GiThermometerScale className='rotate' />,
   },
 
   {
-    toolTitle: "Обратная калибровка топлива",
-    toolDescription:
-      "Инструмент для обратной калибровки топлива, запрашивает у пользователя номер ёмкости или вид топлива, объём топлива в литрах. При нажатии кнопки 'Рассчитать' производятся расчёты согласно калибровочной таблицы, результат округляется до одного знака после запятой и выводится в сантиметрах. Есть возможность исключить трубопровод из расчёта объёма. Так-же после выбора ёмкости появляется кнопка 'Информация о резервуаре', при нажатии на которую открывается модальное окно с подробной информацией о резервуаре (Максимальный объём, мёртвый остаток и т.д.)",
-    toolID: "02",
-    toolSlug: "recalibrate",
-    toolVersion: "1.1.4",
+    toolTitle: {
+      ua: 'test',
+      ru: RUlocalization.reCalibrate.title,
+    },
+    toolDescription: {
+      ua: 'test',
+      ru: RUlocalization.reCalibrate.description,
+    },
+    toolID: '02',
+    toolSlug: 'recalibrate',
+    toolVersion: '1.1.4',
     tool: ReCalibrate,
     icon: <GiChemicalTank />,
   },
 
   {
-    toolTitle: "Книга контактов и адресов",
-    toolDescription:
-      "Справочник, с номерами АЗС, названиями предприятий, районами, почтовыми индексами, адресами и миникартой. При нажатии на номер телефона открывается приложение для звонков с набранным номером выбранной АЗС. При нажатии на мини-карту открывается приложение 'Google Maps', если установлено на устройстве, в противном случае открывается веб версия, с установленой точкой координат на выбранной АЗС.",
-    toolID: "03",
-    toolSlug: "phone-book",
-    toolVersion: "1.2.3",
+    toolTitle: {
+      ua: 'test',
+      ru: RUlocalization.phoneBook.title,
+    },
+    toolDescription: {
+      ua: 'test',
+      ru: RUlocalization.phoneBook.description,
+    },
+    toolID: '03',
+    toolSlug: 'phone-book',
+    toolVersion: '1.2.3',
     tool: PhoneBook,
     icon: <MdOutlineContactPhone />,
   },
   {
-    toolTitle: "Калькулятор зарплаты",
-    toolDescription:
-      "Инструмент для подсчёта заработной платы, запрашивает отработанные часы и проданные литры. Есть возможность изменить почасовую ставку и оплату за литраж. При нажатии на кнопку 'Рассчитать' производится расчёт. Итоговая сумма округляется до запятой (до целых грн)",
-    toolID: "04",
-    toolSlug: "salary-calc",
-    toolVersion: "1.1.7",
+    toolTitle: {
+      ua: 'test',
+      ru: RUlocalization.salaryCalc.title,
+    },
+    toolDescription: {
+      ua: 'test',
+      ru: RUlocalization.salaryCalc.description,
+    },
+    toolID: '04',
+    toolSlug: 'salary-calc',
+    toolVersion: '1.1.7',
     tool: SalaryCalc,
     icon: <BsCashStack />,
   },
   {
-    toolTitle: "Подсчёт сроков годности",
-    toolDescription:
-      "Инструмент для подсчёта сроков годности товаров, запрашивает дату изготовления, срок годности и единицу измерения срока годности (дней, месяцев или лет). При нажатии на кнопку 'Рассчитать' производится расчёт. В случае, если товар еще не просрочен - результатом будет дата, до которой товар годен и какой срок остался до конца срока годности. В обратном случае - результатом будет предупреждение, что товар просрочен, когда был просрочен, и сколько времени прошло с выхода срока годности.",
-    toolID: "05",
-    toolSlug: "expiration-date",
-    toolVersion: "1.2.2",
+    toolTitle: {
+      ua: 'test',
+      ru: RUlocalization.expirationDate.title,
+    },
+    toolDescription: {
+      ua: 'test',
+      ru: RUlocalization.expirationDate.description,
+    },
+    toolID: '05',
+    toolSlug: 'expiration-date',
+    toolVersion: '1.2.2',
     tool: ExpirationDates,
     icon: <LuCalendarClock />,
   },

@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import { HiOutlineMenuAlt1 } from "react-icons/hi";
-import { GrDomain } from "react-icons/gr";
-import { AiOutlineContacts, AiOutlineInfoCircle } from "react-icons/ai";
-import styles from "./Menu.module.css";
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import { HiOutlineMenuAlt1 } from 'react-icons/hi';
+import { GrDomain } from 'react-icons/gr';
+import { AiOutlineContacts, AiOutlineInfoCircle } from 'react-icons/ai';
+import styles from './Menu.module.css';
 
-function Menu() {
+function Menu({ localization }) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -18,22 +18,23 @@ function Menu() {
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Меню</Offcanvas.Title>
+          <Offcanvas.Title>{localization.menu.burger.title}</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className={styles.menuBody}>
-          <Link to="/" onClick={handleClose}>
+          <Link to='/' onClick={handleClose}>
             <GrDomain className={styles.menuItemIcon} />
-            Главная
+            {localization.menu.burger.mainPage}
           </Link>
 
-          <Link to="/contacts" onClick={handleClose}>
-            {" "}
+          <Link to='/contacts' onClick={handleClose}>
+            {' '}
             <AiOutlineContacts className={styles.menuItemIcon} />
-            Контакты
+            {localization.menu.burger.contacts}
           </Link>
 
-          <Link to="/about" onClick={handleClose}>
-            <AiOutlineInfoCircle className={styles.menuItemIcon} />О приложении
+          <Link to='/about' onClick={handleClose}>
+            <AiOutlineInfoCircle className={styles.menuItemIcon} />
+            {localization.menu.burger.about}
           </Link>
         </Offcanvas.Body>
       </Offcanvas>
