@@ -27,7 +27,7 @@ const tools = [
     },
     toolID: '01',
     toolSlug: 'calibrate',
-    toolVersion: '1.3.0',
+    toolVersion: '1.3.1',
     tool: Calibration,
     icon: <GiThermometerScale className='rotate' />,
   },

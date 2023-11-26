@@ -4,7 +4,6 @@ import localization from '../../data/localization';
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import InputGroup from 'react-bootstrap/InputGroup';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import ScrollIntoView from 'react-scroll-into-view';
 import ResultZone from '../ResultZone';
 import SelectorGS from '../SelectorGS';
@@ -15,6 +14,7 @@ import TankInfo from '../UI/TankInfo';
 
 const Calibration = () => {
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
+  const text = localization[userSettingsLocalizaton].tools.calibration;
 
   const [gsId, changeGsId] = useState('empty');
   const [typeGS, changeTypeGS] = useState('empty');
@@ -120,13 +120,13 @@ const Calibration = () => {
                 lang={localization[userSettingsLocalizaton].selectorGasType}
               />
               <br></br>
-              <Form.Label>Введите высоту топлива с метрштока</Form.Label>
+              <Form.Label>{text.inputLabel_1}</Form.Label>
               <InputGroup>
                 <Form.Control
                   type='text'
                   onChange={(e) => changeHeightHandler(e.target.value)}
                   value={height}
-                  placeholder='Нажмите для ввода'
+                  placeholder={text.inputPlaceholder_1}
                   required
                 />
                 <InputGroup.Text>см</InputGroup.Text>
@@ -136,7 +136,7 @@ const Calibration = () => {
                 <Form.Check
                   className='switch'
                   type='switch'
-                  label='Учитывать трубопровод в рассчётах?'
+                  label={text.inputLabel_2}
                   checked={tube}
                   onChange={() => changeTube(!tube)}
                 />
@@ -147,7 +147,7 @@ const Calibration = () => {
               <>
                 <ScrollIntoView selector='#resultZone'>
                   <Button variant='dark' type='submit'>
-                    Рассчитать!
+                    {text.button_1}
                   </Button>
                   <br></br>
                 </ScrollIntoView>
@@ -155,7 +155,7 @@ const Calibration = () => {
                 <Button
                   variant='dark'
                   onClick={() => setModalShowHandler(true)}>
-                  Информация о резервуаре
+                  {text.button_2}
                 </Button>
               </>
             ) : (
@@ -169,12 +169,12 @@ const Calibration = () => {
             ) : resultHeight < selectedGS.tables[typeGS].minCapcity ? (
               <ResultZone
                 alert
-                text={`Внимание! Остаток топлива ниже мёртвого остатка - ${selectedGS.tables[typeGS].minCapcity}л \nОбъём топлива - ${result}л`}
+                text={`${text.resultText_1}${selectedGS.tables[typeGS].minCapcity}л \n${text.resultText_3}${result}л`}
               />
             ) : !result ? (
-              <ResultZone alert text='Ошибка! Некорректные данные!' />
+              <ResultZone alert text={text.resultText_2} />
             ) : (
-              <ResultZone text={`Объём топлива: ${result}л`} />
+              <ResultZone text={`${text.resultText_3}${result}л`} />
             )}
           </div>
         </>
