@@ -1,19 +1,22 @@
-import gsDB from "../../data/gsDB";
+import gsDB from '../../data/gsDB';
+import localization from '../../data/localization';
 
-import { useState } from "react";
-import { Button, Form } from "react-bootstrap";
-import InputGroup from "react-bootstrap/InputGroup";
-import ScrollIntoView from "react-scroll-into-view";
-import ResultZone from "../ResultZone";
-import SelectorGS from "../SelectorGS";
-import SelectorGasType from "../UI/SelectorGasType";
-import BackButton from "../UI/BackButton";
-import ModalInfo from "../UI/ModalInfo";
+import { useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
+import InputGroup from 'react-bootstrap/InputGroup';
+import ScrollIntoView from 'react-scroll-into-view';
+import ResultZone from '../ResultZone';
+import SelectorGS from '../SelectorGS';
+import SelectorGasType from '../UI/SelectorGasType';
+import BackButton from '../UI/BackButton';
+import ModalInfo from '../UI/ModalInfo';
 
 const Calibration = () => {
-  const [gsId, changeGsId] = useState("empty");
-  const [typeGS, changeTypeGS] = useState("empty");
-  const [volume, changeVolume] = useState("");
+  let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
+
+  const [gsId, changeGsId] = useState('empty');
+  const [typeGS, changeTypeGS] = useState('empty');
+  const [volume, changeVolume] = useState('');
   const [tube, changeTube] = useState(true);
   const [result, changeResult] = useState(0);
   const [resultVolume, changeResultVolume] = useState(0);
@@ -23,7 +26,7 @@ const Calibration = () => {
   const changeTypeGSHandler = (type) => {
     changeTypeGS(type);
     changeModalInfoHandler({
-      header: "Информация о резервуаре",
+      header: 'Информация о резервуаре',
       body: (
         <div>
           <h2>Резервуар №{selectedGS.tables[type].tankId}</h2>
@@ -87,15 +90,19 @@ const Calibration = () => {
 
   const calculate = (volume, tank, tube) => {
     changeResultHandler(
-      autoCalibrate(+volume.replace(",", "."), selectedGS.tables[tank], tube)
+      autoCalibrate(+volume.replace(',', '.'), selectedGS.tables[tank], tube)
     );
   };
 
   return (
     <>
-      <SelectorGS param={"tables"} changerId={changeGsIdHandler} />
-      {gsId === "empty" ? (
-        ""
+      <SelectorGS
+        param={'tables'}
+        changerId={changeGsIdHandler}
+        lang={localization[userSettingsLocalizaton].selectorGS}
+      />
+      {gsId === 'empty' ? (
+        ''
       ) : (
         <>
           <ModalInfo
@@ -120,10 +127,10 @@ const Calibration = () => {
               <Form.Label>Введите объём топлива в л</Form.Label>
               <InputGroup>
                 <Form.Control
-                  type="text"
+                  type='text'
                   onChange={(e) => changeVolumeHandler(e.target.value)}
                   value={volume}
-                  placeholder="Нажмите для ввода"
+                  placeholder='Нажмите для ввода'
                   required
                 />
                 <InputGroup.Text>л</InputGroup.Text>
@@ -131,41 +138,41 @@ const Calibration = () => {
               <br />
               <InputGroup>
                 <Form.Check
-                  className="switch"
-                  type="switch"
-                  label="Значение включает в себя трубопровод?"
+                  className='switch'
+                  type='switch'
+                  label='Значение включает в себя трубопровод?'
                   checked={tube}
                   onChange={() => changeTube(!tube)}
                 />
               </InputGroup>
             </Form.Group>
             <br></br>
-            {volume !== 0 && typeGS !== "empty" ? (
+            {volume !== 0 && typeGS !== 'empty' ? (
               <>
-                <ScrollIntoView selector="#resultZone">
-                  <Button variant="dark" type="submit">
+                <ScrollIntoView selector='#resultZone'>
+                  <Button variant='dark' type='submit'>
                     Рассчитать!
                   </Button>
                   <br></br>
                 </ScrollIntoView>
                 <br></br>
                 <Button
-                  variant="dark"
+                  variant='dark'
                   onClick={() => setModalShowHandler(true)}>
                   Информация о резервуаре
                 </Button>
               </>
             ) : (
-              ""
+              ''
             )}
           </Form>
-          <div id="resultZone">
+          <div id='resultZone'>
             {resultVolume < 0 ? (
               <ResultZone alert text={`Ошибка! Значение меньше допустимого!`} />
             ) : result === 0 ? (
-              ""
+              ''
             ) : !result ? (
-              <ResultZone alert text="Ошибка! Некорректные данные!" />
+              <ResultZone alert text='Ошибка! Некорректные данные!' />
             ) : resultVolume < selectedGS.tables[typeGS].minCapcity ? (
               <ResultZone
                 alert
