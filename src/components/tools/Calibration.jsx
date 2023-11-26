@@ -8,8 +8,10 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import ScrollIntoView from 'react-scroll-into-view';
 import ResultZone from '../ResultZone';
 import SelectorGS from '../SelectorGS';
+import SelectorGasType from '../UI/SelectorGasType';
 import BackButton from '../UI/BackButton';
 import ModalInfo from '../UI/ModalInfo';
+import TankInfo from '../UI/TankInfo';
 
 const Calibration = () => {
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
@@ -27,16 +29,12 @@ const Calibration = () => {
   const changeTypeGSHandler = (type) => {
     changeTypeGS(type);
     changeModalInfoHandler({
-      header: 'Информация о резервуаре',
+      header: localization[userSettingsLocalizaton].tankInfo.header_1,
       body: (
-        <div>
-          <h2>Резервуар №{selectedGS.tables[type].tankId}</h2>
-          <p>Вид топлива: {selectedGS.tables[type].type}</p>
-          <p>Трубопровод: {selectedGS.tables[type].tube}л</p>
-          <p>Мёртвый остаток: {selectedGS.tables[type].minCapcity}л</p>
-          <p>Максимальный объём: {selectedGS.tables[type].maxCapacity}л</p>
-          <p>Максимальная высота: {selectedGS.tables[type].maxHeight}см</p>
-        </div>
+        <TankInfo
+          tank={selectedGS.tables[type]}
+          lang={localization[userSettingsLocalizaton].tankInfo}
+        />
       ),
     });
     changeResultHandler(0);
@@ -115,24 +113,12 @@ const Calibration = () => {
             }}>
             <Form.Group>
               <br />
-              <FloatingLabel label='Выберите вид топлива:'>
-                <Form.Select
-                  defaultValue='empty'
-                  onChange={(e) => {
-                    changeTypeGSHandler(e.target.value);
-                  }}>
-                  <option value={typeGS} disabled>
-                    Нажмите для выбора вида топлива
-                  </option>
-                  {Object.keys(selectedGS.tables).map((gasType) => (
-                    <option
-                      value={gasType}
-                      key={selectedGS.tables[gasType].tankId}>
-                      {`${selectedGS.tables[gasType].tankId}. ${selectedGS.tables[gasType].type}`}
-                    </option>
-                  ))}
-                </Form.Select>
-              </FloatingLabel>
+              <SelectorGasType
+                changeTypeGSHandler={changeTypeGSHandler}
+                typeGS={typeGS}
+                selectedGS={selectedGS}
+                lang={localization[userSettingsLocalizaton].selectorGasType}
+              />
               <br></br>
               <Form.Label>Введите высоту топлива с метрштока</Form.Label>
               <InputGroup>

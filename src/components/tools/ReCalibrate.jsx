@@ -10,6 +10,7 @@ import SelectorGS from '../SelectorGS';
 import SelectorGasType from '../UI/SelectorGasType';
 import BackButton from '../UI/BackButton';
 import ModalInfo from '../UI/ModalInfo';
+import TankInfo from '../UI/TankInfo';
 
 const Calibration = () => {
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
@@ -26,16 +27,12 @@ const Calibration = () => {
   const changeTypeGSHandler = (type) => {
     changeTypeGS(type);
     changeModalInfoHandler({
-      header: 'Информация о резервуаре',
+      header: localization[userSettingsLocalizaton].tankInfo.header_1,
       body: (
-        <div>
-          <h2>Резервуар №{selectedGS.tables[type].tankId}</h2>
-          <p>Вид топлива: {selectedGS.tables[type].type}</p>
-          <p>Трубопровод: {selectedGS.tables[type].tube}л</p>
-          <p>Мёртвый остаток: {selectedGS.tables[type].minCapcity}л</p>
-          <p>Максимальный объём: {selectedGS.tables[type].maxCapacity}л</p>
-          <p>Максимальная высота: {selectedGS.tables[type].maxHeight}см</p>
-        </div>
+        <TankInfo
+          tank={selectedGS.tables[type]}
+          lang={localization[userSettingsLocalizaton].tankInfo}
+        />
       ),
     });
     changeResultHandler(0);
@@ -122,6 +119,7 @@ const Calibration = () => {
                 changeTypeGSHandler={changeTypeGSHandler}
                 typeGS={typeGS}
                 selectedGS={selectedGS}
+                lang={localization[userSettingsLocalizaton].selectorGasType}
               />
               <br></br>
               <Form.Label>Введите объём топлива в л</Form.Label>

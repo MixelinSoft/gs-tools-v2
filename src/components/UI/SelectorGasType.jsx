@@ -1,17 +1,17 @@
-import { Form } from "react-bootstrap";
-import FloatingLabel from "react-bootstrap/FloatingLabel";
+import { Form } from 'react-bootstrap';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-const SelectorGasType = ({ changeTypeGSHandler, typeGS, selectedGS }) => {
+const SelectorGasType = ({ changeTypeGSHandler, typeGS, selectedGS, lang }) => {
   return (
     <>
-      <FloatingLabel label="Выберите вид топлива:">
+      <FloatingLabel label={lang.label_1}>
         <Form.Select
-          defaultValue="empty"
+          defaultValue='empty'
           onChange={(e) => {
             changeTypeGSHandler(e.target.value);
           }}>
           <option value={typeGS} disabled>
-            Нажмите для выбора вида топлива
+            {lang.select_1}
           </option>
           {Object.keys(selectedGS.tables).map((gasType) => (
             <option value={gasType} key={selectedGS.tables[gasType].tankId}>
