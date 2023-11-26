@@ -11,6 +11,8 @@ import localization from '../../data/localization';
 
 const SalaryCalc = () => {
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
+  const text = localization[userSettingsLocalizaton].tools.salaryCalc;
+
   const [hours, changeHours] = useState('');
   const [liters, changeLiters] = useState('');
   const [hoursPrice, changeHoursPrice] = useState('40.90');
@@ -43,10 +45,7 @@ const SalaryCalc = () => {
           changeLiters('');
         }}>
         <Form.Group>
-          <Form.Label>
-            Введите количество отработанных часов и цену одного часа (по
-            умолчанию 40.90 грн)
-          </Form.Label>
+          <Form.Label>{text.inputLabel_1}</Form.Label>
           <Row>
             <Col>
               <InputGroup>
@@ -54,7 +53,7 @@ const SalaryCalc = () => {
                   type='number'
                   onChange={(e) => changeHoursHandler(e.target.value)}
                   value={hours}
-                  placeholder='Нажмите для ввода'
+                  placeholder={text.inputPlaceholder_1}
                   required
                 />
                 <InputGroup.Text>ч.</InputGroup.Text>
@@ -75,10 +74,7 @@ const SalaryCalc = () => {
         </Form.Group>
         <br />
         <Form.Group>
-          <Form.Label>
-            Введите колличество проданных литров и цену одного литра (по
-            умолчанию: 0,12 грн)
-          </Form.Label>
+          <Form.Label>{text.inputLabel_2}</Form.Label>
           <Row>
             <Col>
               <InputGroup>
@@ -86,7 +82,7 @@ const SalaryCalc = () => {
                   type='number'
                   onChange={(e) => changeLitersHandler(e.target.value)}
                   value={liters}
-                  placeholder='Нажмите для ввода'
+                  placeholder={text.inputPlaceholder_2}
                   required
                 />
                 <InputGroup.Text>л</InputGroup.Text>
@@ -109,18 +105,20 @@ const SalaryCalc = () => {
 
         <ScrollIntoView selector='#resultZone'>
           <Button variant='dark' type='submit'>
-            Рассчитать!
+            {text.button_1}
           </Button>
         </ScrollIntoView>
       </Form>
 
       <div id='resultZone'>
         {result > 0 ? (
-          <ResultZone text={`Ваша зарплата = ${Math.round(result)}грн`} />
+          <ResultZone
+            text={`${text.resultText_2} = ${Math.round(result)}грн`}
+          />
         ) : result === 0 ? (
           <ResultZone invisible />
         ) : (
-          <ResultZone alert text='Произошла ошибка!' />
+          <ResultZone alert text={text.resultText_1} />
         )}
       </div>
       <BackButton />
