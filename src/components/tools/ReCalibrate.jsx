@@ -14,6 +14,7 @@ import TankInfo from '../UI/TankInfo';
 
 const Calibration = () => {
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
+  const text = localization[userSettingsLocalizaton].tools.reCalibrate;
 
   const [gsId, changeGsId] = useState('empty');
   const [typeGS, changeTypeGS] = useState('empty');
@@ -122,13 +123,13 @@ const Calibration = () => {
                 lang={localization[userSettingsLocalizaton].selectorGasType}
               />
               <br></br>
-              <Form.Label>Введите объём топлива в л</Form.Label>
+              <Form.Label>{text.inputLabel_1}</Form.Label>
               <InputGroup>
                 <Form.Control
                   type='text'
                   onChange={(e) => changeVolumeHandler(e.target.value)}
                   value={volume}
-                  placeholder='Нажмите для ввода'
+                  placeholder={text.inputPlaceholder_1}
                   required
                 />
                 <InputGroup.Text>л</InputGroup.Text>
@@ -138,7 +139,7 @@ const Calibration = () => {
                 <Form.Check
                   className='switch'
                   type='switch'
-                  label='Значение включает в себя трубопровод?'
+                  label={text.inputLabel_2}
                   checked={tube}
                   onChange={() => changeTube(!tube)}
                 />
@@ -149,7 +150,7 @@ const Calibration = () => {
               <>
                 <ScrollIntoView selector='#resultZone'>
                   <Button variant='dark' type='submit'>
-                    Рассчитать!
+                    {text.button_1}
                   </Button>
                   <br></br>
                 </ScrollIntoView>
@@ -157,7 +158,7 @@ const Calibration = () => {
                 <Button
                   variant='dark'
                   onClick={() => setModalShowHandler(true)}>
-                  Информация о резервуаре
+                  {text.button_2}
                 </Button>
               </>
             ) : (
@@ -166,18 +167,18 @@ const Calibration = () => {
           </Form>
           <div id='resultZone'>
             {resultVolume < 0 ? (
-              <ResultZone alert text={`Ошибка! Значение меньше допустимого!`} />
+              <ResultZone alert text={text.resultText_1} />
             ) : result === 0 ? (
               ''
             ) : !result ? (
-              <ResultZone alert text='Ошибка! Некорректные данные!' />
+              <ResultZone alert text={text.resultText_2} />
             ) : resultVolume < selectedGS.tables[typeGS].minCapcity ? (
               <ResultZone
                 alert
-                text={`Внимание! Объём топлива ниже мёртвого остатка: ${selectedGS.tables[typeGS].minCapcity}л Высота напролнения: ${result}см`}
+                text={`${text.resultText_3}${selectedGS.tables[typeGS].minCapcity}л ${text.resultText_4}${result}см`}
               />
             ) : (
-              <ResultZone text={`Высота наполнения: ${result}см`} />
+              <ResultZone text={`${text.resultText_4}${result}см`} />
             )}
           </div>
         </>
