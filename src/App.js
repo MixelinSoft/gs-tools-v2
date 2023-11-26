@@ -12,11 +12,9 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 
 function App() {
-  let userSettingsLocalizaton = localStorage.getItem('language') ?? 'ru';
+  let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
   const [userLocalization, setLocalization] = useState(userSettingsLocalizaton);
-  const [showModalLocalization, setShowModalLocalization] = useState(
-    !!!userSettingsLocalizaton
-  );
+  const [showModalLocalization, setShowModalLocalization] = useState(true);
 
   const localizationHandler = (lang) => {
     setLocalization(lang);
