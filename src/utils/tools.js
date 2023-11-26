@@ -18,11 +18,11 @@ const RUlocalization = localization.ru.tools;
 const tools = [
   {
     toolTitle: {
-      ua: 'test',
+      ua: UAlocalization.calibration.title,
       ru: RUlocalization.calibration.title,
     },
     toolDescription: {
-      ua: 'test',
+      ua: UAlocalization.calibration.description,
       ru: RUlocalization.calibration.description,
     },
     toolID: '01',
@@ -34,11 +34,11 @@ const tools = [
 
   {
     toolTitle: {
-      ua: 'test',
+      ua: UAlocalization.reCalibrate.title,
       ru: RUlocalization.reCalibrate.title,
     },
     toolDescription: {
-      ua: 'test',
+      ua: UAlocalization.reCalibrate.description,
       ru: RUlocalization.reCalibrate.description,
     },
     toolID: '02',
@@ -50,13 +50,14 @@ const tools = [
 
   {
     toolTitle: {
-      ua: 'test',
+      ua: UAlocalization.phoneBook.title,
       ru: RUlocalization.phoneBook.title,
     },
     toolDescription: {
-      ua: 'test',
+      ua: UAlocalization.phoneBook.description,
       ru: RUlocalization.phoneBook.description,
     },
+
     toolID: '03',
     toolSlug: 'phone-book',
     toolVersion: '1.2.3',
@@ -65,11 +66,11 @@ const tools = [
   },
   {
     toolTitle: {
-      ua: 'test',
+      ua: UAlocalization.salaryCalc.title,
       ru: RUlocalization.salaryCalc.title,
     },
     toolDescription: {
-      ua: 'test',
+      ua: UAlocalization.salaryCalc.description,
       ru: RUlocalization.salaryCalc.description,
     },
     toolID: '04',
@@ -80,16 +81,16 @@ const tools = [
   },
   {
     toolTitle: {
-      ua: 'test',
+      ua: UAlocalization.expirationDate.title,
       ru: RUlocalization.expirationDate.title,
     },
     toolDescription: {
-      ua: 'test',
+      ua: UAlocalization.expirationDate.description,
       ru: RUlocalization.expirationDate.description,
     },
     toolID: '05',
     toolSlug: 'expiration-date',
-    toolVersion: '1.2.2',
+    toolVersion: '1.2.3',
     tool: ExpirationDates,
     icon: <LuCalendarClock />,
   },

@@ -1,5 +1,4 @@
 import './App.css';
-import localization from './data/localization';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import MainLayout from './components/MainLayout';
@@ -10,6 +9,7 @@ import About from './components/About';
 import ModalInfo from './components/UI/ModalInfo';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import localization from './data/localization';
 
 function App() {
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
