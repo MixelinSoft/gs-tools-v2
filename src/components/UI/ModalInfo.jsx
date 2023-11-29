@@ -7,17 +7,18 @@ const ModalInfo = ({
   show,
   showToggler,
   svg = '',
-  hideCloseBtn = true,
+  fullscreen = false,
+  closeButton = true,
 }) => {
   return (
     <Modal
-      closeButton={hideCloseBtn}
+      fullscreen={fullscreen}
       size='lg'
       aria-labelledby='contained-modal-title-vcenter'
       centered
       show={show}
       onHide={() => showToggler(false)}>
-      <Modal.Header closeButton>
+      <Modal.Header closeButton={closeButton}>
         <Modal.Title id='contained-modal-title-vcenter'>
           <span className={styles.svg}>{svg}</span>
           {headerText}

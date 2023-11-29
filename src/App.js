@@ -1,52 +1,40 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import SelectLocalization from './components/UI/SelectLocalization';
 import MainLayout from './components/MainLayout';
 import Tool from './components/Tool';
 import Toolbox from './components/Toolbox';
 import Contacts from './components/Contacts';
+import Settings from './components/Settings';
 import About from './components/About';
-import ModalInfo from './components/UI/ModalInfo';
 import { useState } from 'react';
-import { Button } from 'react-bootstrap';
 import localization from './data/localization';
 
 function App() {
+  let showModal = !!!localStorage.getItem('language');
+  console.log(showModal);
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
   const [userLocalization, setLocalization] = useState(userSettingsLocalizaton);
-  const [showModalLocalization, setShowModalLocalization] = useState(true);
 
   const localizationHandler = (lang) => {
     setLocalization(lang);
     localStorage.setItem('language', lang);
-    setShowModalLocalization(false);
+    window.location.reload();
   };
 
   return (
     <>
       <BrowserRouter>
         <div className='App'>
-          <ModalInfo
-            showToggler={setShowModalLocalization}
-            show={showModalLocalization}
-            headerText={localization[userLocalization].selectLocalization}
-            bodyText={
-              <>
-                <Button
-                  variant='dark'
-                  onClick={() => localizationHandler('ua')}>
-                  Українська
-                </Button>
-                <br></br>
-                <br></br>
-                <Button
-                  variant='dark'
-                  onClick={() => localizationHandler('ru')}>
-                  Русский
-                </Button>
-              </>
-            }
-          />
+          {showModal ? (
+            <SelectLocalization
+              show
+              localizationHandler={localizationHandler}
+            />
+          ) : (
+            ''
+          )}
           <Routes>
             <Route
               path='/'
@@ -68,6 +56,15 @@ function App() {
                 element={
                   <Contacts
                     localization={localization[userLocalization].menu.contacts}
+                  />
+                }
+              />
+              <Route
+                path='/settings'
+                element={
+                  <Settings
+                    localization={localization[userLocalization].menu.settings}
+                    onChangeLocalization={localizationHandler}
                   />
                 }
               />

@@ -4,6 +4,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { HiOutlineMenuAlt1 } from 'react-icons/hi';
 import { GrDomain } from 'react-icons/gr';
 import { AiOutlineContacts, AiOutlineInfoCircle } from 'react-icons/ai';
+import { MdOutlineSettings } from 'react-icons/md';
 import styles from './Menu.module.css';
 
 function Menu({ localization }) {
@@ -24,6 +25,12 @@ function Menu({ localization }) {
           <Link to='/' onClick={handleClose}>
             <GrDomain className={styles.menuItemIcon} />
             {localization.menu.burger.mainPage}
+          </Link>
+
+          <Link to='/settings' onClick={handleClose}>
+            {' '}
+            <MdOutlineSettings className={styles.menuItemIcon} />
+            {localization.menu.burger.settings}
           </Link>
 
           <Link to='/contacts' onClick={handleClose}>
