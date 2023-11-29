@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { Link, useNavigate } from 'react-router-dom';
 import { Container, InputGroup, FloatingLabel, Button } from 'react-bootstrap';
 import BackButton from './UI/BackButton';
 import Form from 'react-bootstrap/Form';
@@ -15,18 +15,25 @@ const Settings = ({ onChangeLocalization, localization }) => {
       console.log(selectedLocalization);
     }
   };
+  const navigate = useNavigate();
+
+  const resetHandler = () => {
+    localStorage.removeItem('language');
+    navigate('/');
+    window.location.reload();
+  };
 
   return (
     <Container className='infoContainer'>
       <BackButton />
       <h1>{localization.title}</h1>
       <InputGroup>
-        <FloatingLabel label='Testing'>
+        <FloatingLabel label={localization.selectLabel_1}>
           <Form.Select
             defaultValue='empty'
             onChange={(e) => setLocalizationHandler(e.target.value)}>
             <option value={selectedLocalization} disabled>
-              Select language
+              {localization.select_1}
             </option>
             <option value='ua'>Укранська</option>
             <option value='ru'>Русский </option>
@@ -39,7 +46,12 @@ const Settings = ({ onChangeLocalization, localization }) => {
           variant={selectedLocalization === 'empty' ? 'secondary' : 'dark'}>
           {localization.button_1}
         </Button>
-        {/* <Button onClick={localizationHandler}>{localization.button_1}</Button> */}
+      </InputGroup>
+      <br></br>
+      <InputGroup>
+        <Button variant='danger' onClick={resetHandler}>
+          {localization.button_reset}
+        </Button>
       </InputGroup>
     </Container>
   );

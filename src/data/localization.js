@@ -77,8 +77,9 @@ const localization = {
       settings: {
         title: 'Налаштування додатку',
         selectLabel_1: 'Оберiть мову додатку:',
-        select_1: 'Натиснiть для выбору мови',
+        select_1: 'Натиснiть для вибору мови',
         button_1: 'Застосувати',
+        button_reset: 'Скидання всіх налаштувань',
       },
       contacts: {
         title: 'Контакти',
@@ -190,6 +191,7 @@ const localization = {
         selectLabel_1: 'Выберите язык приложеня:',
         select_1: 'Нажмите для выбора языка',
         button_1: 'Применить',
+        button_reset: 'Сброс всех настроек',
       },
       contacts: {
         title: 'Контакты',
