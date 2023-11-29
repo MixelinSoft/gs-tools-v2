@@ -35,7 +35,7 @@ const Settings = ({ onChangeLocalization, localization }) => {
             <option value={selectedLocalization} disabled>
               {localization.select_1}
             </option>
-            <option value='ua'>Укранська</option>
+            <option value='ua'>Українська</option>
             <option value='ru'>Русский </option>
             {/* <option value='3'>English</option> */}
           </Form.Select>
