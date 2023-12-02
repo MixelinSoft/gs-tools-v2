@@ -12,7 +12,6 @@ const Settings = ({ onChangeLocalization, localization }) => {
   const localizationHandler = () => {
     if (selectedLocalization !== 'empty') {
       onChangeLocalization(selectedLocalization);
-      console.log(selectedLocalization);
     }
   };
   const navigate = useNavigate();

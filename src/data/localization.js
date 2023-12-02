@@ -65,6 +65,14 @@ const localization = {
         resultText_1: 'Виникла помилка! Введено некоректні дані!',
         resultText_2: 'Ваша зарплата',
       },
+      densityCalc: {
+        title: 'Калькулятор щільності',
+        description: 'werwerwer',
+      },
+      coffeeGuide: {
+        title: 'Довідник кавових напоїв',
+        description: 'werwerwer',
+      },
     },
     menu: {
       burger: {
@@ -176,6 +184,14 @@ const localization = {
         button_1: 'Рассчитать!',
         resultText_1: 'Произошла ошибка! Ввдены некорректные данные!',
         resultText_2: 'Ваша зарплата',
+      },
+      densityCalc: {
+        title: 'Калькулятор плотности',
+        description: 'werwerwer',
+      },
+      coffeeGuide: {
+        title: 'Справочник кофейных напитков',
+        description: 'werwerwer',
       },
     },
     menu: {
