@@ -13,7 +13,6 @@ import localization from './data/localization';
 
 function App() {
   let showModal = !!!localStorage.getItem('language');
-  console.log(showModal);
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
   const [userLocalization, setLocalization] = useState(userSettingsLocalizaton);
 
