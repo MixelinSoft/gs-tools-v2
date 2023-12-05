@@ -11,6 +11,7 @@ const DensityCalc = () => {
   // Inputs
   const [firstArg, setFirstArg] = useState('');
   const [secondArg, setSecondArg] = useState('');
+  const [secondArgStep, setSecondArgStep] = useState('0.10');
   // Labels / Types
   const types = ['л', 'кг', 'кг/м³'];
   const [firstType, setFirstType] = useState(types[0]);
@@ -32,13 +33,23 @@ const DensityCalc = () => {
       setFirstType(types[0]);
       setSecondType(types[1]);
     }
+    setFirstArg('');
+    setSecondArg('');
   };
   //Input Handlers
   const firstArgHandler = (e) => {
-    setFirstArg(e.target.value);
+    const input = e.target.value;
+    setFirstArg(input);
   };
   const secondArgHandler = (e) => {
-    setSecondArg(e.target.value);
+    let input = e.target.value;
+    // Masking for density
+    if (type !== 'density') {
+      if (input.length >= 6) {
+        input = input.slice(0, 6);
+      }
+    }
+    setSecondArg(input);
   };
   // Result Handler
   const resultHandler = (result) => {
@@ -47,7 +58,33 @@ const DensityCalc = () => {
   // Calculate
   const calculate = (e) => {
     e.preventDefault();
-    console.log(densityCalcFunction(type, firstArg, secondArg));
+    if (type === 'volume') {
+      resultHandler(
+        `При плотности ${secondArg}кг/м³ и весе ${firstArg}кг рассчитанный объём - ${densityCalcFunction(
+          type,
+          firstArg,
+          secondArg
+        )}л.`
+      );
+    }
+    if (type === 'weight') {
+      resultHandler(
+        `При плотности ${secondArg}кг/м³ и объёме ${firstArg}л рассчитанный вес - ${densityCalcFunction(
+          type,
+          firstArg,
+          secondArg
+        )}кг.`
+      );
+    }
+    if (type === 'density') {
+      resultHandler(
+        `При весе ${secondArg} и объёме ${firstArg} рассчитанная плотность - ${densityCalcFunction(
+          type,
+          firstArg,
+          secondArg
+        )}кг/м³.`
+      );
+    }
   };
 
   return (
@@ -75,12 +112,23 @@ const DensityCalc = () => {
           <Form onSubmit={calculate}>
             <Form.Label>Заполните известные данные:</Form.Label>
             <InputGroup>
-              <Form.Control type='number' required></Form.Control>
+              <Form.Control
+                onChange={firstArgHandler}
+                type='number'
+                min='0.1'
+                step={secondArgStep}
+                value={firstArg}
+                required></Form.Control>
               <InputGroup.Text>{firstType}</InputGroup.Text>
             </InputGroup>
             <br />
             <InputGroup>
-              <Form.Control type='number' required></Form.Control>
+              <Form.Control
+                onChange={secondArgHandler}
+                type='number'
+                step='0.0001'
+                value={secondArg}
+                required></Form.Control>
               <InputGroup.Text>{secondType}</InputGroup.Text>
             </InputGroup>
             <br />
@@ -89,6 +137,9 @@ const DensityCalc = () => {
             </Button>
           </Form>
         )}
+        <div id='resultZone'>
+          {result !== 0 ? <ResultZone text={`${result}`} /> : ''}
+        </div>
       </>
     </>
   );
