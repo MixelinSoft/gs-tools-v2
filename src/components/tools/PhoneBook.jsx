@@ -1,11 +1,14 @@
 import gsDB from '../../data/gsDB';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SelectorGS from '../SelectorGS';
 import GSCard from '../UI/GSCard';
 import BackButton from '../UI/BackButton';
 import localization from '../../data/localization';
 
 const PhoneBook = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
 
   const [gsId, changeGsId] = useState('empty');

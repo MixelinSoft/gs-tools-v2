@@ -1,5 +1,5 @@
 import salaryCalcFunction from './salaryCalcFunction';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Col from 'react-bootstrap/Col';
@@ -10,6 +10,9 @@ import BackButton from '../UI/BackButton';
 import localization from '../../data/localization';
 
 const SalaryCalc = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
   const text = localization[userSettingsLocalizaton].tools.salaryCalc;
 
@@ -56,7 +59,7 @@ const SalaryCalc = () => {
                   placeholder={text.inputPlaceholder_1}
                   required
                 />
-                <InputGroup.Text>ч.</InputGroup.Text>
+                <InputGroup.Text>{text.hours}</InputGroup.Text>
               </InputGroup>
             </Col>
             <Col>

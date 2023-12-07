@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Moment from 'react-moment';
 import ResultZone from '../ResultZone';
 import BackButton from '../UI/BackButton';
@@ -13,6 +13,9 @@ if (localStorage.getItem('language') === 'ru') {
 }
 
 const ExpirationDates = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
   const text = localization[userSettingsLocalizaton].tools.expirationDate;
   const [manufacture, changeManufacture] = useState(new Date());

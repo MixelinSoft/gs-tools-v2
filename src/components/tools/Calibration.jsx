@@ -1,7 +1,7 @@
 import gsDB from '../../data/gsDB';
 import localization from '../../data/localization';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import InputGroup from 'react-bootstrap/InputGroup';
 import ScrollIntoView from 'react-scroll-into-view';
@@ -13,6 +13,9 @@ import ModalInfo from '../UI/ModalInfo';
 import TankInfo from '../UI/TankInfo';
 
 const Calibration = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
   const text = localization[userSettingsLocalizaton].tools.calibration;
 

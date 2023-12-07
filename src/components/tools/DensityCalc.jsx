@@ -1,21 +1,30 @@
-import { useState } from 'react';
+import densityCalcFunction from './DensityCalcFunction';
+import localization from '../../data/localization';
+
+import { useState, useEffect } from 'react';
 import { Form, Button, FloatingLabel } from 'react-bootstrap';
 import InputGroup from 'react-bootstrap/InputGroup';
 import ResultZone from '../ResultZone';
-import densityCalcFunction from './DensityCalcFunction';
 import BackButton from '../UI/BackButton';
+import ScrollIntoView from 'react-scroll-into-view';
 
 const DensityCalc = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
+  const text = localization[userSettingsLocalizaton].tools.densityCalc;
   // Set Calculate Type
   const [type, setType] = useState('empty');
   // Inputs
   const [firstArg, setFirstArg] = useState('');
   const [secondArg, setSecondArg] = useState('');
-  const [secondArgStep, setSecondArgStep] = useState('0.10');
   // Labels / Types
   const types = ['л', 'кг', 'кг/м³'];
   const [firstType, setFirstType] = useState(types[0]);
   const [secondType, setSecondType] = useState(types[2]);
+  const [firstTypeLabel, setFirstTypeLabel] = useState('');
+  const [secondTypeLabel, setSecondTypeLabel] = useState('');
   // Result
   const [result, changeResult] = useState(0);
   // Type Handler
@@ -24,14 +33,20 @@ const DensityCalc = () => {
     if (e.target.value === 'volume') {
       setFirstType(types[1]);
       setSecondType(types[2]);
+      setFirstTypeLabel(text.units.inputLabel.weight);
+      setSecondTypeLabel(text.units.inputLabel.density);
     }
     if (e.target.value === 'weight') {
       setFirstType(types[0]);
       setSecondType(types[2]);
+      setFirstTypeLabel(text.units.inputLabel.volume);
+      setSecondTypeLabel(text.units.inputLabel.density);
     }
     if (e.target.value === 'density') {
       setFirstType(types[0]);
       setSecondType(types[1]);
+      setFirstTypeLabel(text.units.inputLabel.volume);
+      setSecondTypeLabel(text.units.inputLabel.weight);
     }
     setFirstArg('');
     setSecondArg('');
@@ -60,29 +75,29 @@ const DensityCalc = () => {
     e.preventDefault();
     if (type === 'volume') {
       resultHandler(
-        `При плотности ${secondArg}кг/м³ и весе ${firstArg}кг рассчитанный объём - ${densityCalcFunction(
+        `${text.units.inputSelect.volume} - ${densityCalcFunction(
           type,
           firstArg,
           secondArg
-        )}л.`
+        )}${types[0]}`
       );
     }
     if (type === 'weight') {
       resultHandler(
-        `При плотности ${secondArg}кг/м³ и объёме ${firstArg}л рассчитанный вес - ${densityCalcFunction(
+        `${text.units.inputSelect.weight} - ${densityCalcFunction(
           type,
           firstArg,
           secondArg
-        )}кг.`
+        )}${types[1]}`
       );
     }
     if (type === 'density') {
       resultHandler(
-        `При весе ${secondArg} и объёме ${firstArg} рассчитанная плотность - ${densityCalcFunction(
+        `${text.units.inputSelect.density} - ${densityCalcFunction(
           type,
           firstArg,
           secondArg
-        )}кг/м³.`
+        )}${types[1]}`
       );
     }
   };
@@ -90,18 +105,18 @@ const DensityCalc = () => {
   return (
     <>
       <BackButton />
-      <FloatingLabel label='Что вычислять'>
+      <FloatingLabel label={text.inputLabel_1}>
         <Form.Select
-          aria-label='Default select example'
+          // aria-label='Default select example'
           size='lg'
           defaultValue='empty'
           onChange={setTypeHandler}>
           <option value='empty' disabled>
-            Open this select menu
+            {text.inputSelect_1}
           </option>
-          <option value='volume'>Объём</option>
-          <option value='weight'>Вес</option>
-          <option value='density'>Плотность</option>
+          <option value='volume'>{text.units.inputSelect.volume}</option>
+          <option value='weight'>{text.units.inputSelect.weight}</option>
+          <option value='density'>{text.units.inputSelect.density}</option>
         </Form.Select>
       </FloatingLabel>
       <>
@@ -110,18 +125,23 @@ const DensityCalc = () => {
           ''
         ) : (
           <Form onSubmit={calculate}>
-            <Form.Label>Заполните известные данные:</Form.Label>
+            <Form.Label>{text.inputLabel_2}</Form.Label> <br />
+            <Form.Label>
+              {text.inputLabel_3_1 + firstTypeLabel + text.inputLabel_3_2}
+            </Form.Label>
             <InputGroup>
               <Form.Control
                 onChange={firstArgHandler}
                 type='number'
-                min='0.1'
-                step={secondArgStep}
+                step='0.01'
                 value={firstArg}
                 required></Form.Control>
               <InputGroup.Text>{firstType}</InputGroup.Text>
             </InputGroup>
             <br />
+            <Form.Label>
+              {text.inputLabel_3_1 + secondTypeLabel + text.inputLabel_3_2}
+            </Form.Label>
             <InputGroup>
               <Form.Control
                 onChange={secondArgHandler}
@@ -132,9 +152,11 @@ const DensityCalc = () => {
               <InputGroup.Text>{secondType}</InputGroup.Text>
             </InputGroup>
             <br />
-            <Button type='submit' variant='dark'>
-              Рассчитать
-            </Button>
+            <ScrollIntoView selector='#resultZone'>
+              <Button type='submit' variant='dark'>
+                {text.button_1}
+              </Button>
+            </ScrollIntoView>
           </Form>
         )}
         <div id='resultZone'>
