@@ -17,7 +17,7 @@ const Settings = ({ onChangeLocalization, localization }) => {
   const navigate = useNavigate();
 
   const resetHandler = () => {
-    localStorage.removeItem('language');
+    localStorage.clear();
     navigate('/');
     window.location.reload();
   };
