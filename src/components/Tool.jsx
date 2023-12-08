@@ -8,8 +8,12 @@ import ModalInfo from './UI/ModalInfo';
 const Tool = ({ lang }) => {
   const toolSlug = useParams().slug.toString();
   const selectedTool = tools.find((tool) => toolSlug === tool.toolSlug);
-  const [modalShowState, setModalShowState] = useState(false);
+  const [modalShowState, setModalShowState] = useState(
+    !localStorage.getItem(`shownGuide-${toolSlug}`)
+  );
+
   const setModalShowHandler = (show) => {
+    localStorage.setItem(`shownGuide-${toolSlug}`, true);
     setModalShowState(show);
   };
 
@@ -17,7 +21,7 @@ const Tool = ({ lang }) => {
     <Container className={styles.toolContainer}>
       <ModalInfo
         show={modalShowState}
-        showToggler={setModalShowState}
+        showToggler={setModalShowHandler}
         headerText={
           selectedTool.toolTitle[lang] + ' v' + selectedTool.toolVersion
         }
