@@ -26,3 +26,15 @@
 .modalHideBtn .btn-close {
   background-color: red;
 }
+
+.snowFallSwitch {
+  position: fixed;
+  right: 10px;
+  bottom: 8px;
+  z-index: 100;
+}
+.snowFallSwitchIcon {
+  position: relative;
+  font-size: 18px;
+  bottom: 2px;
+}

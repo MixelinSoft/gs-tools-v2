@@ -1,5 +1,5 @@
 import styles from './Header.module.css';
-import Logo from '../../images/logo_mobile30px.png';
+import Logo from '../../images/logo_mobile30pxNY.png';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';

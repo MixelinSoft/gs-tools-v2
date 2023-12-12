@@ -11,6 +11,8 @@ import About from './components/About';
 import { useState } from 'react';
 import localization from './data/localization';
 
+import SnowFall from './components/UI/SnowFall';
+
 function App() {
   let showModal = !!!localStorage.getItem('language');
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
@@ -79,6 +81,7 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
+      <SnowFall />
     </>
   );
 }
