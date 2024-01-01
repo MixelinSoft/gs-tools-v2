@@ -1,9 +1,11 @@
-import styles from "./Footer.module.css";
-import Navbar from "react-bootstrap/Navbar";
+import styles from './Footer.module.css';
+import Navbar from 'react-bootstrap/Navbar';
 
 const Footer = () => {
   return (
-    <Navbar className={`${styles.footer} bg-light`}>©MixelinSoft 2023</Navbar>
+    <Navbar className={`${styles.footer} bg-light`}>
+      ©MixelinSoft 2023-2024
+    </Navbar>
   );
 };
 
