@@ -11,7 +11,7 @@ import About from './components/About';
 import { useState } from 'react';
 import localization from './data/localization';
 
-import SnowFall from './components/UI/SnowFall';
+// import SnowFall from './components/UI/SnowFall';
 
 function App() {
   let showModal = !!!localStorage.getItem('language');
@@ -81,7 +81,7 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-      <SnowFall />
+      {/* <SnowFall /> */}
     </>
   );
 }
