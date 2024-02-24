@@ -38,11 +38,26 @@
       crossorigin="anonymous" />
     <title>GS-Tools</title>
   </head>
+
   <body>
     <noscript
       >Ваш браузер не поддерживает JavaScript, запуск приложение не
       возможен.</noscript
     >
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3MJWBN44QH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-3MJWBN44QH');
+    </script>
     <div id="root"></div>
   </body>
 </html>
