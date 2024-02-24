@@ -940,6 +940,20 @@ const gsDB = [
     gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d438.98789124596124!2d35.12660230217282!3d48.42016529173916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfc51dc3e8d5b%3A0xe4cf169992d01c9f!2z0KHQtdC90YLQvtC30LAg0J7RltC7!5e0!3m2!1suk!2sua!4v1708628052115!5m2!1suk!2sua',
   },
 
+  //40 - ТОВ "АЛЕТЕЯ"
+  // ! Add ZIP
+  // ! Add Region
+  {
+    gsId: '40a',
+    gsNumber: '40',
+    gsFirm: firms.alete,
+    phone: '+380676103971',
+    address: 'вулиця Архімеда, 1-К',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d746.8444563659982!2d35.08344939397908!3d48.52741081346209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d958fbe3204049%3A0x66f74ec75c30da59!2z0JDQl9ChINCQ0LLRltCw0YE!5e0!3m2!1suk!2sua!4v1708792255626!5m2!1suk!2sua',
+  },
+
   //43 - ТОВ "АЛЕТЕЯ"
   // ! Add ZIP
   // ! Add Region
