@@ -1,7 +1,6 @@
 const firms = {
   prima: 'ТОВ "ПРІМАРІУС"',
   alete: 'ТОВ "АЛЕТЕЯ"',
-  undefined: '',
 };
 
 // const template = {
@@ -770,7 +769,7 @@ const gsDB = [
     phone: '+380632967547',
     address: 'Криворізьке шосе, 17-А',
     zip: '49035',
-    region: 'Красногвардiйський',
+    region: 'Чечеловський',
     gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2647.056637940331!2d34.945550331633285!3d48.436252737360164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe59d20dd38ed%3A0xf991ee610867b73b!2sAvias!5e0!3m2!1suk!2sua!4v1708628764036!5m2!1suk!2sua',
   },
 
@@ -882,6 +881,20 @@ const gsDB = [
     // zip: '',
     // region: '',
     gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d330.2930627398871!2d35.034271125561!3d48.526629281861794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d958b821bac7cf%3A0x8fad87d9801c397a!2z0JDQl9ChINCu0LrQvtC9!5e0!3m2!1suk!2sua!4v1708687735649!5m2!1suk!2sua',
+  },
+
+  //25 - ТОВ "АЛЕТЕЯ"
+  // ! Add ZIP
+  // ! Add Region
+  {
+    gsId: '25a',
+    gsNumber: '13',
+    gsFirm: firms.alete,
+    phone: '+380672459578',
+    address: 'Запорізьке шосе, 30-А',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1095.7132634008935!2d35.024770214120096!3d48.414077732501724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfbe444aaa35b%3A0x6ed2118bd3c1a3!2z0KLQntCSItCi0LjRgtCw0L0g0J_RgNCw0LnQtCIg0JDQl9ChIDI1!5e0!3m2!1suk!2sua!4v1708946749101!5m2!1suk!2sua',
   },
 
   //27 - ТОВ "АЛЕТЕЯ"
@@ -1024,20 +1037,6 @@ const gsDB = [
     gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2641.8214226049213!2d35.05320471253173!3d48.53665392317396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d958dbf3f9f80f%3A0xa42a44ab03ef0c3a!2z0K7QutC-0L0!5e0!3m2!1suk!2sua!4v1708688223674!5m2!1suk!2sua',
   },
 
-  //47 - ТОВ "АЛЕТЕЯ"
-  // ! Add ZIP
-  // ! Add Region
-  {
-    gsId: '47a',
-    gsNumber: '47',
-    gsFirm: firms.alete,
-    phone: '+380933071150',
-    address: 'Донецьке шосе, 182',
-    // zip: '',
-    // region: '',
-    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2641.8214226049213!2d35.05320471253173!3d48.53665392317396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d958dbf3f9f80f%3A0xa42a44ab03ef0c3a!2z0K7QutC-0L0!5e0!3m2!1suk!2sua!4v1708688223674!5m2!1suk!2sua',
-  },
-
   //48 - ТОВ "АЛЕТЕЯ"
   // ! Add ZIP
   // ! Add Region
@@ -1112,7 +1111,6 @@ const gsDB = [
   //58 - ТОВ "АЛЕТЕЯ"
   // ! Add ZIP
   // ! Add Region
-  // ! Add Address
   {
     gsId: '58a',
     gsNumber: '58',
