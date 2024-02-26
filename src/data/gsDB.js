@@ -888,7 +888,7 @@ const gsDB = [
   // ! Add Region
   {
     gsId: '25a',
-    gsNumber: '13',
+    gsNumber: '25',
     gsFirm: firms.alete,
     phone: '+380672459578',
     address: 'Запорізьке шосе, 30-А',
