@@ -897,6 +897,21 @@ const gsDB = [
     gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1095.7132634008935!2d35.024770214120096!3d48.414077732501724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfbe444aaa35b%3A0x6ed2118bd3c1a3!2z0KLQntCSItCi0LjRgtCw0L0g0J_RgNCw0LnQtCIg0JDQl9ChIDI1!5e0!3m2!1suk!2sua!4v1708946749101!5m2!1suk!2sua',
   },
 
+  //26 - ТОВ "АЛЕТЕЯ"
+  // ! Add ZIP
+  // ! Add Region
+  {
+    gsId: '26a',
+    gsNumber: '26',
+    gsFirm: firms.alete,
+    phone: '+380676370820',
+    address: 'вулиця Янтарна, 71',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2642.71588016325!2d35.044342900000004!3d48.519510999999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d95895e5a93a39%3A0x60cf43837f00007c!2z0JDQl9ChIFNlbnRvc2EgT2ls!5e0!3m2!1sru!2sua!4v1709033198716!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/c8ray6dWuJhXFPiD6',
+  },
+
   //27 - ТОВ "АЛЕТЕЯ"
   // ! Add ZIP
   // ! Add Region
@@ -925,6 +940,36 @@ const gsDB = [
     gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d379.014184205365!2d35.09300101510682!3d48.54658800238681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d95911440a2add%3A0x6f2ebb724bd01bbf!2z0JDQl9ChINCQ0LLQuNCw0YE!5e0!3m2!1sru!2sua!4v1708676897255!5m2!1sru!2sua',
   },
 
+  //29 - ТОВ "АЛЕТЕЯ"
+  // ! Add ZIP
+  // ! Add Region
+  {
+    gsId: '29a',
+    gsNumber: '29',
+    gsFirm: firms.alete,
+    phone: '+380676370826',
+    address: 'вулиця Маршала Малиновського, 108',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d624.2262570661701!2d35.11119860429936!3d48.468451534665256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfd503efce60f%3A0x69792cd7eb500c36!2z0YPQuy4g0JzQsNGA0YjQsNC70LAg0JzQsNC70LjQvdC-0LLRgdC60L7Qs9C-LCAxMDgsINCU0L3QtdC_0YAsINCU0L3QtdC_0YDQvtC_0LXRgtGA0L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCA0OTAwMA!5e0!3m2!1sru!2sua!4v1709033340990!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/Cn2HJXwZiTBRGZVy9',
+  },
+
+  //30 - ТОВ "АЛЕТЕЯ"
+  // ! Add ZIP
+  // ! Add Region
+  {
+    gsId: '30a',
+    gsNumber: '30',
+    gsFirm: firms.alete,
+    phone: '+380676370805',
+    address: 'вулиця Каштанова, 9',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.5794165452353!2d35.076245!3d48.5029564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d9593e4e3d1829%3A0xf10d1161b8287d7a!2zRW5lcmd5INCQ0JfQoSDQkNCy0LjQsNGB!5e0!3m2!1sru!2sua!4v1709033436216!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/ns77UETDYtdGuoto7',
+  },
+
   //31 - ТОВ "АЛЕТЕЯ"
   // ! Add ZIP
   // ! Add Region
@@ -937,6 +982,51 @@ const gsDB = [
     // zip: '',
     // region: '',
     gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2642.960321087315!2d34.99871211253074!3d48.51482532470247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe200f0fa870d%3A0x297a769f779c8cbb!2z0JDQktCG0JDQoSDQv9C70Y7RgQ!5e0!3m2!1suk!2sua!4v1708687963233!5m2!1suk!2sua',
+  },
+
+  //32 - ТОВ "АЛЕТЕЯ"
+  // ! Add ZIP
+  // ! Add Region
+  {
+    gsId: '32a',
+    gsNumber: '32',
+    gsFirm: firms.alete,
+    phone: '+380676370829',
+    address: 'проспект Слобожанський, 2-Б',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2644.3919185701334!2d35.0639365!3d48.48737630000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe29ba7a20cf1%3A0x73e5a6b9bebdb19a!2z0JDQstC40LDRgQ!5e0!3m2!1sru!2sua!4v1709032695010!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/N8i9RTFSbB8ch2C66',
+  },
+
+  //33 - ТОВ "АЛЕТЕЯ"
+  // ! Add ZIP
+  // ! Add Region
+  {
+    gsId: '33a',
+    gsNumber: '33',
+    gsFirm: firms.alete,
+    phone: '+380676370830',
+    address: 'проспект Слобожанський, 1-Б',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2644.3752481838137!2d35.062818!3d48.487696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe29b101284d1%3A0xef2c1e6cff8954c0!2z0JDQstC40LDRgQ!5e0!3m2!1sru!2sua!4v1709032928230!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/U4WiS6NqfuvBrXd47',
+  },
+
+  //34 - ТОВ "АЛЕТЕЯ"
+  // ! Add ZIP
+  // ! Add Region
+  {
+    gsId: '34a',
+    gsNumber: '34',
+    gsFirm: firms.alete,
+    phone: '+380676370831',
+    address: 'вулиця Німецька, 7-А',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d624.0999761594019!2d35.16023579466657!3d48.478716892474246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d957c6a5fb6b17%3A0x3712548a1d9a084a!2z0JDQstC40LDRgQ!5e0!3m2!1sru!2sua!4v1709033631552!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/kKVcFgL3cDksCEht8',
   },
 
   //35 - ТОВ "АЛЕТЕЯ"
@@ -953,6 +1043,65 @@ const gsDB = [
     gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d438.98789124596124!2d35.12660230217282!3d48.42016529173916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfc51dc3e8d5b%3A0xe4cf169992d01c9f!2z0KHQtdC90YLQvtC30LAg0J7RltC7!5e0!3m2!1suk!2sua!4v1708628052115!5m2!1suk!2sua',
   },
 
+  //36 - ТОВ "АЛЕТЕЯ"
+  // ! Add Region
+  {
+    gsId: '36a',
+    gsNumber: '36',
+    gsFirm: firms.alete,
+    phone: '+380676370816',
+    address: 'вулиця Центральна, 212, с.Балівка',
+    zip: '52010',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2636.8665028305763!2d34.757292899999996!3d48.6315366!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d9625910c3aa3f%3A0x8847b946e0ab3e31!2sAzs%20Avias%20Plyus!5e0!3m2!1sru!2sua!4v1709033887481!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/CUpN2tBvP1ReCfkV7',
+  },
+
+  //37 - ТОВ "АЛЕТЕЯ"
+  // ! Add Region
+  // ! Add ZIP
+  {
+    gsId: '37a',
+    gsNumber: '37',
+    gsFirm: firms.alete,
+    phone: '+380676370813',
+    address: 'а/д Дніпро-Царичанка, км26+400б, Обухівка',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d622.9334093944664!2d34.86399132407413!3d48.573470098548455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d960237b729447%3A0x871a020e92a5f78f!2sAzs%20Avias%20Plyus!5e0!3m2!1sru!2sua!4v1709034011450!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/GwhxEih7FUiG2rnZA',
+  },
+
+  //38 - ТОВ "АЛЕТЕЯ"
+  // ! Add Region
+  // ! Add ZIP
+  {
+    gsId: '38a',
+    gsNumber: '38',
+    gsFirm: firms.alete,
+    phone: '+380676370814',
+    address: 'Донецьке шосе, 2-Г',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.2742312588935!2d34.986629199999996!3d48.50880749999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe1f7df51eb7d%3A0x689f923df44f9aea!2z0JDQstC40LDRgSDQn9C70Y7RgSwg0J3QsNGH0LDQu9C-INCT0JDQp9Cr!5e0!3m2!1sru!2sua!4v1709035251581!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/Fuczs7pEZRrf8F717',
+  },
+
+  //39 - ТОВ "АЛЕТЕЯ"
+  // ! Add Region
+  // ! Add ZIP
+  {
+    gsId: '39a',
+    gsNumber: '39',
+    gsFirm: firms.alete,
+    phone: '+380676225389',
+    address: 'вулиця Святогірська, 2',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2644.7942354818233!2d35.1750469!3d48.4796603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d957165d0acc83%3A0xa175cf1d532ff4c1!2z0JDQl9ChINCQ0JLQhtCQ0KE!5e0!3m2!1sru!2sua!4v1709035736439!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/9sSvSTTc85A9oSQFA',
+  },
+
   //40 - ТОВ "АЛЕТЕЯ"
   // ! Add ZIP
   // ! Add Region
@@ -965,6 +1114,36 @@ const gsDB = [
     // zip: '',
     // region: '',
     gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d746.8444563659982!2d35.08344939397908!3d48.52741081346209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d958fbe3204049%3A0x66f74ec75c30da59!2z0JDQl9ChINCQ0LLRltCw0YE!5e0!3m2!1suk!2sua!4v1708792255626!5m2!1suk!2sua',
+  },
+
+  //41 - ТОВ "АЛЕТЕЯ"
+  // ! Add Region
+  // ! Add ZIP
+  {
+    gsId: '41a',
+    gsNumber: '41',
+    gsFirm: firms.alete,
+    phone: '+380676370823',
+    address: 'вулиця Вітчизняна, 67-А',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.1704501931263!2d35.0289911!3d48.5107971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d958a1c55c16fd%3A0xe89b451184e87f2c!2sSentosa%20Oil!5e0!3m2!1sru!2sua!4v1709033085499!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/TeidM5KuUcwxwdEAA',
+  },
+
+  //42 - ТОВ "АЛЕТЕЯ"
+  // ! Add Region
+  // ! Add ZIP
+  {
+    gsId: '42a',
+    gsNumber: '42',
+    gsFirm: firms.alete,
+    phone: '+380676340801',
+    address: 'вулиця Осіння, 2',
+    // zip: '',
+    // region: '',
+    gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2643.6628133780764!2d35.0862815!3d48.5013574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d9586e605d4813%3A0xdf6f00ba0c98920a!2z0JDQl9ChIEFOUA!5e0!3m2!1sru!2sua!4v1709035345923!5m2!1sru!2sua',
+    linkToGm: 'https://maps.app.goo.gl/aoHD89sLSxhntUPZ9',
   },
 
   //43 - ТОВ "АЛЕТЕЯ"
