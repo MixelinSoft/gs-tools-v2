@@ -1,9 +1,8 @@
 import gsDB from '../data/gsDB';
-
 import { Form } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-const SelectorGS = ({ changerId, param, lang, useUserSettings = false }) => {
+const SelectorGS = ({ changerId, param, lang }) => {
   return (
     <Form>
       <Form.Group>

@@ -15,7 +15,7 @@ const TankInfo = ({ tank, lang }) => {
       </p>
       <p>
         {lang.text_3}
-        {tank.minCapcity}л
+        {tank.minCapacity}л
       </p>
       <p>
         {lang.text_4}

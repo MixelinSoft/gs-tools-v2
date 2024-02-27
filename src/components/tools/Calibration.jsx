@@ -1,4 +1,5 @@
 import gsDB from '../../data/gsDB';
+import tables from '../../data/CALIBRATION_TABLES';
 import localization from '../../data/localization';
 
 import { useState, useEffect } from 'react';
@@ -13,12 +14,15 @@ import ModalInfo from '../UI/ModalInfo';
 import TankInfo from '../UI/TankInfo';
 
 const Calibration = () => {
+  // Scroll Up on start
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  // Localization
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
   const text = localization[userSettingsLocalizaton].tools.calibration;
 
+  // Input States
   const [gsId, changeGsId] = useState('empty');
   const [typeGS, changeTypeGS] = useState('empty');
   const [height, changeHeight] = useState('');
@@ -26,16 +30,18 @@ const Calibration = () => {
   const [result, changeResult] = useState(0);
   const [resultHeight, changeResultHeight] = useState(0);
 
+  // Info States
   const [modalShowState, setModalShowState] = useState(false);
   const [modalInfo, changeModalInfo] = useState({});
 
+  // Change Handlers
   const changeTypeGSHandler = (type) => {
     changeTypeGS(type);
     changeModalInfoHandler({
       header: localization[userSettingsLocalizaton].tankInfo.header_1,
       body: (
         <TankInfo
-          tank={selectedGS.tables[type]}
+          tank={tables[selectedGS.gsId][type]}
           lang={localization[userSettingsLocalizaton].tankInfo}
         />
       ),
@@ -61,8 +67,10 @@ const Calibration = () => {
   const changeModalInfoHandler = (info) => {
     changeModalInfo(info);
   };
+
   const [selectedGS] = gsDB.filter((gs) => gs.gsId === gsId);
 
+  // Main Logic
   const autoCalibrate = (height, tank, tube) => {
     let afterRound;
     const levelHi = Math.ceil(height),
@@ -88,7 +96,11 @@ const Calibration = () => {
 
   const calculate = (height, tank, tube) => {
     changeResultHandler(
-      autoCalibrate(+height.replace(',', '.'), selectedGS.tables[tank], tube)
+      autoCalibrate(
+        +height.replace(',', '.'),
+        tables[selectedGS.gsId][tank],
+        tube
+      )
     );
   };
 
@@ -169,10 +181,12 @@ const Calibration = () => {
           <div id='resultZone'>
             {result === 0 ? (
               ''
-            ) : resultHeight < selectedGS.tables[typeGS].minCapcity ? (
+            ) : resultHeight < tables[selectedGS.gsId][typeGS].minCapacity ? (
               <ResultZone
                 alert
-                text={`${text.resultText_1}${selectedGS.tables[typeGS].minCapcity}л \n${text.resultText_3}${result}л`}
+                text={`${text.resultText_1}${
+                  tables[selectedGS.gsId][typeGS].minCapacity
+                }л \n${text.resultText_3}${result}л`}
               />
             ) : !result ? (
               <ResultZone alert text={text.resultText_2} />
