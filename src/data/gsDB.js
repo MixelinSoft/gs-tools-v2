@@ -66,7 +66,7 @@ const gsDB = [
 
   //07 - ТОВ "ПРIМАРIУС"
   {
-    gsId: '07',
+    gsId: '07p',
     gsNumber: '7',
     gsFirm: firms.prima,
     phone: '+380632967051',
@@ -511,6 +511,7 @@ const gsDB = [
     // zip: '',
     // region: '',
     gps: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d379.014184205365!2d35.09300101510682!3d48.54658800238681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d95911440a2add%3A0x6f2ebb724bd01bbf!2z0JDQl9ChINCQ0LLQuNCw0YE!5e0!3m2!1sru!2sua!4v1708676897255!5m2!1sru!2sua',
+    tables: true,
   },
 
   //29 - ТОВ "АЛЕТЕЯ"
