@@ -1,4 +1,5 @@
 import gsDB from '../../data/gsDB';
+import tables from '../../data/CALIBRATION_TABLES';
 import localization from '../../data/localization';
 
 import { useState, useEffect } from 'react';
@@ -34,7 +35,7 @@ const Calibration = () => {
       header: localization[userSettingsLocalizaton].tankInfo.header_1,
       body: (
         <TankInfo
-          tank={selectedGS.tables[type]}
+          tank={tables[selectedGS.gsId][type]}
           lang={localization[userSettingsLocalizaton].tankInfo}
         />
       ),
@@ -47,6 +48,7 @@ const Calibration = () => {
   const changeGsIdHandler = (id) => {
     changeGsId(id);
   };
+
   const changeResultHandler = (result) => {
     changeResult(result);
   };
@@ -91,7 +93,11 @@ const Calibration = () => {
 
   const calculate = (volume, tank, tube) => {
     changeResultHandler(
-      autoCalibrate(+volume.replace(',', '.'), selectedGS.tables[tank], tube)
+      autoCalibrate(
+        +volume.replace(',', '.'),
+        tables[selectedGS.gsId][tank],
+        tube
+      )
     );
   };
 
@@ -175,10 +181,12 @@ const Calibration = () => {
               ''
             ) : !result ? (
               <ResultZone alert text={text.resultText_2} />
-            ) : resultVolume < selectedGS.tables[typeGS].minCapcity ? (
+            ) : resultVolume < tables[selectedGS.gsId][typeGS].minCapacity ? (
               <ResultZone
                 alert
-                text={`${text.resultText_3}${selectedGS.tables[typeGS].minCapcity}л ${text.resultText_4}${result}см`}
+                text={`${text.resultText_3}${
+                  tables[selectedGS.gsId][typeGS].minCapacity
+                }л ${text.resultText_4}${result}см`}
               />
             ) : (
               <ResultZone text={`${text.resultText_4}${result}см`} />

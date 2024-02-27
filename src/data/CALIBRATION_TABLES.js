@@ -432,7 +432,7 @@ const tables = {
       tube: 145,
       maxHeight: 2760,
       maxCapacity: 20598,
-      minCapacity: 0,
+      minCapacity: 928,
       capacityTable: [
         4, 18, 37, 60, 87, 116, 148, 183, 220, 260, 301, 344, 390, 437, 485,
         535, 587, 640, 695, 751, 809, 868, 928, 989, 1052, 1115, 1180, 1246,
@@ -467,7 +467,7 @@ const tables = {
       tube: 520,
       maxHeight: 2490,
       maxCapacity: 21052,
-      minCapacity: 0,
+      minCapacity: 952,
       capacityTable: [
         6, 14, 28, 48, 71, 99, 129, 162, 198, 236, 276, 318, 362, 408, 455, 504,
         555, 608, 661, 717, 773, 831, 891, 952, 1013, 1077, 1141, 1206, 1273,
@@ -502,7 +502,7 @@ const tables = {
       tube: 520,
       maxHeight: 2770,
       maxCapacity: 21046,
-      minCapacity: 0,
+      minCapacity: 948,
       capacityTable: [
         10, 24, 44, 69, 96, 126, 160, 195, 233, 273, 315, 359, 405, 452, 501,
         552, 604, 658, 713, 770, 828, 887, 948, 1010, 1073, 1137, 1202, 1269,
@@ -537,7 +537,7 @@ const tables = {
       tube: 100,
       maxHeight: 2460,
       maxCapacity: 20887,
-      minCapacity: 0,
+      minCapacity: 1042,
       capacityTable: [
         16, 35, 57, 89, 112, 144, 179, 216, 255, 296, 339, 384, 430, 478, 528,
         580, 633, 687, 743, 800, 859, 919, 980, 1042, 1105, 1170, 1236, 1302,

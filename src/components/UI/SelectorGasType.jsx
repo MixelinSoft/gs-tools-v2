@@ -1,6 +1,7 @@
 import { Form } from 'react-bootstrap';
 import tables from '../../data/CALIBRATION_TABLES';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import { useState } from 'react';
 
 const SelectorGasType = ({ changeTypeGSHandler, typeGS, selectedGS, lang }) => {
   return (
