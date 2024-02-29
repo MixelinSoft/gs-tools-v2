@@ -19,7 +19,13 @@ const GSCard = ({ gs }) => {
 
 ${gs.phone ? 'телефон: ' + gs.phone : ''}
 ${gs.address ? text.address + ': ' + gs.address : ''}${
-    gs.linkToGm ? '\n\nGoogle ' + text.gmaps + ': \n' + gs.linkToGm : ''
+    gs.linkToGm
+      ? '\n\nGoogle ' +
+        text.gmaps +
+        ': \n' +
+        'https://maps.app.goo.gl/' +
+        gs.linkToGm
+      : ''
   }
 
 ${text.linkToApp}:
@@ -102,7 +108,7 @@ https://gs-tools.netlify.app/
             <div>
               <iframe
                 title={gs.address}
-                src={gs.gps}
+                src={`https://www.google.com/maps/embed?pb=${gs.gps}`}
                 width='100%'
                 height='100%'
                 loading='lazy'></iframe>
