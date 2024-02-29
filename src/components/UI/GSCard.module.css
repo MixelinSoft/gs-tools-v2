@@ -29,3 +29,18 @@ address {
   text-decoration: underline;
   color: blue;
 }
+
+.sharingContainer {
+  padding-top: 6px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sharingButton {
+  margin-left: 20px;
+  height: 40px;
+}
+
+.sharingIcon {
+  height: 26px;
+}
