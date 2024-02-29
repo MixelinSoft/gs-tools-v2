@@ -1,4 +1,4 @@
-import gsDB from '../../data/gsDB';
+import gsDB from '../../data/GAS-STATION_DB';
 import tables from '../../data/CALIBRATION_TABLES';
 import localization from '../../data/localization';
 
