@@ -22,8 +22,8 @@ const UAlocalization = localization.ua.tools;
 const RUlocalization = localization.ru.tools;
 
 const tools = [
+  // Fuel Calibration
   {
-    // Fuel Calibration
     toolTitle: {
       ua: UAlocalization.calibration.title,
       ru: RUlocalization.calibration.title,
@@ -38,9 +38,9 @@ const tools = [
     tool: Calibration,
     icon: <GiThermometerScale className='rotate' />,
   },
-  ////////////////////////////////////////////////////
+
+  // Fuel Back Calibration
   {
-    // Fuel Back Calibration
     toolTitle: {
       ua: UAlocalization.reCalibrate.title,
       ru: RUlocalization.reCalibrate.title,
@@ -55,9 +55,9 @@ const tools = [
     tool: ReCalibrate,
     icon: <GiChemicalTank />,
   },
-  ////////////////////////////////////////////////////
+
+  // Density Calculator
   {
-    // Density Calculator
     toolTitle: {
       ua: UAlocalization.densityCalc.title,
       ru: RUlocalization.densityCalc.title,
@@ -72,9 +72,9 @@ const tools = [
     tool: DensityCalc,
     icon: <RiWaterPercentLine />,
   },
-  ////////////////////////////////////////////////////
+
+  // Phone Book
   {
-    // Phone Book
     toolTitle: {
       ua: UAlocalization.phoneBook.title,
       ru: RUlocalization.phoneBook.title,
@@ -86,13 +86,13 @@ const tools = [
 
     toolID: '04',
     toolSlug: 'phone-book',
-    toolVersion: '1.2.6',
+    toolVersion: '1.3.1',
     tool: PhoneBook,
     icon: <MdOutlineContactPhone />,
   },
-  ////////////////////////////////////////////////////
+
+  // Salary Calculator
   {
-    // Salary Calculator
     toolTitle: {
       ua: UAlocalization.salaryCalc.title,
       ru: RUlocalization.salaryCalc.title,
@@ -107,9 +107,9 @@ const tools = [
     tool: SalaryCalc,
     icon: <BsCashStack />,
   },
-  ////////////////////////////////////////////////////
+
+  // Expiration Date Calculator
   {
-    // Expiration Date Calculator
     toolTitle: {
       ua: UAlocalization.expirationDate.title,
       ru: RUlocalization.expirationDate.title,
@@ -124,11 +124,10 @@ const tools = [
     tool: ExpirationDates,
     icon: <LuCalendarClock />,
   },
-  ///////////////////////////////////////////////////
 
+  //     // Coffee Guide
   // {
   //   toolTitle: {
-  //     // Coffee Guide
   //     ua: UAlocalization.coffeeGuide.title,
   //     ru: RUlocalization.coffeeGuide.title,
   //   },

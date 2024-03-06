@@ -1,4 +1,4 @@
-import gsDB from '../data/gsDB';
+import gsDB from '../data/GAS-STATION_DB';
 import { Form } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
