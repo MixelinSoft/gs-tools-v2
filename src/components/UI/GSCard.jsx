@@ -13,9 +13,10 @@ const GSCard = ({ gs }) => {
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
   const text =
     localization[userSettingsLocalizaton].tools.phoneBook.sharingText;
+  const textToShare = `${text.linkToApp}:
+https://gs-tools.netlify.app/
 
-  console.log(text);
-  const textToShare = `${gs.gsFirm} АЗС №${gs.gsNumber}
+${gs.gsFirm} АЗС №${gs.gsNumber}
 
 ${gs.phone ? 'телефон: ' + gs.phone : ''}
 ${gs.address ? text.address + ': ' + gs.address : ''}${
@@ -26,11 +27,7 @@ ${gs.address ? text.address + ': ' + gs.address : ''}${
         'https://maps.app.goo.gl/' +
         gs.linkToGm
       : ''
-  }
-
-${text.linkToApp}:
-https://gs-tools.netlify.app/
-  `;
+  }`;
 
   const copy = () => {
     navigator.clipboard.writeText(textToShare);
@@ -122,7 +119,7 @@ https://gs-tools.netlify.app/
               onClick={copy}
               variant='dark'>
               <FaCopy className={styles.sharingIcon} />
-              {text.btnCopy}
+              {' ' + text.btnCopy}
             </Button>
             {navigator.share ? (
               <Button
@@ -130,7 +127,7 @@ https://gs-tools.netlify.app/
                 onClick={share}
                 variant='dark'>
                 <FaShareAlt className={styles.sharingIcon} />
-                {text.btnShare}
+                {' ' + text.btnShare}
               </Button>
             ) : (
               ''

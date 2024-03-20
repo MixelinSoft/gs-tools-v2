@@ -400,6 +400,21 @@ const gsDB = [
     linkToGm: '4oQjkf4nYbvBwQZQ9',
   },
 
+  //01 - ТОВ "АЛЕТЕЯ"
+  // ! Add ZIP
+  // ! Add Region
+  {
+    gsId: '01a',
+    gsNumber: '1',
+    gsFirm: firms.alete,
+    phone: '+380933070501',
+    address: 'вулиця Маршала Малиновського, 66-А',
+    // zip: '',
+    // region: '',
+    gps: '!1m18!1m12!1m3!1d1843.4644423623317!2d35.07937626045409!3d48.47623475097347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe2ba93e72951%3A0x1f638748e0a9e48a!2z0JDQktCG0JDQoSDQv9C70Y7RgQ!5e0!3m2!1sru!2sua!4v1710930965845!5m2!1sru!2sua',
+    linkToGm: 'mnFUpQSVkbZAJ7wD6',
+  },
+
   //03 - ТОВ "АЛЕТЕЯ"
   // ! Add ZIP
   // ! Add Region

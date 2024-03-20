@@ -2,13 +2,14 @@ import gsDB from '../data/GAS-STATION_DB';
 import { Form } from 'react-bootstrap';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-const SelectorGS = ({ changerId, param, lang }) => {
+const SelectorGS = ({ changerId, param, lang, value = 'empty' }) => {
+  console.log(value);
   return (
     <Form>
       <Form.Group>
         <FloatingLabel label={lang.label_1}>
           <Form.Select
-            defaultValue='empty'
+            defaultValue={value}
             size='lg'
             onChange={(e) => changerId(e.target.value)}>
             <option value='empty' disabled>
@@ -17,6 +18,7 @@ const SelectorGS = ({ changerId, param, lang }) => {
             {gsDB.map((gs) =>
               gs[param] ? (
                 <option
+                  selected={value === gs.gsId ? true : false}
                   key={gs.gsId}
                   value={gs.gsId}>{`АЗС№${gs.gsNumber} ${gs.gsFirm}`}</option>
               ) : (
