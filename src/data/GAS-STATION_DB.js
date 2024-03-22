@@ -911,6 +911,21 @@ const gsDB = [
     linkToGm: 'R2azXAATGJKywvj59',
   },
 
+  //56 - ТОВ "АЛЕТЕЯ"
+  // ! Add ZIP
+  // ! Add Region
+  {
+    gsId: '56a',
+    gsNumber: '56',
+    gsFirm: firms.alete,
+    phone: '+380933070605',
+    address: 'вулиця Зелена, 32, с. Долинське',
+    // zip: '',
+    // region: '',
+    gps: '!1m18!1m12!1m3!1d5300.658358750986!2d34.7167493!3d48.3734125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe909d1d1afd3%3A0x3f7270a57a03a996!2sAzs%20Yukon!5e0!3m2!1sru!2sua!4v1711109777785!5m2!1sru!2sua',
+    linkToGm: 'GR2F656WUi2gjeXA8',
+  },
+
   //57 - ТОВ "АЛЕТЕЯ"
   // ! Add ZIP
   // ! Add Region
