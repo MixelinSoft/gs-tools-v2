@@ -86,7 +86,7 @@ const tools = [
 
     toolID: '04',
     toolSlug: 'phone-book',
-    toolVersion: '1.4.0',
+    toolVersion: '1.4.2',
     tool: PhoneBook,
     icon: <MdOutlineContactPhone />,
   },
