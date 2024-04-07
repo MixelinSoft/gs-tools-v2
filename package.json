@@ -1,6 +1,6 @@
 {
   "name": "gs-tools",
-  "version": "3.9.10",
+  "version": "3.9.12",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

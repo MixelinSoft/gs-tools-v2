@@ -173,19 +173,19 @@ const gsDB = [
     linkToGm: 'nnvTgFKBHnjUov5D6',
   },
 
-  //16 - ТОВ "ПРIМАРIУС"
-  {
-    gsId: '16p',
-    gsNumber: '16',
-    gsFirm: firms.prima,
-    phone: '+380632967329',
-    address: 'вулиця Маяковського, 39',
-    zip: '49066',
-    region: 'Новокодацький',
-    gps: '!1m14!1m8!1m3!1d42319.78612804145!2d34.968882!3d48.47597!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe3cebc4f9c37%3A0x2d9b50f887fd33a5!2sAvias%20Plus!5e0!3m2!1sru!2sua!4v1708690448902!5m2!1sru!2sua',
-    linkToGm: '5yRDU1M2T8Rz5kjP8',
-    tables: true,
-  },
+  //16 - ТОВ "ПРIМАРIУС" - Closed
+  // {
+  //   gsId: '16p',
+  //   gsNumber: '16',
+  //   gsFirm: firms.prima,
+  //   phone: '+380632967329',
+  //   address: 'вулиця Маяковського, 39',
+  //   zip: '49066',
+  //   region: 'Новокодацький',
+  //   gps: '!1m14!1m8!1m3!1d42319.78612804145!2d34.968882!3d48.47597!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe3cebc4f9c37%3A0x2d9b50f887fd33a5!2sAvias%20Plus!5e0!3m2!1sru!2sua!4v1708690448902!5m2!1sru!2sua',
+  //   linkToGm: '5yRDU1M2T8Rz5kjP8',
+  //   tables: true,
+  // },
 
   //17 - ТОВ "ПРIМАРIУС"
   {
@@ -295,7 +295,7 @@ const gsDB = [
 
   //29 - ТОВ "ПРIМАРIУС"
   {
-    gsId: '29',
+    gsId: '29p',
     gsNumber: '29',
     gsFirm: firms.prima,
     phone: '+380632967519',
@@ -304,6 +304,7 @@ const gsDB = [
     region: 'Центральний',
     gps: '!1m18!1m12!1m3!1d1322.8830423860838!2d35.02379903912107!3d48.4610174928203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe31d22f57859%3A0x130bce2eb9b8d41f!2z0JDQstGW0LDRgSDQn9C70Y7RgQ!5e0!3m2!1suk!2sua!4v1708691301763!5m2!1suk!2sua',
     linkToGm: 'iHbrjpuM1EasiJGJ7',
+    tables: true,
   },
 
   //30 - ТОВ "ПРIМАРIУС"
@@ -490,20 +491,20 @@ const gsDB = [
     linkToGm: 'injs4e4gwQKzjSTm7',
   },
 
-  //13 - ТОВ "АЛЕТЕЯ"
+  //13 - ТОВ "АЛЕТЕЯ" - Closed
   // ! Add ZIP
   // ! Add Region
-  {
-    gsId: '13a',
-    gsNumber: '13',
-    gsFirm: firms.alete,
-    phone: '+380933070430',
-    address: 'Донецьке шосе, 124-В',
-    // zip: '',
-    // region: '',
-    gps: '!1m18!1m12!1m3!1d330.2930627398871!2d35.034271125561!3d48.526629281861794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d958b821bac7cf%3A0x8fad87d9801c397a!2z0JDQl9ChINCu0LrQvtC9!5e0!3m2!1suk!2sua!4v1708687735649!5m2!1suk!2sua',
-    linkToGm: 'rLwz2dxM3u97eciA7',
-  },
+  // {
+  //   gsId: '13a',
+  //   gsNumber: '13',
+  //   gsFirm: firms.alete,
+  //   phone: '+380933070430',
+  //   address: 'Донецьке шосе, 124-В',
+  //   // zip: '',
+  //   // region: '',
+  //   gps: '!1m18!1m12!1m3!1d330.2930627398871!2d35.034271125561!3d48.526629281861794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d958b821bac7cf%3A0x8fad87d9801c397a!2z0JDQl9ChINCu0LrQvtC9!5e0!3m2!1suk!2sua!4v1708687735649!5m2!1suk!2sua',
+  //   linkToGm: 'rLwz2dxM3u97eciA7',
+  // },
 
   //25 - ТОВ "АЛЕТЕЯ"
   // ! Add ZIP
