@@ -896,6 +896,23 @@ const gsDB = [
     gps: '!1m18!1m12!1m3!1d748.8709163227725!2d35.058167191606195!3d48.389854131175944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbfb76868128bf%3A0x14ee4bf3b1b49f87!2sYukon%20Service!5e0!3m2!1sru!2sua!4v1708778245834!5m2!1sru!2sua',
     linkToGm: 'PiXrj22R6Zrs9Zr7A',
   },
+  //51 - ТОВ "АЛЕТЕЯ"
+  // ! Add ZIP
+  // ! Add Region
+  // ! Add GPS
+  // ! Add Address
+
+  {
+    gsId: '52a',
+    gsNumber: '51',
+    gsFirm: firms.alete,
+    // phone: '',
+    // address: '',
+    // zip: '',
+    // region: '',
+    // gps: '',
+    // linkToGm: '',
+  },
 
   //53 - ТОВ "АЛЕТЕЯ"
   // ! Add ZIP

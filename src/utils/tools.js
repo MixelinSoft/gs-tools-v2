@@ -14,9 +14,11 @@ import { BsCashStack } from 'react-icons/bs';
 import { LuCalendarClock } from 'react-icons/lu';
 import { RiWaterPercentLine } from 'react-icons/ri';
 import { SiCoffeescript } from 'react-icons/si';
+import { TbReportAnalytics } from 'react-icons/tb';
 
 //Localization
 import localization from '../data/localization';
+import ReportGenerator from '../components/tools/ReportGenerator';
 // Separation of localization
 const UAlocalization = localization.ua.tools;
 const RUlocalization = localization.ru.tools;
@@ -107,6 +109,22 @@ const tools = [
     tool: SalaryCalc,
     icon: <BsCashStack />,
   },
+  // Report Generator
+  {
+    toolTitle: {
+      ua: UAlocalization.reportGenerator.title,
+      ru: RUlocalization.reportGenerator.title,
+    },
+    toolDescription: {
+      ua: UAlocalization.reportGenerator.description,
+      ru: RUlocalization.reportGenerator.description,
+    },
+    toolID: '06',
+    toolSlug: 'report-generator',
+    toolVersion: '0.10 Beta',
+    tool: ReportGenerator,
+    icon: <TbReportAnalytics />,
+  },
 
   // Expiration Date Calculator
   {
@@ -118,7 +136,7 @@ const tools = [
       ua: UAlocalization.expirationDate.description,
       ru: RUlocalization.expirationDate.description,
     },
-    toolID: '06',
+    toolID: '07',
     toolSlug: 'expiration-date',
     toolVersion: '1.2.5',
     tool: ExpirationDates,
