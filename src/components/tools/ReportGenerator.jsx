@@ -413,7 +413,7 @@ const ReportGenerator = (props) => {
     } `;
     const summary = `Разом: ${reportObject.daySum.quantity}/${
       reportObject.daySum.sum
-    }грн ${
+    } ${
       prevWeekReport
         ? parseDifference(reportObject.daySum.sum, prevWeekReport.daySum.sum)
         : ''
@@ -487,7 +487,7 @@ ${summary}
   const parseDifference = (current, previous) => {
     const sign = current - previous > 0 ? '+' : '';
     const text =
-      current === previous ? '(0)' : `(${sign}${current - previous})`;
+      current === previous ? '(0)' : `(${sign}${current - previous} грн.)`;
     return text;
   };
 
