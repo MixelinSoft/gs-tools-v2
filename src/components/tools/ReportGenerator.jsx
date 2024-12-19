@@ -415,7 +415,11 @@ const ReportGenerator = (props) => {
       reportObject.daySum.sum
     } ${
       prevWeekReport
-        ? parseDifference(reportObject.daySum.sum, prevWeekReport.daySum.sum)
+        ? parseDifference(
+            reportObject.daySum.sum,
+            prevWeekReport.daySum.sum,
+            ' грн.',
+          )
         : ''
     }`;
 
@@ -484,10 +488,12 @@ ${summary}
     );
   };
   // Parse Difference
-  const parseDifference = (current, previous) => {
+  const parseDifference = (current, previous, tag) => {
     const sign = current - previous > 0 ? '+' : '';
     const text =
-      current === previous ? '(0)' : `(${sign}${current - previous} грн.)`;
+      current === previous
+        ? '(0)'
+        : `(${sign}${current - previous}${tag ? tag : ''})`;
     return text;
   };
 
