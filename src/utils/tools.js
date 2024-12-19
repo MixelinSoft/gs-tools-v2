@@ -121,7 +121,7 @@ const tools = [
     },
     toolID: '06',
     toolSlug: 'report-generator',
-    toolVersion: '0.10 Beta',
+    toolVersion: '0.13 Beta',
     tool: ReportGenerator,
     icon: <TbReportAnalytics />,
   },

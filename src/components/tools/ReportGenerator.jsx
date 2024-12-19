@@ -28,15 +28,6 @@ const ReportGenerator = (props) => {
       setFuelChecks(+e.target.value);
     }
   };
-  // Cashout State
-  const [cashOut, setCashOut] = useState('');
-  const cashOutHandler = (e) => {
-    if (e === '') {
-      setCashOut('');
-    } else {
-      setCashOut(+e.target.value);
-    }
-  };
   // Loaded Report State
   const [loadedReport, setLoadedReport] = useState(null);
   const loadedReportHandler = (e) => {
@@ -49,9 +40,7 @@ const ReportGenerator = (props) => {
     };
     reader.readAsArrayBuffer(file);
     if (loadedReport) {
-      console.log(fuelChecks, cashOut, setGeneratedReport);
       fuelChecksHandler('');
-      cashOutHandler('');
     }
   };
   // Generated Report State
@@ -220,6 +209,10 @@ const ReportGenerator = (props) => {
       if (productName.includes('Разом')) {
         result.daySum.sum += sum;
         result.daySum.quantity += quantity;
+      }
+      if (productName.includes('Видача готівки')) {
+        result.daySum.sum += -sum;
+        console.log(productName, sum);
       }
       result.others.sum =
         result.daySum.sum -
@@ -420,7 +413,7 @@ const ReportGenerator = (props) => {
     } `;
     const summary = `Разом: ${reportObject.daySum.quantity}/${
       reportObject.daySum.sum
-    } ${
+    }грн ${
       prevWeekReport
         ? parseDifference(reportObject.daySum.sum, prevWeekReport.daySum.sum)
         : ''
@@ -530,24 +523,16 @@ ${summary}
 
   // Generate Report On Input
   useEffect(() => {
-    console.log(fuelChecks, cashOut);
     setGeneratedReport(null);
-    if (
-      loadedReport &&
-      gasStation !== 'empty' &&
-      fuelChecks !== '' &&
-      cashOut !== ''
-    ) {
+    if (loadedReport && gasStation !== 'empty' && fuelChecks !== '') {
       const reportObject = parseHTML(loadedReport);
 
       reportObject.fuelChecks = fuelChecks;
-      reportObject.daySum.sum =
-        Math.round(reportObject.daySum.sum * 100 + cashOut * 100) / 100;
+      reportObject.daySum.sum = Math.round(reportObject.daySum.sum * 100) / 100;
 
       setGeneratedReport(reportObject);
-      // console.log(parseReportToText(reportObject));
     }
-  }, [gasStation, fuelChecks, cashOut, loadedReport]);
+  }, [gasStation, fuelChecks, loadedReport]);
   return (
     <>
       <Form>
@@ -563,16 +548,6 @@ ${summary}
             placeholder={toolText.inputPlaceholder}
             value={fuelChecks}
             onChange={fuelChecksHandler}
-            type='number'
-            size='lg'
-          />
-        </Form.Group>
-        <Form.Group controlId='cashOutInput' className='mb-3'>
-          <Form.Label>{toolText.labelCashOut}</Form.Label>
-          <Form.Control
-            placeholder={toolText.inputPlaceholder}
-            value={cashOut}
-            onChange={cashOutHandler}
             type='number'
             size='lg'
           />
