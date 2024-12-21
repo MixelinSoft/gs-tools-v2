@@ -6,6 +6,7 @@ import gsDB from '../../data/GAS-STATION_DB';
 import BackButton from '../UI/BackButton';
 import ModalInfo from '../UI/ModalInfo';
 import { FaRegCopy, FaWhatsapp } from 'react-icons/fa';
+import { IoMdHelpCircleOutline } from 'react-icons/io';
 
 const ReportGenerator = (props) => {
   // Localization
@@ -49,6 +50,12 @@ const ReportGenerator = (props) => {
   const [showModal, setShowModal] = useState(false);
   const showModalHandler = (value) => {
     setShowModal(value);
+  };
+  // Show Guide State
+  const [showGuide, setShowGuide] = useState(false);
+  const showGuideHandler = (value) => {
+    console.log(value);
+    setShowGuide(value);
   };
 
   // // Functions // //
@@ -549,7 +556,12 @@ ${summary}
         />
         <br />
         <Form.Group controlId='fuelChecksInput' className='mb-3'>
-          <Form.Label>{toolText.labelFuel}</Form.Label>
+          <Form.Label>
+            {toolText.labelFuel}
+            <button className={'helpButton'}>
+              <IoMdHelpCircleOutline className={'helpButtonIcon'} />
+            </button>
+          </Form.Label>
           <Form.Control
             placeholder={toolText.inputPlaceholder}
             value={fuelChecks}
@@ -559,7 +571,12 @@ ${summary}
           />
         </Form.Group>
         <Form.Group controlId='formFileLg' className='mb-3'>
-          <Form.Label>{toolText.labelReport}</Form.Label>
+          <Form.Label>
+            {toolText.labelReport}
+            <button className={'helpButton'}>
+              <IoMdHelpCircleOutline className={'helpButtonIcon'} />
+            </button>
+          </Form.Label>
           <Form.Control type='file' size='lg' onChange={loadedReportHandler} />
         </Form.Group>
         {generatedReport && (
@@ -576,6 +593,11 @@ ${summary}
           show={showModal}
         />
       )}
+      <ModalInfo
+        headerText={toolText.guideHeader}
+        bodyText={toolText.guideFuelChecks}
+        show={true}
+      />
       <BackButton />
     </>
   );

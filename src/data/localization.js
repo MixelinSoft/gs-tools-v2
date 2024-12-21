@@ -273,6 +273,9 @@ const localization = {
         buttonGenerate: 'Сгенерировать отчёт',
         buttonCopy: 'Копировать',
         buttonShare: 'Отправить',
+        guideHeader: 'Инструкция',
+        guideFuelChecks: {},
+        guideFuelReportExport: {},
       },
       coffeeGuide: {
         title: 'Справочник кофейных напитков',
