@@ -7,6 +7,21 @@ import BackButton from '../UI/BackButton';
 import ModalInfo from '../UI/ModalInfo';
 import { FaRegCopy, FaWhatsapp } from 'react-icons/fa';
 import { IoMdHelpCircleOutline } from 'react-icons/io';
+// Import Guide Images
+import f1 from '../../images/reportGenerator/fuelChecks/1.png';
+import f2 from '../../images/reportGenerator/fuelChecks/2.png';
+import f3 from '../../images/reportGenerator/fuelChecks/3.png';
+import f4 from '../../images/reportGenerator/fuelChecks/4.png';
+
+import r1 from '../../images/reportGenerator/createReport/1.png';
+import r2 from '../../images/reportGenerator/createReport/2.png';
+import r3 from '../../images/reportGenerator/createReport/3.png';
+import r4 from '../../images/reportGenerator/createReport/4.png';
+import r5 from '../../images/reportGenerator/createReport/5.png';
+import r6 from '../../images/reportGenerator/createReport/6.png';
+import r7 from '../../images/reportGenerator/createReport/7.png';
+import r8 from '../../images/reportGenerator/createReport/8.png';
+import r9 from '../../images/reportGenerator/createReport/9.png';
 
 const ReportGenerator = (props) => {
   // Localization
@@ -51,11 +66,14 @@ const ReportGenerator = (props) => {
   const showModalHandler = (value) => {
     setShowModal(value);
   };
-  // Show Guide State
-  const [showGuide, setShowGuide] = useState(false);
-  const showGuideHandler = (value) => {
-    console.log(value);
-    setShowGuide(value);
+  // Show Guide States
+  const [showFuelChecksGuide, setShowFuelChecksGuide] = useState(false);
+  const showFuelChecksGuideHandler = (value) => {
+    setShowFuelChecksGuide(value);
+  };
+  const [showReportCreateGuide, setShowReportCreateGuide] = useState(false);
+  const showReportCreateGuideHandler = (value) => {
+    setShowReportCreateGuide(value);
   };
 
   // // Functions // //
@@ -503,6 +521,67 @@ ${summary}
         : `(${sign}${current - previous}${tag ? tag : ''})`;
     return text;
   };
+  // Guides Content
+  const fuelChecksGuide = (
+    <div className={'guideBody'}>
+      <p>{toolText.guideFuelChecks.p1}</p>
+      <img src={f1} alt='Fuel Checks Guide' />
+      <br />
+      <br />
+      <p>{toolText.guideFuelChecks.p2}</p>
+      <img src={f2} alt='Fuel Checks Guide' />
+      <br />
+      <br />
+      <br />
+      <p>{toolText.guideFuelChecks.p3}</p>
+      <img src={f3} alt='Fuel Checks Guide' />
+      <p>{toolText.guideFuelChecks.p4}</p>
+      <img src={f4} alt='Fuel Checks Guide' />
+    </div>
+  );
+  const reportCreateGuide = (
+    <div className={'guideBody'}>
+      <p>{toolText.guideReportExport.p1}</p>
+      <img src={r1} alt='Report Guide' />
+      <br />
+      <br />
+      <p>{toolText.guideReportExport.p2}</p>
+      <img src={r2} alt='Report Guide' />
+      <br />
+      <br />
+      <br />
+      <p>{toolText.guideReportExport.p3}</p>
+      <img src={r3} alt='Report Guide' />
+      <p>{toolText.guideReportExport.p4}</p>
+      <br />
+      <br />
+      <img src={r4} alt='Report Guide' />
+      <br />
+      <br />
+      <p>{toolText.guideReportExport.p5}</p>
+      <img src={r5} alt='Report Guide' />
+      <br />
+      <br />
+      <p>{toolText.guideReportExport.p6}</p>
+      <br />
+      <img src={r6} alt='Report Guide' />
+      <br />
+      <br />
+      <p>{toolText.guideReportExport.p7}</p>
+      <br />
+      <br />
+      <img src={r7} alt='Report Guide' />
+      <br />
+      <br />
+      <p>{toolText.guideReportExport.p8}</p>
+
+      <img src={r8} alt='Report Guide' />
+      <br />
+      <br />
+      <p>{toolText.guideReportExport.p9}</p>
+      <img src={r9} alt='Report Guide' />
+    </div>
+  );
 
   // Generate Report
   const generateReport = () => {
@@ -558,7 +637,13 @@ ${summary}
         <Form.Group controlId='fuelChecksInput' className='mb-3'>
           <Form.Label>
             {toolText.labelFuel}
-            <button className={'helpButton'}>
+            <button
+              className={'helpButton'}
+              onClick={(e) => {
+                e.preventDefault();
+                showFuelChecksGuideHandler(true);
+              }}
+            >
               <IoMdHelpCircleOutline className={'helpButtonIcon'} />
             </button>
           </Form.Label>
@@ -573,7 +658,13 @@ ${summary}
         <Form.Group controlId='formFileLg' className='mb-3'>
           <Form.Label>
             {toolText.labelReport}
-            <button className={'helpButton'}>
+            <button
+              className={'helpButton'}
+              onClick={(e) => {
+                e.preventDefault();
+                showReportCreateGuideHandler(true);
+              }}
+            >
               <IoMdHelpCircleOutline className={'helpButtonIcon'} />
             </button>
           </Form.Label>
@@ -593,10 +684,18 @@ ${summary}
           show={showModal}
         />
       )}
+      {/* Guides Modals */}
       <ModalInfo
         headerText={toolText.guideHeader}
-        bodyText={toolText.guideFuelChecks}
-        show={true}
+        bodyText={fuelChecksGuide}
+        show={showFuelChecksGuide}
+        showToggler={showFuelChecksGuideHandler}
+      />
+      <ModalInfo
+        headerText={toolText.guideHeader}
+        bodyText={reportCreateGuide}
+        show={showReportCreateGuide}
+        showToggler={showReportCreateGuideHandler}
       />
       <BackButton />
     </>
