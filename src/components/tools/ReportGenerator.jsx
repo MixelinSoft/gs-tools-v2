@@ -12,7 +12,6 @@ import f1 from '../../images/reportGenerator/fuelChecks/1.png';
 import f2 from '../../images/reportGenerator/fuelChecks/2.png';
 import f3 from '../../images/reportGenerator/fuelChecks/3.png';
 import f4 from '../../images/reportGenerator/fuelChecks/4.png';
-
 import r1 from '../../images/reportGenerator/createReport/1.png';
 import r2 from '../../images/reportGenerator/createReport/2.png';
 import r3 from '../../images/reportGenerator/createReport/3.png';
@@ -697,6 +696,7 @@ ${summary}
         show={showReportCreateGuide}
         showToggler={showReportCreateGuideHandler}
       />
+      {/* Error Modal */}
       <BackButton />
     </>
   );
