@@ -41,15 +41,22 @@ const PhoneBook = () => {
     const result = gsDB.filter(
       (el) =>
         el.address
-          .trim()
+          ?.trim()
           .toLowerCase()
           .includes(inputText.trim().toLowerCase()) ||
+        '' ||
         el.gsNumber
-          .trim()
+          ?.trim()
           .toLowerCase()
           .includes(inputText.trim().toLowerCase()) ||
-        el.gsFirm.trim().toLowerCase().includes(inputText.trim().toLowerCase())
+        '' ||
+        el.gsFirm
+          ?.trim()
+          .toLowerCase()
+          .includes(inputText.trim().toLowerCase()) ||
+        '',
     );
+
     inputText.length > 0
       ? changeResultsHandler(result)
       : changeResultsHandler([]);
