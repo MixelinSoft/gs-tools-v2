@@ -27,6 +27,9 @@ const ReportGenerator = (props) => {
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
   const text = localization[userSettingsLocalizaton];
   const toolText = localization[userSettingsLocalizaton].tools.reportGenerator;
+  // Create DOM Parser
+  const parser = new DOMParser();
+
   // // States // //
   // Gas Station State
   const [gasStation, setGasStation] = useState('empty');
@@ -44,17 +47,63 @@ const ReportGenerator = (props) => {
     }
   };
   // Loaded Report State
-  const [loadedReport, setLoadedReport] = useState(null);
+  const [loadedReport, setLoadedReport] = useState('');
   const loadedReportHandler = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
-    reader.onload = (e) => {
-      const decoder = new TextDecoder('windows-1251');
-      const htmlContent = decoder.decode(e.target.result);
-      setLoadedReport(htmlContent);
-    };
-    reader.readAsArrayBuffer(file);
-    if (loadedReport) {
+
+    if (file.type === 'text/html') {
+      reader.onload = (e) => {
+        const decoder = new TextDecoder('windows-1251');
+        const htmlContent = decoder.decode(e.target.result);
+        const doc = parser.parseFromString(htmlContent, 'text/html');
+
+        if (
+          doc.querySelector('body').textContent.includes('Підсумковий звіт')
+        ) {
+          setLoadedReport(htmlContent);
+        } else {
+          errorModalContentHandler(
+            <div>
+              <span>
+                {toolText.errors.incorrectReport}
+                <button
+                  className={'helpButton'}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    showReportCreateGuideHandler(true);
+                  }}
+                >
+                  <IoMdHelpCircleOutline className={'helpButtonIconBlack'} />
+                </button>
+              </span>
+            </div>,
+          );
+          showErrorModalHandler(true);
+        }
+      };
+      reader.readAsArrayBuffer(file);
+    } else {
+      showErrorModalHandler(true);
+      errorModalContentHandler(
+        <div>
+          <span>
+            {toolText.errors.incorrectFileType}
+            <button
+              className={'helpButton'}
+              onClick={(e) => {
+                e.preventDefault();
+                showReportCreateGuideHandler(true);
+              }}
+            >
+              <IoMdHelpCircleOutline className={'helpButtonIconBlack'} />
+            </button>
+          </span>
+        </div>,
+      );
+    }
+
+    if (loadedReport !== '') {
       fuelChecksHandler('');
     }
   };
@@ -72,13 +121,22 @@ const ReportGenerator = (props) => {
   };
   const [showReportCreateGuide, setShowReportCreateGuide] = useState(false);
   const showReportCreateGuideHandler = (value) => {
+    setShowErrorModal(false);
     setShowReportCreateGuide(value);
+  };
+  // Error Modal State
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [errorModalContent, setErrorModalContent] = useState('');
+  const showErrorModalHandler = (value) => {
+    setShowErrorModal(value);
+  };
+  const errorModalContentHandler = (content) => {
+    setErrorModalContent(content);
   };
 
   // // Functions // //
   // Parse HTML
   const parseHTML = (htmlContent) => {
-    const parser = new DOMParser();
     const doc = parser.parseFromString(htmlContent, 'text/html');
     const rows = [...doc.querySelectorAll('tr')];
 
@@ -615,7 +673,7 @@ ${summary}
   // Generate Report On Input
   useEffect(() => {
     setGeneratedReport(null);
-    if (loadedReport && gasStation !== 'empty' && fuelChecks !== '') {
+    if (loadedReport !== '' && gasStation !== 'empty' && fuelChecks !== '') {
       const reportObject = parseHTML(loadedReport);
 
       reportObject.fuelChecks = fuelChecks;
@@ -697,6 +755,12 @@ ${summary}
         showToggler={showReportCreateGuideHandler}
       />
       {/* Error Modal */}
+      <ModalInfo
+        headerText={toolText.errors.errorHeader}
+        bodyText={errorModalContent}
+        show={showErrorModal}
+        showToggler={showErrorModalHandler}
+      />
       <BackButton />
     </>
   );

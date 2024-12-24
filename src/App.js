@@ -10,6 +10,7 @@ import Settings from './components/Settings';
 import About from './components/About';
 import { useState } from 'react';
 import localization from './data/localization';
+import Snowfall from 'react-snowfall';
 
 // import SnowFall from './components/UI/SnowFall';
 
@@ -41,7 +42,8 @@ function App() {
               path='/'
               element={
                 <MainLayout localization={localization[userLocalization]} />
-              }>
+              }
+            >
               <Route
                 index
                 element={
@@ -81,7 +83,7 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-      {/* <SnowFall /> */}
+      <Snowfall />
     </>
   );
 }

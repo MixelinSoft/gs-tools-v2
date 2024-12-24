@@ -53,6 +53,14 @@
   line-height: 1;
 }
 
+.helpButtonIconBlack {
+  font-size: 20px;
+  font-weight: bold;
+
+  line-height: 1;
+  color: black;
+}
+
 .guideBody img {
   width: 100%;
 }
