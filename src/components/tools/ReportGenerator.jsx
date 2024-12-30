@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Accordion, Button, Form } from 'react-bootstrap';
+import { Accordion, Button, Form, InputGroup } from 'react-bootstrap';
 import SelectorGS from '../SelectorGS';
 import localization from '../../data/localization';
 import gsDB from '../../data/GAS-STATION_DB';
@@ -114,6 +114,11 @@ const ReportGenerator = (props) => {
   };
   // Generated Report State
   const [generatedReport, setGeneratedReport] = useState(null);
+  // Month Report State
+  const [isReportMonth, setIsReportMonth] = useState(false);
+  const isReportMonthHandler = (value) => {
+    setIsReportMonth(value);
+  };
   // Show Modal State
   const [showModal, setShowModal] = useState(false);
   const showModalHandler = (value) => {
@@ -337,7 +342,11 @@ const ReportGenerator = (props) => {
       const reportDate = new Date(
         dateMatch[0].replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$3-$2-$1'),
       ); // Преобразование в формат Date
-      result.reportDate = reportDate;
+      if (!isReportMonth) {
+        result.reportDate = reportDate;
+      } else {
+        result.reportDate = 'month' + reportDate;
+      }
       // saveReportToLocalStorage(result, formattedDate);
     }
 
@@ -814,6 +823,15 @@ ${summary}
           </Form.Label>
           <Form.Control type='file' size='lg' onChange={loadedReportHandler} />
         </Form.Group>
+        <InputGroup>
+          <Form.Check
+            className='switch'
+            type='switch'
+            label={'month report'}
+            checked={isReportMonth}
+            onChange={() => isReportMonthHandler(!isReportMonth)}
+          />
+        </InputGroup>
         {generatedReport && (
           <Button variant={'dark'} onClick={generateReport}>
             {toolText.buttonGenerate}
