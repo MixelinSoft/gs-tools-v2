@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { useEffect, useRef, useState } from 'react';
+import { Accordion, Button, Form } from 'react-bootstrap';
 import SelectorGS from '../SelectorGS';
 import localization from '../../data/localization';
 import gsDB from '../../data/GAS-STATION_DB';
@@ -23,14 +23,19 @@ import r8 from '../../images/reportGenerator/createReport/8.png';
 import r9 from '../../images/reportGenerator/createReport/9.png';
 
 const ReportGenerator = (props) => {
+  // // Local Storage
   // Localization
   let userSettingsLocalizaton = localStorage.getItem('language') || 'ua';
   const text = localization[userSettingsLocalizaton];
   const toolText = localization[userSettingsLocalizaton].tools.reportGenerator;
+  // Stored Reports
+  const storedReports =
+    JSON.parse(localStorage.getItem('productReports')) || {};
   // Create DOM Parser
   const parser = new DOMParser();
 
   // // States // //
+  const [activeKey, setActiveKey] = useState(null);
   // Gas Station State
   const [gasStation, setGasStation] = useState('empty');
   const gasStationHandler = (gsId) => {
@@ -133,6 +138,10 @@ const ReportGenerator = (props) => {
   const errorModalContentHandler = (content) => {
     setErrorModalContent(content);
   };
+
+  // // Refs
+  // Saved Reports Accordeon Ref
+  const accordionRef = useRef(null);
 
   // // Functions // //
   // Parse HTML
@@ -569,6 +578,41 @@ ${summary}
       </div>
     );
   };
+  // Parse Report To Preview
+  const parseReportToPreview = (reportObject) => {
+    const date = reportObject.date;
+    const fuelChecks = `Паливні чеки: ${reportObject.fuelChecks}`;
+    const coffee = `Кава: ${reportObject.coffee.quantity}/${reportObject.coffee.sum}`;
+    const tea = `Чай: ${reportObject.tea.quantity}/${reportObject.tea.sum}`;
+    const vitaminTea = `Чай вітамінний: ${reportObject.vitaminTea.quantity}/${reportObject.vitaminTea.sum}`;
+    const hotDogs = `Хот-доги: ${reportObject.hotDogs.quantity}/${reportObject.hotDogs.sum}`;
+    const snacks = `Снеки: ${reportObject.snacks.quantity}/${reportObject.snacks.sum}`;
+    const drinks = `Напої: ${reportObject.drinks.quantity}/${reportObject.drinks.sum}`;
+    const alcohol = `Алкоголь: ${reportObject.alcohol.quantity}/${reportObject.alcohol.sum}`;
+    const tobacco = `Тютюн: ${reportObject.tobacco.quantity}/${reportObject.tobacco.sum}`;
+    const autoProducts = `Автотовари: ${reportObject.autoProducts.quantity}/${reportObject.autoProducts.sum}`;
+    const washers = `Омивач: ${reportObject.washers.quantity}/${reportObject.washers.sum}`;
+    const others = `Інше: ${reportObject.others.quantity}/${reportObject.others.sum}`;
+    const summary = `Разом: ${reportObject.daySum.quantity}/${reportObject.daySum.sum}`;
+    return (
+      <div>
+        <p>{date}</p>
+        <p>{fuelChecks}</p>
+        <p>{coffee}</p>
+        <p>{tea}</p>
+        <p>{vitaminTea}</p>
+        <p>{hotDogs}</p>
+        <p>{snacks}</p>
+        <p>{drinks}</p>
+        <p>{alcohol}</p>
+        <p>{tobacco}</p>
+        <p>{autoProducts}</p>
+        <p>{washers}</p>
+        <p>{others}</p>
+        <p>{summary}</p>
+      </div>
+    );
+  };
   // Parse Difference
   const parseDifference = (current, previous, tag) => {
     const sign = current - previous > 0 ? '+' : '';
@@ -667,7 +711,7 @@ ${summary}
   };
   const share = (text) => {
     navigator.clipboard.writeText(text);
-    window.open('https://web.whatsapp.com/');
+    window.open('https:&#47&#47web.whatsapp.com&#47');
   };
 
   // Generate Report On Input
@@ -682,8 +726,51 @@ ${summary}
       setGeneratedReport(reportObject);
     }
   }, [gasStation, fuelChecks, loadedReport]);
+  // Close Accordion On Outside Click
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        accordionRef.current &&
+        !accordionRef.current.contains(event.target)
+      ) {
+        setActiveKey(null); // Закрыть аккордеон
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
   return (
     <>
+      <Accordion
+        ref={accordionRef}
+        activeKey={activeKey}
+        onSelect={(e) => setActiveKey(e)}
+      >
+        <Accordion.Item eventKey='0'>
+          <Accordion.Header>Saved Reports</Accordion.Header>
+          <Accordion.Body>
+            {Object.keys(storedReports).map((date) => {
+              return (
+                <Button
+                  key={date}
+                  variant='dark'
+                  className='reportButton'
+                  onClick={() =>
+                    console.log(parseReportToText(storedReports[date]))
+                  }
+                >{`${date.slice(0, 2)}/${date.slice(2, 4)}/${date.slice(
+                  4,
+                  6,
+                )}`}</Button>
+              );
+            })}
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
+      <br />
       <Form>
         <SelectorGS
           changerId={gasStationHandler}
