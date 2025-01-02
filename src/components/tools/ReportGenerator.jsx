@@ -337,7 +337,7 @@ const ReportGenerator = (props) => {
           <Form.Check
             className='switch'
             type='switch'
-            label={'month report'}
+            label={toolText.monthlyTrigger}
             checked={isReportMonth}
             onChange={() => isReportMonthHandler(!isReportMonth)}
           />
