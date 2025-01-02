@@ -4,11 +4,12 @@ import { FaRegCopy, FaWhatsapp } from 'react-icons/fa';
 const parser = new DOMParser();
 // Parse Date
 const parseDate = (date, isReportMonthly = false) => {
+  const dateObject = new Date(date);
   if (isReportMonthly) {
     return new Intl.DateTimeFormat('uk-UA', {
       month: 'long',
       year: 'numeric',
-    }).format(date);
+    }).format(dateObject);
   }
   const options = {
     weekday: 'long',
@@ -17,7 +18,9 @@ const parseDate = (date, isReportMonthly = false) => {
     year: 'numeric',
   };
 
-  const formattedDate = new Intl.DateTimeFormat('uk-UA', options).format(date);
+  const formattedDate = new Intl.DateTimeFormat('uk-UA', options).format(
+    dateObject,
+  );
   const daysOfWeek = {
     понеділок: 'понеділок',
     вівторок: 'вівторок',
@@ -205,13 +208,12 @@ export const parseHTML = (htmlContent, isReportMonthly = false) => {
       result.washers.sum += sum;
       result.washers.quantity += quantity;
     }
-    if (productName.includes('Разом')) {
+    if (productName.includes('Разом' || 'Итого:')) {
       result.daySum.sum += sum;
       result.daySum.quantity += quantity;
     }
     if (productName.includes('Видача готівки')) {
       result.daySum.sum += -sum;
-      console.log(productName, sum);
     }
     result.others.sum =
       result.daySum.sum -
@@ -256,6 +258,7 @@ export const parseReportToText = (
   toolText,
   isReportMonthly = false,
 ) => {
+  console.log(gasStation);
   const reports = JSON.parse(localStorage.getItem('productReports')) || {};
   const prevWeekDate = new Date(reportObject.reportDate);
   prevWeekDate.setDate(prevWeekDate.getDate() - 7);
@@ -267,7 +270,10 @@ export const parseReportToText = (
   ).slice(-2)}`;
   const prevWeekReport = reports[formattedPrevDate];
 
-  const gs = `АЗС №${gasStation.gsNumber} ${gasStation.gsFirm}`;
+  const gs =
+    gasStation && gasStation !== 'empty'
+      ? `АЗС №${gasStation.gsNumber} ${gasStation.gsFirm}`
+      : '';
   const date = parseDate(reportObject.reportDate, isReportMonthly);
   const fuelChecks = `Паливні чеки: ${reportObject.fuelChecks} ${
     prevWeekReport && !isReportMonthly
@@ -391,8 +397,9 @@ export const parseReportToText = (
       : ''
   }`;
 
-  const text = `${gs}
-${date}\n
+  const text =
+    `${gasStation && gasStation !== 'empty' ? `${gs}\n` : ''}` +
+    `${date}\n
 ${fuelChecks}
 ${coffee}
 ${tea}
@@ -405,12 +412,11 @@ ${tobacco}
 ${autoProducts}
 ${washers}
 ${others}
-${summary}
-`;
+${summary}`;
 
   return (
     <div>
-      <p>{gs}</p>
+      {gasStation && gasStation !== 'empty' && <p>{gs}</p>}
       <p>{date}</p>
       <p>{fuelChecks}</p>
       <p>{coffee}</p>

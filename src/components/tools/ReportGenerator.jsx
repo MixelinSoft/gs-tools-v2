@@ -124,6 +124,20 @@ const ReportGenerator = (props) => {
   const showModalHandler = (value) => {
     setShowModal(value);
   };
+  // Show Saved Report State
+  const [isShowSavedReport, setIsShowSavedReport] = useState(false);
+  const showSavedReportHandler = (value) => {
+    if (value) {
+      setIsShowSavedReport(value);
+    } else {
+      setIsShowSavedReport(value);
+      savedReportHandler(null);
+    }
+  };
+  const [savedReport, setSavedReport] = useState(null);
+  const savedReportHandler = (report) => {
+    setSavedReport(report);
+  };
   // Show Guide States
   const [showFuelChecksGuide, setShowFuelChecksGuide] = useState(false);
   const showFuelChecksGuideHandler = (value) => {
@@ -235,6 +249,11 @@ const ReportGenerator = (props) => {
     showModalHandler(true);
   };
 
+  const showSavedReport = (date) => {
+    savedReportHandler(storedReports[date]);
+    showSavedReportHandler(true);
+  };
+
   // Generate Report On Input
   useEffect(() => {
     setGeneratedReport(null);
@@ -265,30 +284,32 @@ const ReportGenerator = (props) => {
   }, []);
   return (
     <>
-      <Accordion
-        ref={accordionRef}
-        activeKey={activeKey}
-        onSelect={(e) => setActiveKey(e)}
-      >
-        <Accordion.Item eventKey='0'>
-          <Accordion.Header>Saved Reports</Accordion.Header>
-          <Accordion.Body>
-            {Object.keys(storedReports).map((date) => {
-              return (
-                <Button
-                  key={date}
-                  variant='dark'
-                  className='reportButton'
-                  onClick={() => console.log('MOnth Report')}
-                >{`${date.slice(0, 2)}/${date.slice(2, 4)}/${date.slice(
-                  4,
-                  6,
-                )}`}</Button>
-              );
-            })}
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+      {Object.keys(storedReports).length > 0 && (
+        <Accordion
+          ref={accordionRef}
+          activeKey={activeKey}
+          onSelect={(e) => setActiveKey(e)}
+        >
+          <Accordion.Item eventKey='0'>
+            <Accordion.Header>{toolText.savedReports}</Accordion.Header>
+            <Accordion.Body>
+              {Object.keys(storedReports).map((date) => {
+                return (
+                  <Button
+                    key={date}
+                    variant='dark'
+                    className='reportButton'
+                    onClick={() => showSavedReport(date)}
+                  >{`${date.slice(0, 2)}/${date.slice(2, 4)}/${date.slice(
+                    4,
+                    6,
+                  )}`}</Button>
+                );
+              })}
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+      )}
       <br />
       <Form>
         <SelectorGS
@@ -361,6 +382,16 @@ const ReportGenerator = (props) => {
           show={showModal}
         />
       )}
+      <ModalInfo
+        headerText={toolText.savedModalHeader}
+        bodyText={
+          savedReport
+            ? parseReportToText(savedReport, gasStation, toolText, false)
+            : 'Body SavedReport'
+        }
+        showToggler={showSavedReportHandler}
+        show={isShowSavedReport}
+      />
       {/* Guides Modals */}
       <ModalInfo
         headerText={toolText.guideHeader}
