@@ -270,14 +270,14 @@ export const parseReportToText = (
   const gs = `АЗС №${gasStation.gsNumber} ${gasStation.gsFirm}`;
   const date = parseDate(reportObject.reportDate, isReportMonthly);
   const fuelChecks = `Паливні чеки: ${reportObject.fuelChecks} ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(reportObject.fuelChecks, prevWeekReport.fuelChecks)
       : ''
   }`;
   const coffee = `Кава: ${reportObject.coffee.quantity}/${
     reportObject.coffee.sum
   } ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(
           reportObject.coffee.quantity,
           prevWeekReport.coffee.quantity,
@@ -285,14 +285,14 @@ export const parseReportToText = (
       : ''
   }`;
   const tea = `Чай: ${reportObject.tea.quantity}/${reportObject.tea.sum} ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(reportObject.tea.quantity, prevWeekReport.tea.quantity)
       : ''
   }`;
   const vitaminTea = `Чай вітамінний: ${reportObject.vitaminTea.quantity}/${
     reportObject.vitaminTea.sum
   } ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(
           reportObject.vitaminTea.quantity,
           prevWeekReport.vitaminTea.quantity,
@@ -302,7 +302,7 @@ export const parseReportToText = (
   const hotDogs = `Хот-доги: ${reportObject.hotDogs.quantity}/${
     reportObject.hotDogs.sum
   } ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(
           reportObject.hotDogs.quantity,
           prevWeekReport.hotDogs.quantity,
@@ -312,7 +312,7 @@ export const parseReportToText = (
   const snacks = `Снеки: ${reportObject.snacks.quantity}/${
     reportObject.snacks.sum
   } ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(
           reportObject.snacks.quantity,
           prevWeekReport.snacks.quantity,
@@ -322,7 +322,7 @@ export const parseReportToText = (
   const drinks = `Напої: ${reportObject.drinks.quantity}/${
     reportObject.drinks.sum
   } ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(
           reportObject.drinks.quantity,
           prevWeekReport.drinks.quantity,
@@ -332,7 +332,7 @@ export const parseReportToText = (
   const alcohol = `Алкоголь: ${reportObject.alcohol.quantity}/${
     reportObject.alcohol.sum
   } ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(
           reportObject.alcohol.quantity,
           prevWeekReport.alcohol.quantity,
@@ -342,7 +342,7 @@ export const parseReportToText = (
   const tobacco = `Тютюн: ${reportObject.tobacco.quantity}/${
     reportObject.tobacco.sum
   } ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(
           reportObject.tobacco.quantity,
           prevWeekReport.tobacco.quantity,
@@ -352,7 +352,7 @@ export const parseReportToText = (
   const autoProducts = `Автотовари: ${reportObject.autoProducts.quantity}/${
     reportObject.autoProducts.sum
   } ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(
           reportObject.autoProducts.quantity,
           prevWeekReport.autoProducts.quantity,
@@ -362,7 +362,7 @@ export const parseReportToText = (
   const washers = `Омивач: ${reportObject.washers.quantity}/${
     reportObject.washers.sum
   } ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(
           reportObject.washers.quantity,
           prevWeekReport.washers.quantity,
@@ -372,7 +372,7 @@ export const parseReportToText = (
   const others = `Інше: ${reportObject.others.quantity}/${
     reportObject.others.sum
   } ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(
           reportObject.others.quantity,
           prevWeekReport.others.quantity,
@@ -382,7 +382,7 @@ export const parseReportToText = (
   const summary = `Разом: ${reportObject.daySum.quantity}/${
     reportObject.daySum.sum
   } ${
-    prevWeekReport
+    prevWeekReport && !isReportMonthly
       ? parseDifference(
           reportObject.daySum.sum,
           prevWeekReport.daySum.sum,
