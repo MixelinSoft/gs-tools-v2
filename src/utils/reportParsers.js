@@ -56,7 +56,7 @@ const copy = (text) => {
 };
 const share = (text) => {
   navigator.clipboard.writeText(text);
-  window.open('https:&#47&#47web.whatsapp.com&#47');
+  window.open('https://web.whatsapp.com/');
 };
 // // Parsers
 export const parseHTML = (htmlContent, isReportMonthly = false) => {
