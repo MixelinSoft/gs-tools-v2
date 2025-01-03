@@ -238,12 +238,24 @@ const ReportGenerator = (props) => {
         generatedReport.reportDate.getFullYear(),
       ).slice(-2)}`;
       storedReports[formattedDate] = generatedReport;
-      const dates = Object.keys(storedReports);
+
+      // Получаем ключи и сортируем их по числовому значению
+      const dates = Object.keys(storedReports).sort((a, b) => {
+        const parseDate = (date) =>
+          new Date(
+            `20${date.slice(-2)}`, // Год
+            date.slice(2, 4) - 1, // Месяц
+            date.slice(0, 2), // День
+          );
+        return parseDate(a) - parseDate(b);
+      });
+
+      // Если отчётов больше 14, удаляем самый старый
       if (dates.length > 14) {
-        const sortedDates = dates.sort();
-        const oldestDate = sortedDates[0];
+        const oldestDate = dates[0];
         delete storedReports[oldestDate];
       }
+
       localStorage.setItem('productReports', JSON.stringify(storedReports));
     }
     showModalHandler(true);

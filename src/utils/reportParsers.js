@@ -258,7 +258,6 @@ export const parseReportToText = (
   toolText,
   isReportMonthly = false,
 ) => {
-  console.log(gasStation);
   const reports = JSON.parse(localStorage.getItem('productReports')) || {};
   const prevWeekDate = new Date(reportObject.reportDate);
   prevWeekDate.setDate(prevWeekDate.getDate() - 7);
