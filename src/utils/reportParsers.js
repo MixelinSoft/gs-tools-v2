@@ -1,4 +1,4 @@
-import { Button } from 'react-bootstrap';
+import { Alert, Button } from 'react-bootstrap';
 import { FaRegCopy, FaWhatsapp } from 'react-icons/fa';
 
 const parser = new DOMParser();
@@ -415,6 +415,12 @@ ${summary}`;
 
   return (
     <div>
+      {!prevWeekReport && !isReportMonthly && (
+        <Alert variant={'danger'}>
+          {toolText.reportNotFinded}
+          {parseDate(prevWeekDate)}
+        </Alert>
+      )}
       {gasStation && gasStation !== 'empty' && <p>{gs}</p>}
       <p>{date}</p>
       <p>{fuelChecks}</p>
