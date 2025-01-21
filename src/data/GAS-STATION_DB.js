@@ -41,18 +41,18 @@ const gsDB = [
     linkToGm: 'AVWVJ7evur2uuS157',
   },
 
-  // 04 - ТОВ "ПРIМАРIУС"
-  {
-    gsId: '04',
-    gsNumber: '4',
-    gsFirm: firms.prima,
-    phone: '+380632967020',
-    address: 'вулиця Костя Гордієнка, 2-А',
-    zip: '49064',
-    region: 'Новокодацький',
-    gps: '!1m18!1m12!1m3!1d1305.7133642391127!2d34.98913700767761!3d48.472581170892646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe3b39cbcd811%3A0x807b22d254497944!2sSentosa%20Oil!5e0!3m2!1suk!2sua!4v1708688781609!5m2!1suk!2sua',
-    linkToGm: 'FLeqymbJNTq5fcFT9',
-  },
+  // 04 - ТОВ "ПРIМАРIУС" - Closed
+  // {
+  //   gsId: '04',
+  //   gsNumber: '4',
+  //   gsFirm: firms.prima,
+  //   phone: '+380632967020',
+  //   address: 'вулиця Костя Гордієнка, 2-А',
+  //   zip: '49064',
+  //   region: 'Новокодацький',
+  //   gps: '!1m18!1m12!1m3!1d1305.7133642391127!2d34.98913700767761!3d48.472581170892646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe3b39cbcd811%3A0x807b22d254497944!2sSentosa%20Oil!5e0!3m2!1suk!2sua!4v1708688781609!5m2!1suk!2sua',
+  //   linkToGm: 'FLeqymbJNTq5fcFT9',
+  // },
 
   // 05 - ТОВ "ПРIМАРIУС"
   {
@@ -373,18 +373,18 @@ const gsDB = [
     linkToGm: 'kS2TAZWyFKDooPHB8',
   },
 
-  //36 - ТОВ "ПРIМАРIУС"
-  {
-    gsFirm: firms.prima,
-    address: 'Криворізьке шосе, 16-Г',
-    zip: '49037',
-    region: 'Новокодацький',
-    gsId: '36',
-    gsNumber: '36',
-    phone: '+380632967568',
-    gps: '!1m18!1m12!1m3!1d1859.8413829073224!2d34.946910630029684!3d48.434498770334585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe47baabad799%3A0xbb26b4ba1d8d2e98!2sAvias!5e0!3m2!1suk!2sua!4v1708691629768!5m2!1suk!2sua',
-    linkToGm: 'N5xz3vhaQE687eqe6',
-  },
+  //36 - ТОВ "ПРIМАРIУС" - Closed
+  // {
+  //   gsFirm: firms.prima,
+  //   address: 'Криворізьке шосе, 16-Г',
+  //   zip: '49037',
+  //   region: 'Новокодацький',
+  //   gsId: '36',
+  //   gsNumber: '36',
+  //   phone: '+380632967568',
+  //   gps: '!1m18!1m12!1m3!1d1859.8413829073224!2d34.946910630029684!3d48.434498770334585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dbe47baabad799%3A0xbb26b4ba1d8d2e98!2sAvias!5e0!3m2!1suk!2sua!4v1708691629768!5m2!1suk!2sua',
+  //   linkToGm: 'N5xz3vhaQE687eqe6',
+  // },
 
   //37 - ТОВ "ПРIМАРIУС"
   // ! Add ZIP

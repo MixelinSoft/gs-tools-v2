@@ -83,7 +83,7 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-      <Snowfall />
+      {/* <Snowfall /> */}
     </>
   );
 }
